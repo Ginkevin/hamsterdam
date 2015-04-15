@@ -1,6 +1,6 @@
 package dk.sdu.group3.semprojekt.core;
 
-import dk.sdu.group3.semprojekt.common.IGamePlugin;
+import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import java.util.ArrayList;
 import java.util.List;
 import org.openide.util.Lookup;

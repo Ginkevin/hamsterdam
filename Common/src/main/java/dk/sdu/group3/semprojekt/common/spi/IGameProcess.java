@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.group3.semprojekt.common;
+package dk.sdu.group3.semprojekt.common.spi;
+
+import java.util.List;
 
 /**
  *
  * @author henrikfrank
  */
-public interface IGamePlugin {
+public interface IGameProcess {
     
-    void start(Object world);
-    void stop(Object world);
+    void process(int delta, List entities);
     
 }
