@@ -11,7 +11,7 @@ public class Installer extends ModuleInstall {
 
     @Override
     public void restored() {
-        
+        Player p = new Player();
+        // HOW TO ADD TO THE WORLD?
     }
-
 }

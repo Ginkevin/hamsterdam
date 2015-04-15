@@ -5,8 +5,10 @@
  */
 package dk.sdu.group3.semprojekt.common.interfaces;
 
+import dk.sdu.group3.semprojekt.common.data.Event;
 import dk.sdu.group3.semprojekt.common.data.ShapeEnum;
 import dk.sdu.group3.semprojekt.common.data.Vector;
+import java.util.List;
 
 /**
  *
@@ -21,4 +23,9 @@ public interface IEntity {
     void setSprite(String path);
     ShapeEnum getShape();
     void setShape(ShapeEnum shape);
+    float getAngle();
+    void setAngle(float angle);
+    List<Event> getEvents();
+    void addEvent(Event e);
+    void removeEvent(Event e);
 }
