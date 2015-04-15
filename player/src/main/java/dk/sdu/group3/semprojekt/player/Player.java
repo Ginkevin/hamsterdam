@@ -12,7 +12,6 @@ import dk.sdu.group3.semprojekt.common.data.Entity;
  * @author mads_000
  */
 public class Player extends Entity{
-    private int HP;
     
     public Player(){
         
