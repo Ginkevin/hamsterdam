@@ -9,9 +9,7 @@ package dk.sdu.group3.semprojekt.common.spi;
  *
  * @author henrikfrank
  */
-public interface IGamePlugin {
-    
+public interface IGamePlugin {    
     void start(Object world);
-    void stop(Object world);
-    
+    void stop(Object world);    
 }
