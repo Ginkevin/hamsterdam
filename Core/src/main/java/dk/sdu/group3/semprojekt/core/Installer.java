@@ -10,7 +10,6 @@ import playn.core.PlayN;
 import playn.java.JavaPlatform;
 
 public class Installer extends ModuleInstall {
-
     //ScheduledExecutorService e = Executors.newScheduledThreadPool(1);
 
     @Override
@@ -27,7 +26,5 @@ public class Installer extends ModuleInstall {
 //                    PlayN.run(new Hamsterdam());
 //            }, 1000, TimeUnit.MILLISECONDS);
 //            PlayN.run(new Hamsterdam());
-
-
     }
 }
