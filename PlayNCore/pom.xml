@@ -6,7 +6,7 @@
         <artifactId>hamsterdam-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>Common</artifactId>
+    <artifactId>PlayLibrary</artifactId>
     <packaging>nbm</packaging>
     <build>
         <plugins>
@@ -14,9 +14,10 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>nbm-maven-plugin</artifactId>
                 <extensions>true</extensions>
-                <configuration>
+                <configuration> 
                     <publicPackages>
-                        <publicPackage>dk.sdu.group3.semprojekt.common.*</publicPackage>
+                        <publicPackage>playn.core.*</publicPackage>                            
+                        <publicPackage>playn.java.*</publicPackage>                            
                     </publicPackages>
                 </configuration>
             </plugin>
@@ -36,12 +37,17 @@
             <version>${netbeans.version}</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>PlayLibrary</artifactId>
-            <version>${project.version}</version>
+            <groupId>com.googlecode.playn</groupId>
+            <artifactId>playn-core</artifactId>
+            <version>1.9</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.playn</groupId>
+            <artifactId>playn-java</artifactId>
+            <version>1.9</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <name>PlayNLibrary</name>
 </project>

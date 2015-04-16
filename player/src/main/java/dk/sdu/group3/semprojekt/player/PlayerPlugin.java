@@ -5,6 +5,7 @@
  */
 package dk.sdu.group3.semprojekt.player;
 
+import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import org.openide.util.lookup.ServiceProvider;
 
@@ -15,16 +16,14 @@ import org.openide.util.lookup.ServiceProvider;
  */
 
 @ServiceProvider (service = IGamePlugin.class)
-
 public class PlayerPlugin implements IGamePlugin{
     @Override
-    public void start(Object world) {
+    public void start(World world) {
         world.add(new Player());
     }
 
     @Override
-    public void stop(Object world) {
+    public void stop(World world) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    }    
 }
