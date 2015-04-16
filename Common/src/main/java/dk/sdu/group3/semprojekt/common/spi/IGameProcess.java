@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.group3.semprojekt.common;
+package dk.sdu.group3.semprojekt.common.spi;
 
+import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import java.util.List;
 
 /**
@@ -12,7 +13,6 @@ import java.util.List;
  * @author henrikfrank
  */
 public interface IGameProcess {
-    
-    void process(int delta, List entities);
+    void process(int delta, List<IEntity> entities);
     
 }

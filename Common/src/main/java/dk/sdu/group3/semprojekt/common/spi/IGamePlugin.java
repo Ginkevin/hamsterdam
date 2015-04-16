@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.group3.semprojekt.common;
+package dk.sdu.group3.semprojekt.common.spi;
 
 /**
  *
  * @author henrikfrank
  */
-public interface IGamePlugin {
-    
+public interface IGamePlugin {    
     void start(Object world);
-    void stop(Object world);
-    
+    void stop(Object world);    
 }
