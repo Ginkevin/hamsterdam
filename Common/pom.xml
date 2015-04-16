@@ -16,8 +16,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <publicPackages>
-                        <publicPackage>dk.sdu.group3.semprojekt.common.data</publicPackage>
-                        <publicPackage>dk.sdu.group3.semprojekt.common</publicPackage>
+                        <publicPackage>dk.sdu.group3.semprojekt.common.*</publicPackage>
                     </publicPackages>
                 </configuration>
             </plugin>
@@ -35,6 +34,11 @@
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-api-annotations-common</artifactId>
             <version>${netbeans.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.playn</groupId>
+            <artifactId>playn-core</artifactId>
+            <version>1.9</version>
         </dependency>
     </dependencies>
     <properties>
