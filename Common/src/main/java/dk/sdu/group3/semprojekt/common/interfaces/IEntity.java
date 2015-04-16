@@ -9,23 +9,28 @@ import dk.sdu.group3.semprojekt.common.data.Event;
 import dk.sdu.group3.semprojekt.common.data.ShapeEnum;
 import dk.sdu.group3.semprojekt.common.data.Vector;
 import java.util.List;
+import playn.core.ImageLayer;
 
 /**
  *
  * @author mads_000
  */
 public interface IEntity {
-    Vector getPosition();
-    void setPosition(float x, float y);
-    Vector getVelocity();
-    void setVelocity(float x, float y);
-    String getSprite();
-    void setSprite(String path);
-    ShapeEnum getShape();
-    void setShape(ShapeEnum shape);
-    float getAngle();
-    void setAngle(float angle);
-    List<Event> getEvents();
-    void addEvent(Event e);
-    void removeEvent(Event e);
+    public Vector getPosition();
+    public void setPosition(float x, float y);
+    public Vector getVelocity();
+    public void setVelocity(float x, float y);
+    public String getSprite();
+    public void setSprite(String path);
+    public ShapeEnum getShape();
+    public void setShape(ShapeEnum shape);
+    public float getAngle();
+    public void setAngle(float angle);
+    public List<Event> getEvents();
+    public void addEvent(Event e);
+    public void removeEvent(Event e);
+    public ImageLayer getView();
+    public void setView(ImageLayer view);
+    public float getScale();
+    public void setScale(float scale);
 }
