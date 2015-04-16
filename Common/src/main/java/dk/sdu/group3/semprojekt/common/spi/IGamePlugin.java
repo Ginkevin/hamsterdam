@@ -5,11 +5,13 @@
  */
 package dk.sdu.group3.semprojekt.common.spi;
 
+import dk.sdu.group3.semprojekt.common.data.World;
+
 /**
  *
  * @author henrikfrank
  */
 public interface IGamePlugin {    
-    void start(Object world);
-    void stop(Object world);    
+    void start(World world);
+    void stop(World world);    
 }

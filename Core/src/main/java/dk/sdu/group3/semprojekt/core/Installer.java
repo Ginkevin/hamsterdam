@@ -24,7 +24,6 @@ public class Installer extends ModuleInstall {
 		e.schedule(()->{
 			PlayN.run(new Hamsterdam());
 		}, 1000, TimeUnit.MILLISECONDS);
-		PlayN.run(new Hamsterdam());
 	}
 
 }
