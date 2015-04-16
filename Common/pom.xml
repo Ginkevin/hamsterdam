@@ -6,7 +6,7 @@
         <artifactId>hamsterdam-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>Core</artifactId>
+    <artifactId>Common</artifactId>
     <packaging>nbm</packaging>
     <build>
         <plugins>
@@ -14,6 +14,12 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>nbm-maven-plugin</artifactId>
                 <extensions>true</extensions>
+                <configuration>
+                    <publicPackages>
+                        <publicPackage>dk.sdu.group3.semprojekt.common.data</publicPackage>
+                        <publicPackage>dk.sdu.group3.semprojekt.common</publicPackage>
+                    </publicPackages>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -29,36 +35,6 @@
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-api-annotations-common</artifactId>
             <version>${netbeans.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.playn</groupId>
-            <artifactId>playn-core</artifactId>
-            <version>1.9</version>
-        </dependency>
-        <dependency>
-            <groupId>org.netbeans.api</groupId>
-            <artifactId>org-openide-util-lookup</artifactId>
-            <version>RELEASE80</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>Common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.netbeans.api</groupId>
-            <artifactId>org-openide-modules</artifactId>
-            <version>${netbeans.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.netbeans.api</groupId>
-            <artifactId>org-openide-util</artifactId>
-            <version>${netbeans.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.playn</groupId>
-            <artifactId>playn-java</artifactId>
-            <version>1.9</version>
         </dependency>
     </dependencies>
     <properties>

@@ -6,7 +6,7 @@
         <artifactId>hamsterdam-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>Core</artifactId>
+    <artifactId>player</artifactId>
     <packaging>nbm</packaging>
     <build>
         <plugins>
@@ -31,21 +31,6 @@
             <version>${netbeans.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.googlecode.playn</groupId>
-            <artifactId>playn-core</artifactId>
-            <version>1.9</version>
-        </dependency>
-        <dependency>
-            <groupId>org.netbeans.api</groupId>
-            <artifactId>org-openide-util-lookup</artifactId>
-            <version>RELEASE80</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>Common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-modules</artifactId>
             <version>${netbeans.version}</version>
@@ -56,9 +41,9 @@
             <version>${netbeans.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.googlecode.playn</groupId>
-            <artifactId>playn-java</artifactId>
-            <version>1.9</version>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Common</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
     <properties>
