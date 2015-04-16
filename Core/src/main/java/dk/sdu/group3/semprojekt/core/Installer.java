@@ -19,6 +19,8 @@ public class Installer extends ModuleInstall {
 	@Override
 	public void restored() {
 		JavaPlatform.Config config = new JavaPlatform.Config();
+		config.height = 600;
+		config.width = 800;
 		JavaPlatform.register(config);
 
 		e.schedule(()->{

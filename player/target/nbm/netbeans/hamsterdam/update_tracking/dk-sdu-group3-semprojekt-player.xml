@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="dk.sdu.group3.semprojekt.player">
+    <module_version install_time="1429199818952" last="true" origin="installer" specification_version="0.0.1">
+        <file crc="1678385293" name="config/Modules/dk-sdu-group3-semprojekt-player.xml"/>
+        <file crc="2785424966" name="modules/dk-sdu-group3-semprojekt-player.jar"/>
+    </module_version>
+</module>
