@@ -12,6 +12,7 @@ import static dk.sdu.group3.semprojekt.common.data.EventEnum.D;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.S;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.SHOOT;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.SPACE;
+import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
 import java.util.List;
@@ -27,29 +28,28 @@ public class PlayerService implements IGameProcess{
     private final float thrust = 0.1f;
 
     @Override
-    public void process(int delta, List<IEntity> entities) {
-        for(IEntity entity : entities){
+    public void process(int delta, World world) {
+        for(IEntity entity : world.getEntities()){
             if(entity instanceof Player){
-                for(Event e : entity.getEvents()) {
-                    if(e.event == S){
+                for(Event e : world.getMoveEvents()) {
+                    if(e.getEvent() == S){
                         //DUCK
                     }
-                    if(e.event == D){
+                    if(e.getEvent() == D){
                         float x= (float)Math.cos(90)*thrust;
                         float y = (float)Math.sin(90)*thrust;;
                         entity.setVelocity(x, y);
                     }
-                    if(e.event == A){
+                    if(e.getEvent() == A){
                         float x= (float)Math.cos(180)*thrust;
                         float y = (float)Math.sin(180)*thrust;;
                         entity.setVelocity(x, y);
                     }                   
-                    if(e.event == SPACE){
+                    if(e.getEvent() == SPACE){
                         //JUMP
                     }                    
-                    if(e.event == CTRL){
-                        Event event = new Event();
-                        event.event = SHOOT;
+                    if(e.getEvent() == CTRL){
+                        Event event = new Event(SHOOT);
                         entity.addEvent(event);
                     }
                 }

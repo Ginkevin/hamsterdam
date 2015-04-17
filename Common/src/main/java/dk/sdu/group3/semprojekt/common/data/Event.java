@@ -10,5 +10,17 @@ package dk.sdu.group3.semprojekt.common.data;
  * @author mads_000
  */
 public class Event {
-    public EventEnum event;
+    private EventEnum event;
+    
+    public Event(EventEnum e){
+        event = e;
+    }
+
+    public EventEnum getEvent() {
+        return event;
+    }
+
+    public void setEvent(EventEnum event) {
+        this.event = event;
+    }
 }

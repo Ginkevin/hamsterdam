@@ -73,6 +73,7 @@
         <module>Common</module>
         <module>player</module>
         <module>PlayNCore</module>
+        <module>Input</module>
     </modules>
 
     <properties>

@@ -19,7 +19,7 @@ import org.openide.util.lookup.ServiceProvider;
 public class PlayerPlugin implements IGamePlugin{
     @Override
     public void start(World world) {
-        world.add(new Player());
+        world.addEntity(new Player());
     }
 
     @Override

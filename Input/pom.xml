@@ -6,7 +6,7 @@
         <artifactId>hamsterdam-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>player</artifactId>
+    <artifactId>Input</artifactId>
     <packaging>nbm</packaging>
     <build>
         <plugins>
@@ -31,23 +31,23 @@
             <version>${netbeans.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.netbeans.api</groupId>
-            <artifactId>org-openide-modules</artifactId>
-            <version>${netbeans.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.netbeans.api</groupId>
-            <artifactId>org-openide-util</artifactId>
-            <version>${netbeans.version}</version>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>PlayLibrary</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>Common</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-util-lookup</artifactId>
+            <version>RELEASE80</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <name>Player</name>
 </project>
