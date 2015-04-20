@@ -5,7 +5,7 @@
  */
 package dk.sdu.group3.semprojekt.bullet;
 
-import dk.sdu.group3.semprojekt.common.data.Bullet;
+import dk.sdu.group3.semprojekt.common.data.BulletFactory;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 
@@ -17,12 +17,13 @@ public class BulletPlugin implements IGamePlugin{
 
     @Override
     public void start(World world) {
-
+        BulletFactory bullet = new BulletFactory("Assets/sprites/bullet.png", 5);
+        world.setBulletFactory(bullet);
     }
 
     @Override
     public void stop(World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        world.setBulletFactory(null);
     }
     
 }
