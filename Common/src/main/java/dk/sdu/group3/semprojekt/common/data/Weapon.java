@@ -1,17 +1,17 @@
 package dk.sdu.group3.semprojekt.common.data;
 
 public class Weapon extends Entity {
-    private Bullet bullet;
+    private BulletFactory bulletFactory;
     private int ammo;
     private int range;
     private int cooldown;
     
-    public Bullet getBullet(){
-        return bullet;
+    public BulletFactory getBulletFactory(){
+        return bulletFactory;
     }
     
-    public void setBullet(Bullet b){
-        bullet = b;
+    public void setBulletFactory(BulletFactory b){
+        bulletFactory = b;
     }
     
     public int getAmmo(){

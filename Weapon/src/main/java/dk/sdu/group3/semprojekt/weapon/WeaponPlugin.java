@@ -1,6 +1,7 @@
 package dk.sdu.group3.semprojekt.weapon;
 
 import dk.sdu.group3.semprojekt.common.data.Bullet;
+import dk.sdu.group3.semprojekt.common.data.BulletFactory;
 import dk.sdu.group3.semprojekt.common.data.Weapon;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
@@ -10,24 +11,25 @@ import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
  */
 public class WeaponPlugin implements IGamePlugin {
 
-	Bullet b;
+	BulletFactory b;
+	Weapon w;
 	
 	@Override
 	public void start(World world) {
-		Weapon w = new Weapon();
+		w = new Weapon();
 		w.setAmmo(90);
 		w.setCooldown(10);
 		w.setRange(100);
-		w.setBullet(new Bullet());
 
 		world.getEntities().stream().forEach((e)->{
-			if (e instanceof Bullet) b = (Bullet) e;	
+			if (e instanceof BulletFactory) b = (BulletFactory) e;	
 		});
-		
+
+		w.setBulletFactory(b);
 	}
 
 	@Override
 	public void stop(World world) {
+		world.getEntities().remove(w);
 	}
-
 }
