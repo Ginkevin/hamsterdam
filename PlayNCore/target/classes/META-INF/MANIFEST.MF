@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Localizing-Bundle: dk/sdu/mmmi/cbse/playncore/Bundle.pr
+ operties
+OpenIDE-Module-Specification-Version: 0.0.1
+OpenIDE-Module-Implementation-Version: 0.0.1-20150420
+OpenIDE-Module-Build-Version: 201504201845
+OpenIDE-Module: dk.sdu.group3.semprojekt.PlayLibrary
+OpenIDE-Module-Public-Packages: playn.core.**, playn.java.**
+OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
+OpenIDE-Module-Display-Category: dk.sdu.group3.semprojekt
+OpenIDE-Module-Name: PlayNLibrary
+OpenIDE-Module-Short-Description: <undefined>
+OpenIDE-Module-Long-Description: <undefined>
+X-Class-Path: ext/dk.sdu.group3.semprojekt.PlayLibrary/com-googlecode-
+ playn/playn-core.jar ext/dk.sdu.group3.semprojekt.PlayLibrary/com-sam
+ skivert/pythagoras.jar ext/dk.sdu.group3.semprojekt.PlayLibrary/com-g
+ ooglecode-playn/playn-java.jar ext/dk.sdu.group3.semprojekt.PlayLibra
+ ry/org-lwjgl-lwjgl/lwjgl.jar ext/dk.sdu.group3.semprojekt.PlayLibrary
+ /net-java-jinput/jinput.jar ext/dk.sdu.group3.semprojekt.PlayLibrary/
+ net-java-jutils/jutils.jar ext/dk.sdu.group3.semprojekt.PlayLibrary/o
+ rg-lwjgl-lwjgl/lwjgl_util.jar ext/dk.sdu.group3.semprojekt.PlayLibrar
+ y/org-lwjgl-lwjgl/lwjgl-platform-natives-linux.jar ext/dk.sdu.group3.
+ semprojekt.PlayLibrary/org-lwjgl-lwjgl/lwjgl-platform-natives-windows
+ .jar ext/dk.sdu.group3.semprojekt.PlayLibrary/org-lwjgl-lwjgl/lwjgl-p
+ latform-natives-osx.jar ext/dk.sdu.group3.semprojekt.PlayLibrary/jlay
+ er/mp3spi.jar ext/dk.sdu.group3.semprojekt.PlayLibrary/jlayer/jlayer.
+ jar ext/dk.sdu.group3.semprojekt.PlayLibrary/jlayer/tritonus_share.ja
+ r ext/dk.sdu.group3.semprojekt.PlayLibrary/org-java-websocket/Java-We
+ bSocket.jar
+Maven-Class-Path: com.googlecode.playn:playn-core:1.9 com.samskivert:p
+ ythagoras:1.4.2 com.googlecode.playn:playn-java:1.9 org.lwjgl.lwjgl:l
+ wjgl:2.9.0 net.java.jinput:jinput:2.0.5 net.java.jutils:jutils:1.0.0 
+ org.lwjgl.lwjgl:lwjgl_util:2.9.0 org.lwjgl.lwjgl:lwjgl-platform:2.9.0
+ :natives-linux org.lwjgl.lwjgl:lwjgl-platform:2.9.0:natives-windows o
+ rg.lwjgl.lwjgl:lwjgl-platform:2.9.0:natives-osx jlayer:mp3spi:1.9.5 j
+ layer:jlayer:1.0.1 jlayer:tritonus_share:1.0 org.java-websocket:Java-
+ WebSocket:1.3.0
+OpenIDE-Module-Module-Dependencies: org.netbeans.api.annotations.commo
+ n/1 > 1.23.1
+
