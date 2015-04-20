@@ -72,6 +72,7 @@
         <module>Core</module>
         <module>Common</module>
         <module>player</module>
+        <module>Weapon</module>
     </modules>
 
     <properties>
