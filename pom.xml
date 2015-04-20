@@ -72,7 +72,15 @@
         <module>Core</module>
         <module>Common</module>
         <module>player</module>
+<<<<<<< Updated upstream
         <module>Weapon</module>
+=======
+<<<<<<< HEAD
+        <module>Bullet</module>
+=======
+        <module>Weapon</module>
+>>>>>>> origin/henrikemil
+>>>>>>> Stashed changes
     </modules>
 
     <properties>
