@@ -1,10 +1,17 @@
 package dk.sdu.group3.semprojekt.core;
 
+<<<<<<< Updated upstream
 import dk.sdu.group3.semprojekt.common.data.Vector;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
+=======
+import dk.sdu.group3.semprojekt.common.data.Entity;
+import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
+import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
+import dk.sdu.group3.semprojekt.common.World;
+>>>>>>> Stashed changes
 import java.util.ArrayList;
 import java.util.List;
 import org.openide.util.Lookup;
