@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><module codename="dk.sdu.group3.semprojekt.Bullet">
-    <module_version install_time="1429563233315" last="true" origin="installer" specification_version="0.0.1">
-        <file crc="2395936601" name="config/Modules/dk-sdu-group3-semprojekt-Bullet.xml"/>
-        <file crc="2877525036" name="modules/dk-sdu-group3-semprojekt-Bullet.jar"/>
-        <file crc="3649596032" name="update_tracking/dk-sdu-group3-semprojekt-Bullet.xml"/>
-    </module_version>
-</module>
