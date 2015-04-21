@@ -42,19 +42,19 @@ public class InputPlugin implements IGamePlugin{
         public void onKeyDown(Keyboard.Event event) {            
             switch (event.key()) {
                 case S:
-                    world.addMoveEvent(new Event(S));
+                    world.addEvent(new Event(S));
                     break;
 
                 case A:
-                    world.addMoveEvent(new Event(A));
+                    world.addEvent(new Event(A));
                     break;
 
                 case D:
-                    world.addMoveEvent(new Event(D));
+                    world.addEvent(new Event(D));
                     break;
 
                 case SPACE:
-                    world.addMoveEvent(new Event(SPACE));
+                    world.addEvent(new Event(SPACE));
                     break;
 
                 default:
@@ -68,7 +68,7 @@ public class InputPlugin implements IGamePlugin{
 
         @Override
         public void onKeyUp(Keyboard.Event event) {
-            world.clearMoveEvents();
+            world.clearEvents();
         }
     };
 }

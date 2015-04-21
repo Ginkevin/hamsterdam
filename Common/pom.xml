@@ -36,15 +36,9 @@
             <version>${netbeans.version}</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>PlayLibrary</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.googlecode.playn</groupId>
             <artifactId>playn-core</artifactId>
             <version>1.9</version>
-            <type>jar</type>
         </dependency>
     </dependencies>
     <properties>

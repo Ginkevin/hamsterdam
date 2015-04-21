@@ -31,26 +31,32 @@ public class PlayerService implements IGameProcess{
     public void process(int delta, World world) {
         for(IEntity entity : world.getEntities()){
             if(entity instanceof Player){
-                for(Event e : world.getMoveEvents()) {
+                for(Event e : world.getEvents()) {
                     if(e.getEvent() == S){
                         //DUCK
+                        world.removeEvent(e);
                     }
                     if(e.getEvent() == D){
                         float x= (float)Math.cos(90)*thrust;
                         float y = (float)Math.sin(90)*thrust;;
                         entity.setVelocity(x, y);
+                        world.removeEvent(e);
+
                     }
                     if(e.getEvent() == A){
                         float x= (float)Math.cos(180)*thrust;
                         float y = (float)Math.sin(180)*thrust;;
                         entity.setVelocity(x, y);
+                        world.removeEvent(e);
                     }                   
                     if(e.getEvent() == SPACE){
                         //JUMP
+                        world.removeEvent(e);                        
                     }                    
                     if(e.getEvent() == CTRL){
                         Event event = new Event(SHOOT);
-                        entity.addEvent(event);
+                        world.addEvent(event);
+                        world.removeEvent(e);
                     }
                 }
             }
