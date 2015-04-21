@@ -5,6 +5,7 @@
  */
 package dk.sdu.group3.semprojekt.player;
 
+import dk.sdu.group3.semprojekt.common.data.Entity;
 import dk.sdu.group3.semprojekt.common.data.Event;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.A;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.CTRL;
@@ -12,6 +13,7 @@ import static dk.sdu.group3.semprojekt.common.data.EventEnum.D;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.S;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.SHOOT;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.SPACE;
+import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
 import java.util.List;
@@ -27,8 +29,9 @@ public class PlayerService implements IGameProcess{
     private final float thrust = 0.1f;
 
     @Override
-    public void process(int delta, List<IEntity> entities) {
-        for(IEntity entity : entities){
+    public void process(int delta, World world) {
+       	List<IEntity> entities = world.getEntities();
+	    for(IEntity entity : entities){
             if(entity instanceof Player){
                 for(Event e : entity.getEvents()) {
                     if(e.event == S){

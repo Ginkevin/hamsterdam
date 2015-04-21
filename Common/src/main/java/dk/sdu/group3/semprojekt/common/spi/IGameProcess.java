@@ -5,6 +5,7 @@
  */
 package dk.sdu.group3.semprojekt.common.spi;
 
+import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import java.util.List;
 
@@ -13,6 +14,6 @@ import java.util.List;
  * @author henrikfrank
  */
 public interface IGameProcess {
-    void process(int delta, List<IEntity> entities);
+    void process(int delta, World world);
     
 }
