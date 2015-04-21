@@ -86,9 +86,6 @@ public class Hamsterdam extends Game.Default{
 
 		ImageLayer viewLayer = graphics().createImageLayer(image);
 		viewLayer.setOrigin(image.width() / 2f, image.height() / 2f);
-		
-		entity.setView(viewLayer);
-		rootLayer.add(viewLayer);
 
 		return viewLayer;
 	}

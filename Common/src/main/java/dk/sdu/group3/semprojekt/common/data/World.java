@@ -10,10 +10,15 @@ import java.util.List;
 public class World {
     private List<IEntity> entities;
     private List<Event> Events = new ArrayList();
+	private BulletFactory bf;
+	
+	public World(){
+		entities = new ArrayList<IEntity>();
+	}
 
-    public World(){
-            entities = new ArrayList();
-    }
+	public void add(IEntity e){
+		entities.add(e);
+	}
 
     public List<Event> getEvents() {
         return Events;
@@ -38,4 +43,12 @@ public class World {
     public List<IEntity> getEntities(){
             return entities;
     }
+
+	public void setBulletFactory(BulletFactory bf){
+		this.bf = bf;
+	}
+
+	public BulletFactory getBulletFactory(){
+		return bf;
+	}
 }

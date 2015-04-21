@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="dk.sdu.group3.semprojekt.Input">
+    <module_version install_time="1429653402690" last="true" origin="installer" specification_version="0.0.1">
+        <file crc="62217861" name="config/Modules/dk-sdu-group3-semprojekt-Input.xml"/>
+        <file crc="2634804753" name="modules/dk-sdu-group3-semprojekt-Input.jar"/>
+        <file crc="488675016" name="modules/ext/dk.sdu.group3.semprojekt.Input/com-googlecode-playn/playn-core.jar"/>
+        <file crc="1751738156" name="modules/ext/dk.sdu.group3.semprojekt.Input/com-samskivert/pythagoras.jar"/>
+    </module_version>
+</module>

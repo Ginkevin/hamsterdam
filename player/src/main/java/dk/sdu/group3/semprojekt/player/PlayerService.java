@@ -5,6 +5,7 @@
  */
 package dk.sdu.group3.semprojekt.player;
 
+import dk.sdu.group3.semprojekt.common.data.Entity;
 import dk.sdu.group3.semprojekt.common.data.Event;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.A;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.CTRL;
@@ -29,7 +30,8 @@ public class PlayerService implements IGameProcess{
 
     @Override
     public void process(int delta, World world) {
-        for(IEntity entity : world.getEntities()){
+       	List<IEntity> entities = world.getEntities();
+	    for(IEntity entity : entities){
             if(entity instanceof Player){
                 for(Event e : world.getEvents()) {
                     if(e.getEvent() == S){
