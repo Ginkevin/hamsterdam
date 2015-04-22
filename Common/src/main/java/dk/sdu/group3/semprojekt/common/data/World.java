@@ -9,46 +9,59 @@ import java.util.List;
  */
 public class World {
     private List<IEntity> entities;
-    private List<Event> Events = new ArrayList();
-	private BulletFactory bf;
+    private List<Event> moveEvents = new ArrayList();
+    private List<Event> events = new ArrayList();
+    private BulletFactory bf;
 	
-	public World(){
-		entities = new ArrayList<IEntity>();
-	}
+    public World(){
+        entities = new ArrayList<IEntity>();
+    }
+    
+    public List<Event> getMoveEvents() {
+        return moveEvents;
+    }
 
-	public void add(IEntity e){
-		entities.add(e);
-	}
+    public void addMoveEvents(Event e) {
+        moveEvents.add(e);
+    }
+    
+    public void removeMoveEvent(Event e){
+        moveEvents.remove(e);
+    }
+
+    public void add(IEntity e){
+        entities.add(e);
+    }
 
     public List<Event> getEvents() {
-        return Events;
+        return moveEvents;
     }
 
     public void addEvent(Event e) {
-        Events.add(e);
+        moveEvents.add(e);
     }
     
     public void removeEvent(Event e){
-        Events.remove(e);
+        moveEvents.remove(e);
     }
     
     public void clearEvents(){
-        Events.clear();
+        moveEvents.clear();
     }
 
     public void addEntity(IEntity e){
-            entities.add(e);
+        entities.add(e);
     }
 
     public List<IEntity> getEntities(){
             return entities;
     }
 
-	public void setBulletFactory(BulletFactory bf){
-		this.bf = bf;
-	}
+    public void setBulletFactory(BulletFactory bf){
+        this.bf = bf;
+    }
 
-	public BulletFactory getBulletFactory(){
-		return bf;
-	}
+    public BulletFactory getBulletFactory(){
+        return bf;
+    }
 }
