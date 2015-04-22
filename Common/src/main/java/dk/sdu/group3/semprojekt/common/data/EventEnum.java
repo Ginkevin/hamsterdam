@@ -10,5 +10,5 @@ package dk.sdu.group3.semprojekt.common.data;
  * @author mads_000
  */
 public enum EventEnum {
-    A, S, D, SPACE, CTRL, SHOOT;
+    A, S, D, SPACE, CTRL, SHOOT, CREATEBULLET;
 }

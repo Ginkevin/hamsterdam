@@ -6,9 +6,7 @@
 package dk.sdu.group3.semprojekt.bullet;
 
 import dk.sdu.group3.semprojekt.common.data.World;
-import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
-import java.util.List;
 
 /**
  *
@@ -18,6 +16,7 @@ public class BulletProcess implements IGameProcess{
 
     @Override
     public void process(int delta, World world) {
+		    
     }
     
 }
