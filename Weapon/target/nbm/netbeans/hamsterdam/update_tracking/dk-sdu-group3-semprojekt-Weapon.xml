@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="dk.sdu.group3.semprojekt.Weapon">
-    <module_version install_time="1429653404254" last="true" origin="installer" specification_version="0.0.1">
+    <module_version install_time="1429690887759" last="true" origin="installer" specification_version="0.0.1">
         <file crc="1045512763" name="config/Modules/dk-sdu-group3-semprojekt-Weapon.xml"/>
-        <file crc="650590701" name="modules/dk-sdu-group3-semprojekt-Weapon.jar"/>
+        <file crc="13421761" name="modules/dk-sdu-group3-semprojekt-Weapon.jar"/>
+        <file crc="2967836344" name="update_tracking/dk-sdu-group3-semprojekt-Weapon.xml"/>
     </module_version>
 </module>

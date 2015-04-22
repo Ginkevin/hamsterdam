@@ -76,6 +76,8 @@
         <module>Weapon</module>
         <module>Bullet</module>
         <module>Common</module>
+        <module>Enemy</module>
+        <module>AI</module>
     </modules>
 
     <properties>
