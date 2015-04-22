@@ -1,0 +1,22 @@
+<<<<<<< HEAD:Input/src/main/resources/dk/sdu/group3/semprojekt/input/Bundle.properties
+#Localized module labels. Defaults taken from POM (<name>, <description>, <groupId>) if unset.
+#OpenIDE-Module-Name=
+#OpenIDE-Module-Short-Description=
+#OpenIDE-Module-Long-Description=
+#OpenIDE-Module-Display-Category=
+#Fri Apr 17 14:00:20 CEST 2015
+||||||| merged common ancestors
+#Localized module labels. Defaults taken from POM (<name>, <description>, <groupId>) if unset.
+#OpenIDE-Module-Name=
+#OpenIDE-Module-Short-Description=
+#OpenIDE-Module-Long-Description=
+#OpenIDE-Module-Display-Category=
+#Wed Apr 15 18:30:00 CEST 2015
+=======
+#Localized module labels. Defaults taken from POM (<name>, <description>, <groupId>) if unset.
+#OpenIDE-Module-Name=
+#OpenIDE-Module-Short-Description=
+#OpenIDE-Module-Long-Description=
+#OpenIDE-Module-Display-Category=
+#Wed Apr 15 18:30:00 CEST 2015
+>>>>>>> henrikemil:player/target/classes/dk/sdu/group3/semprojekt/player/Bundle.properties

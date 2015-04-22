@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Localizing-Bundle: dk/sdu/group3/semprojekt/bullet/Bund
+ le.properties
+OpenIDE-Module-Specification-Version: 0.0.1
+OpenIDE-Module-Implementation-Version: 0.0.1-20150421
+OpenIDE-Module-Build-Version: 201504212156
+OpenIDE-Module: dk.sdu.group3.semprojekt.Bullet
+OpenIDE-Module-Public-Packages: -
+OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
+OpenIDE-Module-Display-Category: dk.sdu.group3.semprojekt
+OpenIDE-Module-Name: Bullet
+OpenIDE-Module-Short-Description: <undefined>
+OpenIDE-Module-Long-Description: <undefined>
+OpenIDE-Module-Module-Dependencies: org.netbeans.api.annotations.commo
+ n/1 > 1.23.1, dk.sdu.group3.semprojekt.Common > 0.0.1
+

@@ -1,0 +1,15 @@
+<<<<<<< HEAD:player/target/classes/dk/sdu/group3/semprojekt/player/Bundle.properties
+#Localized module labels. Defaults taken from POM (<name>, <description>, <groupId>) if unset.
+#OpenIDE-Module-Name=
+#OpenIDE-Module-Short-Description=
+#OpenIDE-Module-Long-Description=
+#OpenIDE-Module-Display-Category=
+#Wed Apr 15 18:30:00 CEST 2015
+=======
+#Localized module labels. Defaults taken from POM (<name>, <description>, <groupId>) if unset.
+#OpenIDE-Module-Name=
+#OpenIDE-Module-Short-Description=
+#OpenIDE-Module-Long-Description=
+#OpenIDE-Module-Display-Category=
+#Wed Mar 18 11:08:51 CET 2015
+>>>>>>> master:PlayNCore/src/main/resources/dk/sdu/mmmi/cbse/playncore/Bundle.properties

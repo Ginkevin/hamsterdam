@@ -1,0 +1,76 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dk.sdu.group3.semprojekt.player;
+
+import dk.sdu.group3.semprojekt.common.data.Entity;
+import dk.sdu.group3.semprojekt.common.data.Event;
+import static dk.sdu.group3.semprojekt.common.data.EventEnum.A;
+import static dk.sdu.group3.semprojekt.common.data.EventEnum.CTRL;
+import static dk.sdu.group3.semprojekt.common.data.EventEnum.D;
+import static dk.sdu.group3.semprojekt.common.data.EventEnum.S;
+import static dk.sdu.group3.semprojekt.common.data.EventEnum.SHOOT;
+import static dk.sdu.group3.semprojekt.common.data.EventEnum.SPACE;
+import dk.sdu.group3.semprojekt.common.data.World;
+import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
+import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
+import java.util.List;
+import org.openide.util.lookup.ServiceProvider;
+
+/**
+ *
+ * @author mads_000
+ */
+
+@ServiceProvider (service = IGameProcess.class)
+public class PlayerService implements IGameProcess{
+    private final float thrust = 0.1f;
+
+    @Override
+<<<<<<< HEAD
+    public void process(int delta, World world) {
+        for(IEntity entity : world.getEntities()){
+||||||| merged common ancestors
+    public void process(int delta, List<IEntity> entities) {
+        for(IEntity entity : entities){
+=======
+    public void process(int delta, World world) {
+       	List<IEntity> entities = world.getEntities();
+	    for(IEntity entity : entities){
+>>>>>>> henrikemil
+            if(entity instanceof Player){
+                for(Event e : world.getEvents()) {
+                    if(e.getEvent() == S){
+                        //DUCK
+                        world.removeEvent(e);
+                    }
+                    if(e.getEvent() == D){
+                        float x= (float)Math.cos(90)*thrust;
+                        float y = (float)Math.sin(90)*thrust;;
+                        entity.setVelocity(x, y);
+                        world.removeEvent(e);
+
+                    }
+                    if(e.getEvent() == A){
+                        float x= (float)Math.cos(180)*thrust;
+                        float y = (float)Math.sin(180)*thrust;;
+                        entity.setVelocity(x, y);
+                        world.removeEvent(e);
+                    }                   
+                    if(e.getEvent() == SPACE){
+                        //JUMP
+                        world.removeEvent(e);                        
+                    }                    
+                    if(e.getEvent() == CTRL){
+                        Event event = new Event(SHOOT);
+                        world.addEvent(event);
+                        world.removeEvent(e);
+                    }
+                }
+            }
+        }
+    }
+
+}
