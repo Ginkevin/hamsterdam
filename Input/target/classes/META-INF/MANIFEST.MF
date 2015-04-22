@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 OpenIDE-Module-Localizing-Bundle: dk/sdu/group3/semprojekt/input/Bundl
  e.properties
 OpenIDE-Module-Specification-Version: 0.0.1
-OpenIDE-Module-Implementation-Version: 0.0.1-20150421
-OpenIDE-Module-Build-Version: 201504212156
+OpenIDE-Module-Implementation-Version: 0.0.1-20150422
+OpenIDE-Module-Build-Version: 201504220920
 OpenIDE-Module: dk.sdu.group3.semprojekt.Input
 OpenIDE-Module-Public-Packages: -
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
@@ -11,12 +11,7 @@ OpenIDE-Module-Display-Category: dk.sdu.group3.semprojekt
 OpenIDE-Module-Name: Input
 OpenIDE-Module-Short-Description: <undefined>
 OpenIDE-Module-Long-Description: <undefined>
-X-Class-Path: ext/dk.sdu.group3.semprojekt.Input/com-googlecode-playn/
- playn-core.jar ext/dk.sdu.group3.semprojekt.Input/com-samskivert/pyth
- agoras.jar
-Maven-Class-Path: com.googlecode.playn:playn-core:1.9 com.samskivert:p
- ythagoras:1.4.2
 OpenIDE-Module-Module-Dependencies: org.netbeans.api.annotations.commo
  n/1 > 1.23.1, dk.sdu.group3.semprojekt.Common > 0.0.1, org.openide.ut
- il.lookup > 8.24.1
+ il.lookup > 8.24.1, dk.sdu.group3.semprojekt.PlayLibrary > 0.0.1
 

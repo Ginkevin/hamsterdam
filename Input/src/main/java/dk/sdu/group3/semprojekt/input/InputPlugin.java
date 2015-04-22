@@ -13,6 +13,8 @@ import static dk.sdu.group3.semprojekt.common.data.EventEnum.S;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.SPACE;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
+import java.util.ArrayList;
+import java.util.List;
 import playn.core.Keyboard;
 import playn.core.PlayN;
 
@@ -37,7 +39,7 @@ public class InputPlugin implements IGamePlugin{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    private final Keyboard.Listener keyboardListener = new Keyboard.Listener() {
+    private final Keyboard.Listener keyboardListener = new Keyboard.Listener() {        
         @Override
         public void onKeyDown(Keyboard.Event event) {            
             switch (event.key()) {
@@ -68,7 +70,37 @@ public class InputPlugin implements IGamePlugin{
 
         @Override
         public void onKeyUp(Keyboard.Event event) {
-            world.clearEvents();
+            switch (event.key()) {
+                case S:
+                    for(Event e : world.getMoveEvents()){
+                        if(e.getEvent() == S)
+                            world.removeEvent(e);
+                    }                    
+                    break;
+
+                case A:
+                    for(Event e : world.getMoveEvents()){
+                        if(e.getEvent() == A)
+                            world.removeEvent(e);
+                    }  
+                    break;
+                case D:
+                    for(Event e : world.getMoveEvents()){
+                        if(e.getEvent() == D)
+                            world.removeEvent(e);
+                    }  
+                    break;
+
+                case SPACE:
+                    for(Event e : world.getMoveEvents()){
+                        if(e.getEvent() == SPACE)
+                            world.removeEvent(e);
+                    }  
+                    break;
+
+                default:
+                    break;
+            }                
         }
     };
 }

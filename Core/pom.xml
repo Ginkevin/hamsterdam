@@ -67,15 +67,9 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.googlecode.playn</groupId>
-            <artifactId>playn-core</artifactId>
-            <version>1.9</version>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.playn</groupId>
-            <artifactId>playn-java</artifactId>
-            <version>1.9</version>
-            <type>jar</type>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>PlayLibrary</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
     <properties>
