@@ -28,10 +28,6 @@ public class World {
         moveEvents.remove(e);
     }
 
-    public void add(IEntity e){
-        entities.add(e);
-    }
-
     public List<Event> getEvents() {
         return moveEvents;
     }

@@ -14,15 +14,18 @@ import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
  * @author henrikfrank
  */
 public class BulletPlugin implements IGamePlugin{
-
+	Bullet b;
     @Override
     public void start(World world) {
-        Bullet b = new Bullet();
-        world.addEntity(b);   
+       	b = new Bullet();
+        b.setDamage(1);
+	b.setSprite("");
+	world.addEntity(b);   
     }
 
     @Override
     public void stop(World world) {
+	    world.getEntities().remove(b);
     }
     
 }
