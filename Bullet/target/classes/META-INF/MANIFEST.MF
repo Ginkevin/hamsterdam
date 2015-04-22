@@ -3,7 +3,7 @@ OpenIDE-Module-Localizing-Bundle: dk/sdu/group3/semprojekt/bullet/Bund
  le.properties
 OpenIDE-Module-Specification-Version: 0.0.1
 OpenIDE-Module-Implementation-Version: 0.0.1-20150422
-OpenIDE-Module-Build-Version: 201504220902
+OpenIDE-Module-Build-Version: 201504220920
 OpenIDE-Module: dk.sdu.group3.semprojekt.Bullet
 OpenIDE-Module-Public-Packages: -
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
