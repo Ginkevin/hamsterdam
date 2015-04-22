@@ -11,7 +11,6 @@ public class World {
     private List<IEntity> entities;
     private List<Event> moveEvents = new ArrayList();
     private List<Event> events = new ArrayList();
-    private BulletFactory bf;
 	
     public World(){
         entities = new ArrayList<IEntity>();
@@ -55,13 +54,5 @@ public class World {
 
     public List<IEntity> getEntities(){
             return entities;
-    }
-
-    public void setBulletFactory(BulletFactory bf){
-        this.bf = bf;
-    }
-
-    public BulletFactory getBulletFactory(){
-        return bf;
     }
 }
