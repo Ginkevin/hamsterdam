@@ -1,6 +1,5 @@
 package dk.sdu.group3.semprojekt.weapon;
 
-import dk.sdu.group3.semprojekt.common.data.BulletFactory;
 import dk.sdu.group3.semprojekt.common.data.Weapon;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
