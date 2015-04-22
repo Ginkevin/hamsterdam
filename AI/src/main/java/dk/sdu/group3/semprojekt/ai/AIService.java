@@ -1,6 +1,9 @@
 package dk.sdu.group3.semprojekt.ai;
 
+import dk.sdu.group3.semprojekt.common.data.Event;
+import dk.sdu.group3.semprojekt.common.data.EventEnum;
 import dk.sdu.group3.semprojekt.common.data.World;
+import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
 import dk.sdu.group3.semprojekt.enemy.Enemy;
 import dk.sdu.group3.semprojekt.player.Player;
@@ -17,22 +20,22 @@ public class AIService implements IGameProcess {
             int dir = (int)Math.signum(enemy.getPosition().getX()-player.getPosition().getX());
             switch (dir){
                 case(1):
-                    turnLeft();
+                    turnLeft(enemy);
                     break;
                 case(0):
                     break;
                 case(-1):
-                    turnRight();
+                    turnRight(enemy);
             }
         });
     }
 
-    private void turnLeft() {
-
+    private void turnLeft(IEntity enemy) {
+        enemy.addEvent(new Event(EventEnum.LEFT));
     }
 
-    private void turnRight() {
-
+    private void turnRight(IEntity enemy) {
+        enemy.addEvent(new Event(EventEnum.RIGHT));
     }
 
 }

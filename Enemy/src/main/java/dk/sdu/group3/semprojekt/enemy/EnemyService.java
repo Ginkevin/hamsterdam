@@ -8,8 +8,6 @@ import org.openide.util.lookup.ServiceProvider;
 
 import java.util.List;
 
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.*;
-
 @ServiceProvider (service = IGameProcess.class)
 public class EnemyService implements IGameProcess{
     private final float thrust = 0.1f;
@@ -19,37 +17,46 @@ public class EnemyService implements IGameProcess{
        	List<IEntity> entities = world.getEntities();
 
         entities.stream().filter(entity -> entity instanceof Enemy).forEach(entity -> {
-            for (Event e : world.getEvents()) {
-                if (e.getEvent() == S) {
-                    //DUCK
-                    world.removeEvent(e);
-                }
-                if (e.getEvent() == D) {
-                    float x = (float) Math.cos(90) * thrust;
-                    float y = (float) Math.sin(90) * thrust;
-                    ;
-                    entity.setVelocity(x, y);
-                    world.removeEvent(e);
-
-                }
-                if (e.getEvent() == A) {
-                    float x = (float) Math.cos(180) * thrust;
-                    float y = (float) Math.sin(180) * thrust;
-                    ;
-                    entity.setVelocity(x, y);
-                    world.removeEvent(e);
-                }
-                if (e.getEvent() == SPACE) {
-                    //JUMP
-                    world.removeEvent(e);
-                }
-                if (e.getEvent() == CTRL) {
-                    Event event = new Event(SHOOT);
-                    world.addEvent(event);
-                    world.removeEvent(e);
+            for (Event e : entity.getEvents()) {
+                switch(e.getEvent()){
+                    case LEFT:
+                        moveLeft(entity, world, e);
+                        break;
+                    case RIGHT:
+                        moveRight(entity, world, e);
+                        break;
+                    case JUMP:
+                        jump(entity, world, e);
+                        break;
+                    case CROUCH:
+                        crouch(entity, world, e);
+                        break;
                 }
             }
         });
+    }
+
+    private void moveLeft(IEntity entity, World world, Event e) {
+        float x = (float) Math.cos(180) * thrust;
+        float y = (float) Math.sin(180) * thrust;
+        entity.setVelocity(x, y);
+        world.removeEvent(e);
+    }
+
+    private void moveRight(IEntity entity, World world, Event e) {
+        float x = (float) Math.cos(90) * thrust;
+        float y = (float) Math.sin(90) * thrust;
+        ;
+        entity.setVelocity(x, y);
+        world.removeEvent(e);
+    }
+
+    private void jump(IEntity entity, World world, Event e) {
+
+    }
+
+    private void crouch(IEntity entity, World world, Event e) {
+
     }
 
 }
