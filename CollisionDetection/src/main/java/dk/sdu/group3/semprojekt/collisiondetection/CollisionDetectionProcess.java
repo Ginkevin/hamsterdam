@@ -10,11 +10,14 @@ import dk.sdu.group3.semprojekt.common.data.HitEvent;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
+import org.openide.util.lookup.ServiceProvider;
 
 /**
  *
  * @author Deothan
  */
+
+@ServiceProvider (service = IGameProcess.class)
 public class CollisionDetectionProcess implements IGameProcess{
     @Override
     public void process(int delta, World world) {

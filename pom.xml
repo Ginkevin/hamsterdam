@@ -80,6 +80,7 @@
         <module>AI</module>
         <module>Physics</module>
         <module>CollisionDetection</module>
+        <module>Move</module>
     </modules>
 
     <properties>

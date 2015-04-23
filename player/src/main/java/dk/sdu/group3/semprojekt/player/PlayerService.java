@@ -5,7 +5,6 @@
  */
 package dk.sdu.group3.semprojekt.player;
 
-import dk.sdu.group3.semprojekt.common.data.Entity;
 import dk.sdu.group3.semprojekt.common.data.Event;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.A;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.CTRL;
@@ -16,7 +15,6 @@ import static dk.sdu.group3.semprojekt.common.data.EventEnum.SPACE;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
-import java.util.List;
 import org.openide.util.lookup.ServiceProvider;
 
 /**
