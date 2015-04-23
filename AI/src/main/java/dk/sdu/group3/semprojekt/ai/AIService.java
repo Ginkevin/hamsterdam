@@ -4,8 +4,6 @@ import dk.sdu.group3.semprojekt.common.data.*;
 import dk.sdu.group3.semprojekt.common.data.Character;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
-import dk.sdu.group3.semprojekt.enemy.Enemy;
-import dk.sdu.group3.semprojekt.player.Player;
 import org.openide.util.lookup.ServiceProvider;
 
 
