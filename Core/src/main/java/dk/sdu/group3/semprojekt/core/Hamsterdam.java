@@ -56,7 +56,7 @@ public class Hamsterdam extends Game.Default{
 		gameProcesses = new ArrayList<>(result.allInstances());
 
 		for (IGameProcess p : gameProcesses){
-			System.out.println(p);
+//			System.out.println(p);
 			p.process(delta, world);
 		}
 	}

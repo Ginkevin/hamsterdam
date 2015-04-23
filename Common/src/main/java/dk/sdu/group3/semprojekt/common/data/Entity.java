@@ -7,8 +7,8 @@ import playn.core.ImageLayer;
 
 public abstract class Entity implements IEntity {
 
-	private Vector position;
-	private Vector velocity;
+	private Vector position = new Vector(0,0);
+	private Vector velocity = new Vector(0,0);
 	private String sprite;
 	private float angle;
 	private ShapeEnum shape;
