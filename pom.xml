@@ -79,7 +79,7 @@
         <module>Enemy</module>
         <module>AI</module>
         <module>Physics</module>
-
+        <module>CollisionDetection</module>
     </modules>
 
     <properties>

@@ -22,6 +22,7 @@ public class Player extends Character{
         setSprite("");
         setShape(ShapeEnum.CIRCLE);
         setAngle(0);
+        setRadius(10);
         
         //Character
         setHP(1);

@@ -11,5 +11,6 @@ package dk.sdu.group3.semprojekt.common.data;
  */
 public enum EventEnum {
     A, S, D, SPACE, CTRL, SHOOT,
+    HIT,
     LEFT,RIGHT,JUMP,CROUCH;
 }

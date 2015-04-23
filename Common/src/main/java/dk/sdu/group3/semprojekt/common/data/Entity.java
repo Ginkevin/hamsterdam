@@ -15,6 +15,17 @@ public abstract class Entity implements IEntity {
 	private List<Event> events = new ArrayList<>();
 	private ImageLayer view;
 	private float scale;
+        private int radius;
+        
+        @Override
+        public int getRadius(){
+            return radius;
+        }
+        
+        @Override
+        public void setRadius(int i){
+            radius = i;
+        }
 
 	@Override
 	public Vector getPosition() {

@@ -34,4 +34,6 @@ public interface IEntity {
     public void setView(ImageLayer view);
     public float getScale();
     public void setScale(float scale);
+    public int getRadius();
+    public void setRadius(int i);
 }
