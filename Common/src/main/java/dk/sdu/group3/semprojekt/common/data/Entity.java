@@ -37,6 +37,11 @@ public abstract class Entity implements IEntity {
 	}
 
 	@Override
+	public void setVelocity(Vector velocity) {
+		this.velocity = velocity;
+	}
+
+	@Override
 	public String getSprite() {
 		return sprite;
 	}
