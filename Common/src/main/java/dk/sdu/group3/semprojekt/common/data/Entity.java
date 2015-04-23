@@ -7,8 +7,8 @@ import playn.core.ImageLayer;
 
 public abstract class Entity implements IEntity {
 
-	private Vector position;
-	private Vector velocity;
+	private Vector position = new Vector(0,0);
+	private Vector velocity = new Vector(0,0);
 	private String sprite;
 	private float angle;
 	private ShapeEnum shape;
@@ -34,6 +34,11 @@ public abstract class Entity implements IEntity {
 	@Override
 	public void setVelocity(float x, float y) {
 		velocity.setVector(x, y);
+	}
+
+	@Override
+	public void setVelocity(Vector velocity) {
+		this.velocity = velocity;
 	}
 
 	@Override

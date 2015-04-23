@@ -20,6 +20,7 @@ public interface IEntity {
     public void setPosition(float x, float y);
     public Vector getVelocity();
     public void setVelocity(float x, float y);
+    public void setVelocity(Vector velocity);
     public String getSprite();
     public void setSprite(String path);
     public ShapeEnum getShape();

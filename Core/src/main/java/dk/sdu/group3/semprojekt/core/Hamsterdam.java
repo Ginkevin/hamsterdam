@@ -33,14 +33,15 @@ public class Hamsterdam extends Game.Default{
 
 	@Override
 	public void init() {
-
+		System.out.println("start 0");
 		world = new World();
-
+		System.out.println("1");
 		rootLayer = graphics().rootLayer();
-		
+		System.out.println("2");
 		Lookup.Result<IGamePlugin> result = Lookup.getDefault().lookupResult(IGamePlugin.class);
+		System.out.println("3");
 		plugins = new ArrayList<>(result.allInstances());
-		
+		System.out.println(plugins);
 		for (IGamePlugin p : plugins){
 			p.start(world);
 		}
@@ -55,6 +56,7 @@ public class Hamsterdam extends Game.Default{
 		gameProcesses = new ArrayList<>(result.allInstances());
 
 		for (IGameProcess p : gameProcesses){
+//			System.out.println(p);
 			p.process(delta, world);
 		}
 	}
