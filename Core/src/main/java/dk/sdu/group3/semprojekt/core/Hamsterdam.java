@@ -21,74 +21,70 @@ import playn.core.util.Clock;
  * @author emilfrisk
  */
 public class Hamsterdam extends Game.Default{
-	final Clock.Source clock  = new Clock.Source(33);
-	World world;
-	List<IGamePlugin> plugins;
-	List<IGameProcess> gameProcesses;
-	GroupLayer rootLayer;
-	
-	public Hamsterdam() {
-		super(33);
-	}
+    final Clock.Source clock  = new Clock.Source(33);
+    World world;
+    List<IGamePlugin> plugins;
+    List<IGameProcess> gameProcesses;
+    GroupLayer rootLayer;
 
-	@Override
-	public void init() {
-		System.out.println("start 0");
-		world = new World();
-		System.out.println("1");
-		rootLayer = graphics().rootLayer();
-		System.out.println("2");
-		Lookup.Result<IGamePlugin> result = Lookup.getDefault().lookupResult(IGamePlugin.class);
-		System.out.println("3");
-		plugins = new ArrayList<>(result.allInstances());
-		System.out.println(plugins);
-		for (IGamePlugin p : plugins){
-			p.start(world);
-		}
+    public Hamsterdam() {
+        super(33);
+    }
 
-	}
+    @Override
+    public void init() {
+        world = new World();
 
-	@Override
-	public void update(int delta) {
-		super.update(delta);
-		
-		Lookup.Result<IGameProcess> result = Lookup.getDefault().lookupResult(IGameProcess.class);
-		gameProcesses = new ArrayList<>(result.allInstances());
+        rootLayer = graphics().rootLayer();
 
-		for (IGameProcess p : gameProcesses){
-//			System.out.println(p);
-			p.process(delta, world);
-		}
-	}
+        Lookup.Result<IGamePlugin> result = Lookup.getDefault().lookupResult(IGamePlugin.class);
 
-	@Override
-	public void paint(float alpha) {
-		super.paint(alpha);
-		
-		for (IEntity e : world.getEntities()){
-			if (e.getView() == null) e.setView(createView(e));
+        plugins = new ArrayList<>(result.allInstances());
+        System.out.println("IGamePlugins: " + plugins.size());
+        for (IGamePlugin p : plugins){
+                p.start(world);
+        }
+    }
 
-			ImageLayer spriteLayer = e.getView();
-			
-			Vector p = e.getPosition();
-			float r = e.getAngle();
-			float s = e.getScale();
-			
-			spriteLayer.setTranslation(p.getX(), p.getY());
-			spriteLayer.setRotation(r);
-			spriteLayer.setScale(s);
+    @Override
+    public void update(int delta) {
+        super.update(delta);
 
-			rootLayer.add(spriteLayer);
-		}
-	}
+        Lookup.Result<IGameProcess> result = Lookup.getDefault().lookupResult(IGameProcess.class);
+        gameProcesses = new ArrayList<>(result.allInstances());
 
-	private ImageLayer createView(IEntity entity) { 
+        for (IGameProcess p : gameProcesses){
+            p.process(delta, world);
+        }
+    }
 
-		Image image = assets().getImageSync(entity.getSprite());
+    @Override
+    public void paint(float alpha) {
+        super.paint(alpha);
 
-		ImageLayer viewLayer = graphics().createImageLayer(image);
-		viewLayer.setOrigin(image.width() / 2f, image.height() / 2f);
+        for (IEntity e : world.getEntities()){
+            if (e.getView() == null) e.setView(createView(e));
 
-		return viewLayer;
-	}
+            ImageLayer spriteLayer = e.getView();
+
+            Vector p = e.getPosition();
+            float r = e.getAngle();
+            float s = e.getScale();
+
+            spriteLayer.setTranslation(p.getX(), p.getY());
+            spriteLayer.setRotation(r);
+            spriteLayer.setScale(s);
+
+            rootLayer.add(spriteLayer);
+        }
+    }
+
+    private ImageLayer createView(IEntity entity) { 
+        Image image = assets().getImageSync(entity.getSprite());
+
+        ImageLayer viewLayer = graphics().createImageLayer(image);
+        viewLayer.setOrigin(image.width() / 2f, image.height() / 2f);
+
+        return viewLayer;
+    }
 }
