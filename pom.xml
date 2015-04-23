@@ -78,7 +78,6 @@
         <module>Common</module>
         <module>Enemy</module>
         <module>AI</module>
-        <module>Map</module>
     </modules>
 
     <properties>

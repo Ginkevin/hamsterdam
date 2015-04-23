@@ -1,16 +1,6 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><module codename="dk.sdu.group3.semprojekt.Bullet">
-    <module_version install_time="1429653406057" last="true" origin="installer" specification_version="0.0.1">
-        <file crc="2395936601" name="config/Modules/dk-sdu-group3-semprojekt-Bullet.xml"/>
-        <file crc="2221830906" name="modules/dk-sdu-group3-semprojekt-Bullet.jar"/>
-    </module_version>
-</module>
-||||||| merged common ancestors
-=======
-<?xml version="1.0" encoding="UTF-8"?><module codename="dk.sdu.group3.semprojekt.Bullet">
-    <module_version install_time="1429694413960" last="true" origin="installer" specification_version="0.0.1">
+    <module_version install_time="1429778294305" last="true" origin="installer" specification_version="0.0.1">
         <file crc="4009922666" name="config/Modules/dk-sdu-group3-semprojekt-Bullet.xml"/>
-        <file crc="4269830831" name="modules/dk-sdu-group3-semprojekt-Bullet.jar"/>
+        <file crc="2426883072" name="modules/dk-sdu-group3-semprojekt-Bullet.jar"/>
     </module_version>
 </module>
->>>>>>> 2c70938d9b061c166e042868257b607248dc3454
