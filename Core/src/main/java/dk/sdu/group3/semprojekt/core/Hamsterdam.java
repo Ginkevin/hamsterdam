@@ -21,11 +21,11 @@ import playn.core.util.Clock;
  * @author emilfrisk
  */
 public class Hamsterdam extends Game.Default{
-    final Clock.Source clock  = new Clock.Source(33);
-    World world;
-    List<IGamePlugin> plugins;
-    List<IGameProcess> gameProcesses;
-    GroupLayer rootLayer;
+    private final Clock.Source clock  = new Clock.Source(33);
+    private World world;
+    private List<IGamePlugin> plugins;
+    private List<IGameProcess> gameProcesses;
+    private GroupLayer rootLayer;
 
     public Hamsterdam() {
         super(33);

@@ -14,12 +14,14 @@ import dk.sdu.group3.semprojekt.common.data.Weapon;
  *
  * @author mads_000
  */
-public class Player extends Character{   
+public class Player extends Character{
+    private String url = this.getClass().getClassLoader().getResource("images/player.png").toExternalForm();
+    
     public Player(){
         //Entity
         setPosition(1, 1);
         setVelocity(2, 2);
-        setSprite("");
+        setSprite(url);
         setShape(ShapeEnum.CIRCLE);
         setAngle(0);
         setRadius(10);
