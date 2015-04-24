@@ -39,7 +39,7 @@ public class CollisionDetectionProcess implements IGameProcess{
         int radiusSource = source.getRadius();            
 
         boolean isCollision = distance <= radiusCurrent + radiusSource;
-
+        
         return isCollision;
     }  
 }

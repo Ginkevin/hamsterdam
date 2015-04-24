@@ -6,11 +6,13 @@ import dk.sdu.group3.semprojekt.common.data.ShapeEnum;
 import dk.sdu.group3.semprojekt.common.data.Weapon;
 
 public class Enemy extends Character{
+    private String url = this.getClass().getClassLoader().getResource("images/LuderHamster.png").toExternalForm();
+    
     public Enemy(){
         //Entity
         setPosition(1, 1);
         setVelocity(2, 2);
-        setSprite("");
+        setSprite(url);
         setShape(ShapeEnum.CIRCLE);
         setAngle(0);
         setRadius(10);

@@ -14,7 +14,7 @@ public abstract class Entity implements IEntity {
 	private ShapeEnum shape;
 	private List<Event> events = new ArrayList<>();
 	private ImageLayer view;
-	private float scale;
+	private float scale = 1.0f;
         private int radius;
         
         @Override

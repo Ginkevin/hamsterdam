@@ -5,12 +5,8 @@ import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.imageio.ImageIO;
 import org.openide.util.Lookup;
 import playn.core.Game;
 import playn.core.GroupLayer;
@@ -18,6 +14,7 @@ import playn.core.Image;
 import playn.core.ImageLayer;
 import static playn.core.PlayN.assets;
 import static playn.core.PlayN.graphics;
+import playn.core.util.Callback;
 import playn.core.util.Clock;
 
 
@@ -42,9 +39,9 @@ public class Hamsterdam extends Game.Default{
         rootLayer = graphics().rootLayer();
 
         Lookup.Result<IGamePlugin> result = Lookup.getDefault().lookupResult(IGamePlugin.class);
-
         plugins = new ArrayList<>(result.allInstances());
         System.out.println("IGamePlugins: " + plugins.size());
+        
         for (IGamePlugin p : plugins){
                 p.start(world);
         }
@@ -64,7 +61,7 @@ public class Hamsterdam extends Game.Default{
 
     @Override
     public void paint(float alpha) {
-        super.paint(alpha);
+        clock.paint(alpha);
 
         for (IEntity e : world.getEntities()){
             if (e.getView() == null) e.setView(createView(e));
@@ -84,11 +81,20 @@ public class Hamsterdam extends Game.Default{
     }
 
     private ImageLayer createView(IEntity entity) { 
+        Image image = assets().getRemoteImage(entity.getSprite());
+        final ImageLayer viewLayer = graphics().createImageLayer(image);
+        
+        image.addCallback(new Callback<Image>() {
+            @Override
+            public void onSuccess(Image t) {
+                viewLayer.setOrigin(t.width() / 2f, t.height() / 2f);          
+            }
 
-        Image image = assets().getImageSync(entity.getSprite());
-
-        ImageLayer viewLayer = graphics().createImageLayer(image);
-        viewLayer.setOrigin(image.width() / 2f, image.height() / 2f);
+            @Override
+            public void onFailure(Throwable thrwbl) {
+                thrwbl.printStackTrace();
+            }
+        });
 
         return viewLayer;
     }

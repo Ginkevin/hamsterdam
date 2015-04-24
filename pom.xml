@@ -73,8 +73,6 @@
         <module>player</module>
         <module>PlayNCore</module>
         <module>Input</module>
-        <module>Weapon</module>
-        <module>Bullet</module>
         <module>Common</module>
         <module>Enemy</module>
         <module>AI</module>
@@ -83,6 +81,7 @@
         <module>Move</module>
         <module>Level</module>
         <module>Platform</module>
+        <module>KanyleGun</module>
     </modules>
 
     <properties>

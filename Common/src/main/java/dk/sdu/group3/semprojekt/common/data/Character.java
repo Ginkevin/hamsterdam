@@ -5,11 +5,13 @@
  */
 package dk.sdu.group3.semprojekt.common.data;
 
+import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
+
 /**
  *
  * @author mads_000
  */
-public class Character extends Entity{
+public class Character extends Entity implements ICharacter{
     private int hp;
     private Weapon weapon;
     private CharacterEnum type;

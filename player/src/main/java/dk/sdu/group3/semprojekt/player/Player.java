@@ -7,6 +7,8 @@ package dk.sdu.group3.semprojekt.player;
 
 import dk.sdu.group3.semprojekt.common.data.Character;
 import dk.sdu.group3.semprojekt.common.data.CharacterEnum;
+import dk.sdu.group3.semprojekt.common.data.Event;
+import static dk.sdu.group3.semprojekt.common.data.EventEnum.SHOOT;
 import dk.sdu.group3.semprojekt.common.data.ShapeEnum;
 import dk.sdu.group3.semprojekt.common.data.Weapon;
 
@@ -19,16 +21,18 @@ public class Player extends Character{
     
     public Player(){
         //Entity
-        setPosition(1, 1);
-        setVelocity(2, 2);
+        setPosition(400, 300);
+        setVelocity(0, 0);
         setSprite(url);
         setShape(ShapeEnum.CIRCLE);
         setAngle(0);
-        setRadius(10);
+        setRadius(100);
         
         //Character
         setHP(1);
         setWeapon(new Weapon());
-        setCharacterEnum(CharacterEnum.PLAYER);      
+        setCharacterEnum(CharacterEnum.PLAYER);   
+        
+        addEvent(new Event(SHOOT));
     }
 }

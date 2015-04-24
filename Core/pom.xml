@@ -73,17 +73,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Input</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>player</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>AI</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -93,17 +83,22 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Bullet</artifactId>
+            <artifactId>AI</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Weapon</artifactId>
+            <artifactId>Platform</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Physics</artifactId>
+            <artifactId>Level</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Move</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -113,7 +108,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Move</artifactId>
+            <artifactId>Weapon</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
