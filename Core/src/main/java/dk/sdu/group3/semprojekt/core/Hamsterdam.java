@@ -5,8 +5,12 @@ import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.imageio.ImageIO;
 import org.openide.util.Lookup;
 import playn.core.Game;
 import playn.core.GroupLayer;
@@ -80,6 +84,7 @@ public class Hamsterdam extends Game.Default{
     }
 
     private ImageLayer createView(IEntity entity) { 
+
         Image image = assets().getImageSync(entity.getSprite());
 
         ImageLayer viewLayer = graphics().createImageLayer(image);

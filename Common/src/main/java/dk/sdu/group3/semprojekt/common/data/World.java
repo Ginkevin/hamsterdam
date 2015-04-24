@@ -11,6 +11,7 @@ public class World {
     private List<IEntity> entities;
     private List<Event> moveEvents = new ArrayList();
     private List<Event> events = new ArrayList();
+    private Level level;
 	
     public World(){
         entities = new ArrayList<IEntity>();
@@ -49,6 +50,14 @@ public class World {
     }
 
     public List<IEntity> getEntities(){
-            return entities;
+        return entities;
+    }
+    
+    public void setLevel(Level level){
+        this.level = level;
+    }
+    
+    public Level getLevel(){
+        return level;
     }
 }

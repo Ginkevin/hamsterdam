@@ -32,13 +32,13 @@ public class LevelPlugin implements IGamePlugin{
             l.addPlatform((Platform) e);
         });
         
-        world.addEntity(l);
+        world.setLevel(l);
         
     }
 
     @Override
     public void stop(World world) {
-        world.getEntities().remove(l);
+        world.setLevel(null);
     }
     
 }

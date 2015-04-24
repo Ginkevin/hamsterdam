@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author mads_000
  */
-public class Level extends Entity{
+public class Level{
     private List<Platform> platforms = new ArrayList();
     private String background;
     
