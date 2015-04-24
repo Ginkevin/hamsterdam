@@ -81,6 +81,8 @@
         <module>Physics</module>
         <module>CollisionDetection</module>
         <module>Move</module>
+        <module>Level</module>
+        <module>Platform</module>
     </modules>
 
     <properties>

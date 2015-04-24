@@ -12,8 +12,17 @@ import java.util.List;
  *
  * @author mads_000
  */
-public class Level {
+public class Level extends Entity{
     private List<Platform> platforms = new ArrayList();
+    private String background;
+    
+    public void setBackground(String path){
+        background = path;
+    }
+    
+    public String getBackground(){
+        return background;
+    }
     
     public List<Platform> getPlatforms(){
         return platforms;

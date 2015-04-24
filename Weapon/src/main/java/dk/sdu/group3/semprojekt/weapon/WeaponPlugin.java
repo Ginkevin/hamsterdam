@@ -5,10 +5,13 @@ import dk.sdu.group3.semprojekt.common.data.Weapon;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
+import org.openide.util.lookup.ServiceProvider;
 
 /**
  * @author emilfrisk
  */
+
+@ServiceProvider (service = IGamePlugin.class)
 public class WeaponPlugin implements IGamePlugin {
 
 	Weapon w;
