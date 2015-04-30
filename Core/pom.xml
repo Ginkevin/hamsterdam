@@ -108,7 +108,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Weapon</artifactId>
+            <artifactId>PlayerWeapon</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
