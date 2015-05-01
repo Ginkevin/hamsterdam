@@ -1,19 +1,21 @@
 package dk.sdu.group3.semprojekt.core;
 
+import dk.sdu.group3.semprojekt.common.data.Level;
 import dk.sdu.group3.semprojekt.common.data.Vector;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import org.openide.util.Lookup;
-import playn.core.Game;
-import playn.core.GroupLayer;
-import playn.core.Image;
-import playn.core.ImageLayer;
+import playn.core.*;
+
 import static playn.core.PlayN.assets;
 import static playn.core.PlayN.graphics;
+
 import playn.core.util.Callback;
 import playn.core.util.Clock;
 
@@ -21,8 +23,8 @@ import playn.core.util.Clock;
 /**
  * @author emilfrisk
  */
-public class Hamsterdam extends Game.Default{
-    private final Clock.Source clock  = new Clock.Source(33);
+public class Hamsterdam extends Game.Default {
+    private final Clock.Source clock = new Clock.Source(33);
     private World world;
     private List<IGamePlugin> plugins;
     private List<IGameProcess> gameProcesses;
@@ -41,10 +43,11 @@ public class Hamsterdam extends Game.Default{
         Lookup.Result<IGamePlugin> result = Lookup.getDefault().lookupResult(IGamePlugin.class);
         plugins = new ArrayList<>(result.allInstances());
         System.out.println("IGamePlugins: " + plugins.size());
-        
-        for (IGamePlugin p : plugins){
-                p.start(world);
+
+        for (IGamePlugin p : plugins) {
+            p.start(world);
         }
+        //todo
     }
 
     @Override
@@ -54,16 +57,37 @@ public class Hamsterdam extends Game.Default{
         Lookup.Result<IGameProcess> result = Lookup.getDefault().lookupResult(IGameProcess.class);
         gameProcesses = new ArrayList<>(result.allInstances());
 
-        for (IGameProcess p : gameProcesses){
+        for (IGameProcess p : gameProcesses) {
             p.process(delta, world);
         }
     }
 
+    private ImageLayer bgLayer;
     @Override
     public void paint(float alpha) {
         clock.paint(alpha);
+        if (bgLayer==null) {
+            Level level = world.getLevel();
+            Image image = assets().getRemoteImage(level.getBackground());
+            final ImageLayer viewLayer = graphics().createImageLayer(image);
 
-        for (IEntity e : world.getEntities()){
+            image.addCallback(new Callback<Image>() {
+                @Override
+                public void onSuccess(Image t) {
+
+                }
+
+                @Override
+                public void onFailure(Throwable thrwbl) {
+                    thrwbl.printStackTrace();
+                }
+            });
+            bgLayer = viewLayer;
+        }
+
+        rootLayer.add(bgLayer);
+
+        for (IEntity e : world.getEntities()) {
             if (e.getView() == null) e.setView(createView(e));
 
             ImageLayer spriteLayer = e.getView();
@@ -83,10 +107,10 @@ public class Hamsterdam extends Game.Default{
         }
     }
 
-    private ImageLayer createView(IEntity entity) { 
+    private ImageLayer createView(IEntity entity) {
         Image image = assets().getRemoteImage(entity.getSprite());
         final ImageLayer viewLayer = graphics().createImageLayer(image);
-        
+
         image.addCallback(new Callback<Image>() {
             @Override
             public void onSuccess(Image t) {

@@ -37,17 +37,14 @@ public class EnemyService implements IGameProcess{
     }
 
     private void moveLeft(IEntity entity, World world, Event e) {
-        float x = (float) Math.cos(180) * thrust;
-        float y = (float) Math.sin(180) * thrust;
-        entity.setVelocity(x, y);
+
+        entity.setVelocity(-1, 0);
         world.removeEvent(e);
     }
 
     private void moveRight(IEntity entity, World world, Event e) {
-        float x = (float) Math.cos(90) * thrust;
-        float y = (float) Math.sin(90) * thrust;
         ;
-        entity.setVelocity(x, y);
+        entity.setVelocity(1, 0);
         world.removeEvent(e);
     }
 
