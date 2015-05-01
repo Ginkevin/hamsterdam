@@ -3,13 +3,14 @@ package dk.sdu.group3.semprojekt.common.data;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * @author emilfrisk
  */
 public class World {
     private List<IEntity> entities;
-    private List<Event> moveEvents = new ArrayList();
+    private CopyOnWriteArrayList<Event> moveEvents = new CopyOnWriteArrayList();
     private List<Event> events = new ArrayList();
     private Level level;
 	
@@ -21,7 +22,7 @@ public class World {
         return moveEvents;
     }
 
-    public void addMoveEvents(Event e) {
+    public void addMoveEvent(Event e) {
         moveEvents.add(e);
     }
     

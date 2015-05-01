@@ -36,7 +36,6 @@ public class InputPlugin implements IGamePlugin{
     
     @Override
     public void stop(World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     private final Keyboard.Listener keyboardListener = new Keyboard.Listener() {        
@@ -44,19 +43,19 @@ public class InputPlugin implements IGamePlugin{
         public void onKeyDown(Keyboard.Event event) {            
             switch (event.key()) {
                 case S:
-                    world.addEvent(new Event(S));
+                    world.addMoveEvent(new Event(S));
                     break;
 
                 case A:
-                    world.addEvent(new Event(A));
+                    world.addMoveEvent(new Event(A));
                     break;
 
                 case D:
-                    world.addEvent(new Event(D));
+                    world.addMoveEvent(new Event(D));
                     break;
 
                 case SPACE:
-                    world.addEvent(new Event(SPACE));
+                    world.addMoveEvent(new Event(SPACE));
                     break;
 
                 default:

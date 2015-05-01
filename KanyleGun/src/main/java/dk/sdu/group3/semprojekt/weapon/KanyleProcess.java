@@ -27,13 +27,14 @@ public class KanyleProcess implements IGameProcess{
             if (e instanceof ICharacter){
                 if(((ICharacter)e).getWeapon() instanceof KanyleGun){
                     for(Event ev : e.getEvents()){
-                        if (ev.getEvent() == SHOOT){
-                            world.addEntity(new Kanyle(e.getPosition().getX()+10, 
-                                                       e.getPosition().getY()+10, 
-                                                       e.getVelocity().getX(), 
-                                                       e.getVelocity().getY()));
-                            e.removeEvent(ev);
-                        }
+                        //Skal ændres til den event AI laver
+//                        if (ev.getEvent() == SHOOT){
+//                            world.addEntity(new Kanyle(e.getPosition().getX()+10, 
+//                                                       e.getPosition().getY()+10, 
+//                                                       e.getVelocity().getX(), 
+//                                                       e.getVelocity().getY()));
+//                            e.removeEvent(ev);
+//                        }
                     }                    
                 }
             }

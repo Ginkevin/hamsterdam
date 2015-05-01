@@ -15,6 +15,7 @@ import static dk.sdu.group3.semprojekt.common.data.EventEnum.SPACE;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
+import java.util.List;
 import org.openide.util.lookup.ServiceProvider;
 
 /**
@@ -24,24 +25,25 @@ import org.openide.util.lookup.ServiceProvider;
 
 @ServiceProvider (service = IGameProcess.class)
 public class PlayerService implements IGameProcess{
-    private final float thrust = 0.1f;
-
     @Override
     public void process(int delta, World world) {
         for(IEntity entity : world.getEntities()){
             if(entity instanceof Player){
+                if(world.getMoveEvents().isEmpty()){
+                    entity.setVelocity(0, 0);
+                }
                 for(Event e : world.getMoveEvents()) {
                     if(e.getEvent() == S){
                         //DUCK
                     }
                     if(e.getEvent() == D){
-                        float x= (float)Math.cos(90)*thrust;
-                        float y = (float)Math.sin(90)*thrust;;
+                        float x= (float)Math.cos(0);
+                        float y = (float)Math.sin(0);;
                         entity.setVelocity(x, y);
                     }
                     if(e.getEvent() == A){
-                        float x= (float)Math.cos(180)*thrust;
-                        float y = (float)Math.sin(180)*thrust;;
+                        float x= (float)Math.cos(180);
+                        float y = (float)Math.sin(180);;
                         entity.setVelocity(x, y);
                     }                   
                     if(e.getEvent() == SPACE){
