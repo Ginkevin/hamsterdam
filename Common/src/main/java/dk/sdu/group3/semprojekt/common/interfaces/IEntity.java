@@ -18,6 +18,7 @@ import playn.core.ImageLayer;
 public interface IEntity {
     public Vector getPosition();
     public void setPosition(float x, float y);
+    public void setPosition(Vector position);
     public Vector getVelocity();
     public void setVelocity(float x, float y);
     public void setVelocity(Vector velocity);

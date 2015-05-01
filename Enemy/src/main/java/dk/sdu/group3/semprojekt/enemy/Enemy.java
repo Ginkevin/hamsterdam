@@ -10,12 +10,12 @@ public class Enemy extends Character{
     
     public Enemy(){
         //Entity
-        setPosition(1, 1);
-        setVelocity(2, 2);
+        setPosition(200,0);
+        setVelocity(0,0);
         setSprite(url);
         setShape(ShapeEnum.CIRCLE);
         setAngle(0);
-        setRadius(10);
+        setRadius(50);
         
         //Character
         setHP(1);

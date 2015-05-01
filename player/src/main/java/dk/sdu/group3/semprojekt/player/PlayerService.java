@@ -37,14 +37,10 @@ public class PlayerService implements IGameProcess{
                         //DUCK
                     }
                     if(e.getEvent() == D){
-                        float x= (float)Math.cos(0);
-                        float y = (float)Math.sin(0);;
-                        entity.setVelocity(x, y);
+                        entity.setVelocity(1, 0);
                     }
                     if(e.getEvent() == A){
-                        float x= (float)Math.cos(180);
-                        float y = (float)Math.sin(180);;
-                        entity.setVelocity(x, y);
+                        entity.setVelocity(-1, 0);
                     }                   
                     if(e.getEvent() == SPACE){
                         //JUMP

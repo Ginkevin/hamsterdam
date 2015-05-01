@@ -21,12 +21,12 @@ public class Player extends Character{
     
     public Player(){
         //Entity
-        setPosition(400, 300);
+        setPosition(340, 50);
         setVelocity(0, 0);
         setSprite(url);
         setShape(ShapeEnum.CIRCLE);
         setAngle(0);
-        setRadius(100);
+        setRadius(50);
         
         //Character
         setHP(1);

@@ -27,15 +27,18 @@ public abstract class Entity implements IEntity {
         radius = i;
     }
 
+	@Override
+	public void setPosition(float x, float y) {
+		position.setVector(x, y);
+	}
+	public void setPosition(Vector position) {
+		this.position = position;
+	}
     @Override
     public Vector getPosition() {
             return position;
     }
 
-    @Override
-    public void setPosition(float x, float y) {
-            position.setVector(x, y);
-    }
 
     @Override
     public Vector getVelocity() {

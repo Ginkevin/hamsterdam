@@ -34,4 +34,12 @@ public class Vector {
     public Vector times( float v){
         return new Vector(this.x*v,this.y*v);
     }
+
+    @Override
+    public String toString() {
+        return "Vector{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }
