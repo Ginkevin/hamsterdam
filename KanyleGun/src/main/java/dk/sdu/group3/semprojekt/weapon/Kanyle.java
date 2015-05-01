@@ -13,8 +13,8 @@ import dk.sdu.group3.semprojekt.common.data.ShapeEnum;
  * @author mads_000
  */
 public class Kanyle extends Bullet{
-    //Skal ændres til den rigtige sprite.
-    private String url = this.getClass().getClassLoader().getResource("images/Hale.png").toExternalForm();
+    //Skal ændres til den rigtige sprite, men jeg kan ikke åbne den da jeg ikke har det rigtige program.
+    private String url = this.getClass().getClassLoader().getResource("images/Syringe.png").toExternalForm();
     
     public Kanyle(float pX, float pY, float vX, float vY){
         Bullet b = new Bullet();

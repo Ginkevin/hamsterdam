@@ -17,7 +17,7 @@ public class KanyleGunPlugin implements IGamePlugin {
         world.getEntities().stream().forEach((e)->{
             if (e instanceof ICharacter){
                 ICharacter c = (ICharacter) e;
-                if (c.getCharacterEnum() == CharacterEnum.PLAYER){
+                if (c.getCharacterEnum() == CharacterEnum.ENEMY){
                     c.setWeapon(new KanyleGun());
                 }
             }
