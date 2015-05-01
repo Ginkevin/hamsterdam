@@ -47,11 +47,11 @@ public class InputPlugin implements IGamePlugin{
                     break;
 
                 case A:
-                    world.addMoveEvent(new Event(A));
+                    world.addMoveEvent(new Event(A)); 
                     break;
 
                 case D:
-                    world.addMoveEvent(new Event(D));
+                    world.addMoveEvent(new Event(D)); 
                     break;
 
                 case SPACE:
