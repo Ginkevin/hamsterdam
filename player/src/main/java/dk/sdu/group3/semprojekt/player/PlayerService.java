@@ -30,17 +30,17 @@ public class PlayerService implements IGameProcess{
         for(IEntity entity : world.getEntities()){
             if(entity instanceof Player){
                 if(world.getMoveEvents().isEmpty()){
-                    entity.setVelocity(0, 0);
+                    entity.getVelocity().setX(0);
                 }
                 for(Event e : world.getMoveEvents()) {
                     if(e.getEvent() == S){
                         //DUCK
                     }
                     if(e.getEvent() == D){
-                        entity.setVelocity(1, 0);
+                        entity.getVelocity().setX(1);
                     }
                     if(e.getEvent() == A){
-                        entity.setVelocity(-1, 0);
+                        entity.getVelocity().setX(-1);
                     }                   
                     if(e.getEvent() == SPACE){
                         //JUMP

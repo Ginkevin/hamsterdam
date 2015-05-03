@@ -25,7 +25,7 @@ public class PlatformPlugin implements IGamePlugin{
     
     @Override
     public void start(World world) {
-        listOfPlatforms = new ArrayList();
+        listOfPlatforms = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             listOfPlatforms.add(new Platform());
             listOfPlatforms.get(i).setSprite(url);

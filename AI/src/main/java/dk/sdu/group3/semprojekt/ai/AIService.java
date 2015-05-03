@@ -13,7 +13,7 @@ public class AIService implements IGameProcess {
     @Override
     public void process(int delta, World world) {
         IEntity player = world.getEntities().stream().filter(entity -> entity instanceof Character).filter(c -> ((Character) c).getCharacterEnum()==CharacterEnum.PLAYER).findFirst().get();
-        world.getEntities().stream().filter(entity -> entity instanceof Character).filter(c -> ((Character) c).getCharacterEnum()==CharacterEnum.PLAYER).forEach(enemy -> {
+        world.getEntities().stream().filter(entity -> entity instanceof Character).filter(c -> ((Character) c).getCharacterEnum()==CharacterEnum.ENEMY).forEach(enemy -> {
             int dir = (int)Math.signum(enemy.getPosition().getX()-player.getPosition().getX());
             switch (dir){
                 case(1):
