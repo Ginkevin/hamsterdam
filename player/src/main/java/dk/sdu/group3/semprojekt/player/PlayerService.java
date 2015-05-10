@@ -7,8 +7,10 @@ package dk.sdu.group3.semprojekt.player;
 
 import dk.sdu.group3.semprojekt.common.data.Event;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.A;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.CTRL;
+import static dk.sdu.group3.semprojekt.common.data.EventEnum.CONTROL;
+import static dk.sdu.group3.semprojekt.common.data.EventEnum.CROUCH;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.D;
+import static dk.sdu.group3.semprojekt.common.data.EventEnum.JUMP;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.S;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.SHOOT;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.SPACE;
@@ -34,7 +36,8 @@ public class PlayerService implements IGameProcess{
                 }
                 for(Event e : world.getMoveEvents()) {
                     if(e.getEvent() == S){
-                        //DUCK
+                        Event event = new Event(CROUCH);
+                        world.addEvent(event);
                     }
                     if(e.getEvent() == D){
                         entity.setVelocity(1, 0);
@@ -43,9 +46,10 @@ public class PlayerService implements IGameProcess{
                         entity.setVelocity(-1, 0);
                     }                   
                     if(e.getEvent() == SPACE){
-                        //JUMP
+                        Event event = new Event(JUMP);
+                        world.addEvent(event);
                     }                    
-                    if(e.getEvent() == CTRL){
+                    if(e.getEvent() == CONTROL){
                         Event event = new Event(SHOOT);
                         world.addEvent(event);
                     }

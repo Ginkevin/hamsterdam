@@ -8,6 +8,7 @@ package dk.sdu.group3.semprojekt.input;
 import org.openide.util.lookup.ServiceProvider;
 import dk.sdu.group3.semprojekt.common.data.Event;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.A;
+import static dk.sdu.group3.semprojekt.common.data.EventEnum.CONTROL;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.D;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.S;
 import static dk.sdu.group3.semprojekt.common.data.EventEnum.SPACE;
@@ -57,6 +58,10 @@ public class InputPlugin implements IGamePlugin{
                 case SPACE:
                     world.addMoveEvent(new Event(SPACE));
                     break;
+                    
+                case CONTROL:
+                    world.addMoveEvent(new Event(CONTROL));
+                    break;
 
                 default:
                     break;
@@ -95,6 +100,13 @@ public class InputPlugin implements IGamePlugin{
                         if(e.getEvent() == SPACE)
                             world.removeEvent(e);
                     }  
+                    break;
+                    
+                case CONTROL:
+                    for(Event e : world.getMoveEvents()){
+                        if(e.getEvent() == CONTROL)
+                            world.removeEvent(e);
+                    }
                     break;
 
                 default:
