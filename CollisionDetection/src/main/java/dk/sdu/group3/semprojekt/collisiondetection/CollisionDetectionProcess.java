@@ -32,23 +32,18 @@ public class CollisionDetectionProcess implements IGameProcess{
                 if(!e.equals(source) ){
                     if(e.getShape().getShape().equals(CIRCLE) && source.getShape().getShape().equals(CIRCLE) && testCircleCircle(e, source)){
                         e.addEvent(new HitEvent(HIT, source));
-                        System.out.println("hit1");
                     }
 
                     if(e.getShape().getShape().equals(CIRCLE) && source.getShape().getShape().equals(RECTANGLE) && testCircleRectangle(e, source)){
                         e.addEvent(new HitEvent(HIT, source));
-                        System.out.println("hit2 - " + count);
-                        count++;
                     }
                     
                     if(e.getShape().getShape().equals(RECTANGLE) && source.getShape().getShape().equals(CIRCLE) && testCircleRectangle(e, source)){
                         e.addEvent(new HitEvent(HIT, source));
-                        System.out.println("hit2");
                     }
                     
                     if(e.getShape().getShape().equals(RECTANGLE) && source.getShape().getShape().equals(RECTANGLE) && testRectangleRectangle(e, source)){
                         e.addEvent(new HitEvent(HIT, source));
-                        System.out.println("hit3");
                     }
                 }
             }
