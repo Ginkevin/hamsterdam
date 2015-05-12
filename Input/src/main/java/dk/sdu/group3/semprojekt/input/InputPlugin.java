@@ -7,11 +7,11 @@ package dk.sdu.group3.semprojekt.input;
 
 import org.openide.util.lookup.ServiceProvider;
 import dk.sdu.group3.semprojekt.common.data.Event;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.A;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.CONTROL;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.D;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.S;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.SPACE;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.A;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.CONTROL;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.D;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.S;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SPACE;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import java.util.ArrayList;

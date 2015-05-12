@@ -5,7 +5,7 @@
  */
 package dk.sdu.group3.semprojekt.common.interfaces;
 
-import dk.sdu.group3.semprojekt.common.data.CharacterEnum;
+import dk.sdu.group3.semprojekt.common.enums.CharacterEnum;
 import dk.sdu.group3.semprojekt.common.data.Weapon;
 
 /**

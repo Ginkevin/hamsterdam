@@ -6,7 +6,7 @@
 package dk.sdu.group3.semprojekt.common.interfaces;
 
 import dk.sdu.group3.semprojekt.common.data.Event;
-import dk.sdu.group3.semprojekt.common.data.ShapeEnum;
+import dk.sdu.group3.semprojekt.common.enums.ShapeEnum;
 import dk.sdu.group3.semprojekt.common.data.Vector;
 import java.util.List;
 import playn.core.ImageLayer;
@@ -24,8 +24,8 @@ public interface IEntity {
     public void setVelocity(Vector velocity);
     public String getSprite();
     public void setSprite(String path);
-    public ShapeEnum getShape();
-    public void setShape(ShapeEnum shape);
+    public IShape getShape();
+    public void setShape(IShape shape);
     public float getAngle();
     public void setAngle(float angle);
     public List<Event> getEvents();
@@ -35,6 +35,4 @@ public interface IEntity {
     public void setView(ImageLayer view);
     public float getScale();
     public void setScale(float scale);
-    public int getRadius();
-    public void setRadius(int i);
 }

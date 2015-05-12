@@ -1,7 +1,7 @@
 package dk.sdu.group3.semprojekt.common.data;
 
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
-import java.util.ArrayList;
+import dk.sdu.group3.semprojekt.common.interfaces.IShape;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import playn.core.ImageLayer;
@@ -11,34 +11,25 @@ public abstract class Entity implements IEntity {
     private Vector velocity = new Vector(0,0);
     private String sprite;
     private float angle;
-    private ShapeEnum shape;
+    private IShape shape;
     private CopyOnWriteArrayList<Event> events = new CopyOnWriteArrayList<>();
     private ImageLayer view;
     private float scale = 1.0f;
-    private int radius;
 
     @Override
-    public int getRadius(){
-        return radius;
+    public void setPosition(float x, float y) {
+            position.setVector(x, y);
     }
-
+    
     @Override
-    public void setRadius(int i){
-        radius = i;
+    public void setPosition(Vector position) {
+            this.position = position;
     }
-
-	@Override
-	public void setPosition(float x, float y) {
-		position.setVector(x, y);
-	}
-	public void setPosition(Vector position) {
-		this.position = position;
-	}
+    
     @Override
     public Vector getPosition() {
             return position;
     }
-
 
     @Override
     public Vector getVelocity() {
@@ -66,12 +57,12 @@ public abstract class Entity implements IEntity {
     }
 
     @Override
-    public ShapeEnum getShape() {
+    public IShape getShape() {
             return shape;
     }
 
     @Override
-    public void setShape(ShapeEnum shape) {
+    public void setShape(IShape shape) {
             this.shape = shape;
     }
 

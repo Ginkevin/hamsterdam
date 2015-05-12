@@ -6,14 +6,14 @@
 package dk.sdu.group3.semprojekt.player;
 
 import dk.sdu.group3.semprojekt.common.data.Event;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.A;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.CONTROL;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.CROUCH;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.D;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.JUMP;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.S;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.SHOOT;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.SPACE;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.A;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.CONTROL;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.CROUCH;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.D;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.JUMP;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.S;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SHOOT;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SPACE;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;

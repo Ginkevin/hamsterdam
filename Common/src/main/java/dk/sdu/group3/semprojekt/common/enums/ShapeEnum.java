@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.group3.semprojekt.common.data;
+package dk.sdu.group3.semprojekt.common.enums;
 
 /**
  *
  * @author mads_000
  */
-public enum CharacterEnum {
-    PLAYER, ENEMY;
+public enum ShapeEnum {
+    CIRCLE, RECTANGLE;
 }

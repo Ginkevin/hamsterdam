@@ -6,7 +6,7 @@
 package dk.sdu.group3.semprojekt.weapon;
 
 import dk.sdu.group3.semprojekt.common.data.Event;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.SHOOT;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SHOOT;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;

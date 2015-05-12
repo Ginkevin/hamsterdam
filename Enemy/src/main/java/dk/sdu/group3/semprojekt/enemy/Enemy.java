@@ -1,8 +1,8 @@
 package dk.sdu.group3.semprojekt.enemy;
 
 import dk.sdu.group3.semprojekt.common.data.Character;
-import dk.sdu.group3.semprojekt.common.data.CharacterEnum;
-import dk.sdu.group3.semprojekt.common.data.ShapeEnum;
+import dk.sdu.group3.semprojekt.common.data.Circle;
+import dk.sdu.group3.semprojekt.common.enums.CharacterEnum;
 import dk.sdu.group3.semprojekt.common.data.Weapon;
 
 public class Enemy extends Character{
@@ -10,12 +10,11 @@ public class Enemy extends Character{
     
     public Enemy(){
         //Entity
-        setPosition(200,0);
+        setPosition(200,50);
         setVelocity(0,0);
         setSprite(url);
-        setShape(ShapeEnum.CIRCLE);
+        setShape(new Circle(3));
         setAngle(0);
-        setRadius(50);
         
         //Character
         setHP(1);
