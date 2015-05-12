@@ -17,7 +17,7 @@ public class Rectangle implements IShape{
     private ShapeEnum shape = RECTANGLE;
     private float w, h;
     
-    public Rectangle(float h, float w){
+    public Rectangle(float w, float h){
         this.w = w;
         this.h = h;
     }

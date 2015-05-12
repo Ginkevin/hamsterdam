@@ -13,7 +13,7 @@ public class Enemy extends Character{
         setPosition(200,50);
         setVelocity(0,0);
         setSprite(url);
-        setShape(new Circle(3));
+        setShape(new Circle(40));
         setAngle(0);
         
         //Character

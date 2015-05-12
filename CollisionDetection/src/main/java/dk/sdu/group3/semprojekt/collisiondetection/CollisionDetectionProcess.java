@@ -24,6 +24,7 @@ import org.openide.util.lookup.ServiceProvider;
 
 @ServiceProvider (service = IGameProcess.class)
 public class CollisionDetectionProcess implements IGameProcess{
+    private static int count = 0;
     @Override
     public void process(int delta, World world) {
         for(IEntity e : world.getEntities()){
@@ -36,7 +37,8 @@ public class CollisionDetectionProcess implements IGameProcess{
 
                     if(e.getShape().getShape().equals(CIRCLE) && source.getShape().getShape().equals(RECTANGLE) && testCircleRectangle(e, source)){
                         e.addEvent(new HitEvent(HIT, source));
-                        System.out.println("hit2");
+                        System.out.println("hit2 - " + count);
+                        count++;
                     }
                     
                     if(e.getShape().getShape().equals(RECTANGLE) && source.getShape().getShape().equals(CIRCLE) && testCircleRectangle(e, source)){
@@ -44,10 +46,10 @@ public class CollisionDetectionProcess implements IGameProcess{
                         System.out.println("hit2");
                     }
                     
-//                    if(e.getShape().getShape().equals(RECTANGLE) && source.getShape().getShape().equals(RECTANGLE) && testRectangleRectangle(e, source)){
-//                        e.addEvent(new HitEvent(HIT, source));
-//                        System.out.println("hit3");
-//                    }
+                    if(e.getShape().getShape().equals(RECTANGLE) && source.getShape().getShape().equals(RECTANGLE) && testRectangleRectangle(e, source)){
+                        e.addEvent(new HitEvent(HIT, source));
+                        System.out.println("hit3");
+                    }
                 }
             }
         }
@@ -67,14 +69,10 @@ public class CollisionDetectionProcess implements IGameProcess{
         boolean rect1RightRect2Left = (current.getPosition().getX()+rectangle1.getWidth()/2) > (source.getPosition().getX()-rectangle2.getWidth()/2);
 
         
-        if(rect1TopRect2Bot && rect1LeftRect2Right || rect1TopRect2Bot && rect1RightRect2Left){
+        if(rect1TopRect2Bot && rect1LeftRect2Right && rect1RightRect2Left && rect1BotRect2Top){
             return true;
         }
-        
-        if(rect1BotRect2Top && rect1LeftRect2Right || rect1BotRect2Top && rect1RightRect2Left){
-            return true;
-        }
-        
+
         return false;
     }
     

@@ -19,7 +19,7 @@ public class EarthPlatform extends Platform{
         //Entity
         setVelocity(0,0);
         setSprite(url);
-        setShape(new Rectangle(20, 5));
+        setShape(new Rectangle(120, 10));
         setAngle(0);
         setPosition(x ,y);
     }   
