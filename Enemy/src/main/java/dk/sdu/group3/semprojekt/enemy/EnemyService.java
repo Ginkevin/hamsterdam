@@ -1,7 +1,11 @@
 package dk.sdu.group3.semprojekt.enemy;
 
 import dk.sdu.group3.semprojekt.common.data.Event;
+import dk.sdu.group3.semprojekt.common.data.HitEvent;
+import dk.sdu.group3.semprojekt.common.data.Platform;
 import dk.sdu.group3.semprojekt.common.data.World;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.HIT;
+import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
 import org.openide.util.lookup.ServiceProvider;
@@ -15,8 +19,33 @@ public class EnemyService implements IGameProcess{
     @Override
     public void process(int delta, World world) {
        	List<IEntity> entities = world.getEntities();
+        
 
         entities.stream().filter(entity -> entity instanceof Enemy).forEach(entity -> {
+            
+            
+            int hitCounter = 0;
+                for(Event k : entity.getEvents())
+                {
+                    if(k.getEvent() == HIT)
+                    {
+                        HitEvent hit = (HitEvent) k;
+                        if(hit.getSource() instanceof Platform)
+                        {
+                            hitCounter++;
+                            ICharacter c = (ICharacter) entity;
+                            c.setFalling(false);
+                            entity.removeEvent(k);
+                        }
+                    }
+                }
+                // if hitCounter == 0(no hit with platforms), entity should fall.
+                if(hitCounter == 0) 
+                {
+                    ICharacter c = (ICharacter) entity;
+                    c.setFalling(true);
+                }
+            
             for (Event e : entity.getEvents()) {
                 switch(e.getEvent()){
                     case LEFT:

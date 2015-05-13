@@ -30,6 +30,7 @@ public class Player extends Character{
         //Character
         setHP(1);
         setWeapon(new Weapon());
-        setCharacterEnum(CharacterEnum.PLAYER);   
+        setCharacterEnum(CharacterEnum.PLAYER);  
+        setFalling(true);
     }
 }

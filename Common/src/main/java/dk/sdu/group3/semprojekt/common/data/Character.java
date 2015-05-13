@@ -16,6 +16,8 @@ public class Character extends Entity implements ICharacter{
     private int hp;
     private Weapon weapon;
     private CharacterEnum type;
+    private Boolean falling;
+  
     
     public void setHP(int hp){
         this.hp = hp;
@@ -39,5 +41,12 @@ public class Character extends Entity implements ICharacter{
     
     public CharacterEnum getCharacterEnum(){
         return type;
+    }
+       public Boolean getFalling() {
+        return falling;
+    }
+
+    public void setFalling(Boolean falling) {
+        this.falling = falling;
     }
 }

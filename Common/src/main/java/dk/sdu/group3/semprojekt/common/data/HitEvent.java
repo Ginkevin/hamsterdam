@@ -18,5 +18,9 @@ public class HitEvent extends Event{
     public HitEvent(EventEnum e, IEntity source) {
         super(e);
         this.source = source;
-    }    
+    }
+    
+    public IEntity getSource() {
+        return source;
+    }
 }
