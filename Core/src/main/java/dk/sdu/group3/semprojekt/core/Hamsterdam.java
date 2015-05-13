@@ -95,13 +95,11 @@ public class Hamsterdam extends Game.Default {
 
             ImageLayer spriteLayer = e.getView();
 
-//            Vector p = new Vector(0,0);//e.getPosition();
             Vector p = e.getPosition();
             float r = e.getAngle();
             float s = e.getScale();
 
 
-//            System.out.println(p);
             spriteLayer.setTranslation(p.getX(), p.getY());
             spriteLayer.setRotation(r);
             spriteLayer.setScale(s);
