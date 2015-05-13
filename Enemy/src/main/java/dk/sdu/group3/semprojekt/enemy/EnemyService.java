@@ -37,14 +37,13 @@ public class EnemyService implements IGameProcess{
     }
 
     private void moveLeft(IEntity entity, World world, Event e) {
-
-        entity.setVelocity(-1, 0);
+        entity.setVelocity(-1, entity.getVelocity().getY());
         world.removeEvent(e);
     }
 
     private void moveRight(IEntity entity, World world, Event e) {
-        ;
-        entity.setVelocity(1, 0);
+        
+        entity.setVelocity(1, entity.getVelocity().getY());
         world.removeEvent(e);
     }
 
