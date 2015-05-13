@@ -45,7 +45,6 @@ public class PlayerService implements IGameProcess{
                     if(e.getEvent() == SPACE){
 			    Event event = new Event(SHOOT);
 			    entity.addEvent(event);
-			    world.removeEvent(e);
                     }                    
                     if(e.getEvent() == CTRL){
                         Event event = new Event(SHOOT);
@@ -55,5 +54,4 @@ public class PlayerService implements IGameProcess{
             }
         }
     }
-
 }

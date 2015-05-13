@@ -92,7 +92,10 @@ public class InputPlugin implements IGamePlugin{
                     break;
 
                 case SPACE:
-
+		for (Event e : world.getMoveEvents()){
+			if(e.getEvent() == SPACE)
+				world.removeEvent(e);
+		}
                     break;
 
                 default:

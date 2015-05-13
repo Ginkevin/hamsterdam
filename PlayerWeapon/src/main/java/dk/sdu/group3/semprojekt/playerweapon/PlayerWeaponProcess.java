@@ -20,19 +20,27 @@ import org.openide.util.lookup.ServiceProvider;
  */
 @ServiceProvider(service = IGameProcess.class)
 public class PlayerWeaponProcess implements IGameProcess {
+
 	@Override
 	public void process(int delta, World world) {
+
 		for (IEntity e : world.getEntities()) {
 			if (e instanceof ICharacter) {
 				if (((ICharacter) e).getWeapon() instanceof PlayerWeapon) {
+					PlayerWeapon w = (PlayerWeapon) ((ICharacter) e).getWeapon();
+					w.reduceCoolDown(delta);
 					for (Event ev : e.getEvents()) {
 						if (ev.getEvent() == SHOOT) {
-							System.out.println("SKYD2");
-							Joint j = new Joint();
-							j.setPosition(e.getPosition().getX()+10, e.getPosition().getY());
-							j.setAngle(e.getAngle());
-							j.setVelocity(10, 10);
-							world.addEntity(j);
+							if (w.canShoot()) {
+								System.out.println("SKYD");
+//								Joint j = new Joint();
+//								j.setPosition(e.getPosition().getX() + 10, e.getPosition().getY());
+//								j.setAngle(e.getAngle());
+//								j.setVelocity(10, 10);
+//								world.addEntity(j);
+								w.shoot();
+							}
+
 							e.removeEvent(ev);
 						}
 					}
