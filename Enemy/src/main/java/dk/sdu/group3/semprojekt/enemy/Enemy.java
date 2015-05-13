@@ -10,7 +10,7 @@ public class Enemy extends Character{
     
     public Enemy(){
         //Entity
-        setPosition(200,50);
+        setPosition(100,50);
         setVelocity(0,0);
         setSprite(url);
         setShape(new Circle(40));
@@ -20,5 +20,6 @@ public class Enemy extends Character{
         setHP(1);
         setWeapon(new Weapon());
         setCharacterEnum(CharacterEnum.ENEMY);
+        setFalling(true);
     }
 }

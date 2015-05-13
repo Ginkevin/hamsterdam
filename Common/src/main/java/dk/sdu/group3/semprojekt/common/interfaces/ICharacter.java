@@ -19,4 +19,6 @@ public interface ICharacter {
     void setWeapon(Weapon weapon);
     CharacterEnum getCharacterEnum();
     void setCharacterEnum(CharacterEnum type);
+    Boolean getFalling();
+    void setFalling(Boolean b);
 }
