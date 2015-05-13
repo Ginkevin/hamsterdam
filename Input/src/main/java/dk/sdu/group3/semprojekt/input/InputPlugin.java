@@ -65,6 +65,7 @@ public class InputPlugin implements IGamePlugin{
         
         @Override
         public void onKeyTyped(Keyboard.TypedEvent te) {
+
         }
 
         @Override
@@ -91,10 +92,7 @@ public class InputPlugin implements IGamePlugin{
                     break;
 
                 case SPACE:
-                    for(Event e : world.getMoveEvents()){
-                        if(e.getEvent() == SPACE)
-                            world.removeEvent(e);
-                    }  
+
                     break;
 
                 default:

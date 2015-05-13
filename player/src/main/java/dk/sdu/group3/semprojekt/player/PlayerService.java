@@ -43,7 +43,9 @@ public class PlayerService implements IGameProcess{
                         entity.setVelocity(-1, 0);
                     }                   
                     if(e.getEvent() == SPACE){
-                        //JUMP
+			    Event event = new Event(SHOOT);
+			    entity.addEvent(event);
+			    world.removeEvent(e);
                     }                    
                     if(e.getEvent() == CTRL){
                         Event event = new Event(SHOOT);

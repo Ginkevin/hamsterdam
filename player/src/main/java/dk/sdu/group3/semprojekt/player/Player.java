@@ -32,7 +32,5 @@ public class Player extends Character{
         setHP(1);
         setWeapon(new Weapon());
         setCharacterEnum(CharacterEnum.PLAYER);   
-        
-        addEvent(new Event(SHOOT));
     }
 }

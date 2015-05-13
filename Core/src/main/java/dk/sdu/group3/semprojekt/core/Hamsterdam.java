@@ -42,6 +42,9 @@ public class Hamsterdam extends Game.Default {
 
         Lookup.Result<IGamePlugin> result = Lookup.getDefault().lookupResult(IGamePlugin.class);
         plugins = new ArrayList<>(result.allInstances());
+	for (IGamePlugin pl : plugins){
+		System.out.println(pl.getClass());
+	}
         System.out.println("IGamePlugins: " + plugins.size());
 
         for (IGamePlugin p : plugins) {

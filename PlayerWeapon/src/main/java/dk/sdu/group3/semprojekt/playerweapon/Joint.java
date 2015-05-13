@@ -14,7 +14,7 @@ import dk.sdu.group3.semprojekt.common.data.ShapeEnum;
  */
 public class Joint extends Bullet {
 
-	private String url = this.getClass().getClassLoader().getResource("images/Hale.png").toExternalForm();
+	private String url = this.getClass().getClassLoader().getResource("images/joint.png").toExternalForm();
 
 	public Joint() {
 		//Entity
