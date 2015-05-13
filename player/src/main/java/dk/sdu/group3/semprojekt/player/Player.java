@@ -17,7 +17,7 @@ import dk.sdu.group3.semprojekt.common.data.Weapon;
  * @author mads_000
  */
 public class Player extends Character{
-    private String url = this.getClass().getClassLoader().getResource("images/player.png").toExternalForm();
+    private String url = this.getClass().getClassLoader().getResource("images/player_fw.png").toExternalForm();
     
     public Player(){
         //Entity

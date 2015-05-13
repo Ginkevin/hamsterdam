@@ -6,7 +6,7 @@ import dk.sdu.group3.semprojekt.common.enums.CharacterEnum;
 import dk.sdu.group3.semprojekt.common.data.Weapon;
 
 public class Enemy extends Character{
-    private String url = this.getClass().getClassLoader().getResource("images/LuderHamster.png").toExternalForm();
+    private String url = this.getClass().getClassLoader().getResource("images/enemy_fw.png").toExternalForm();
     
     public Enemy(){
         //Entity
