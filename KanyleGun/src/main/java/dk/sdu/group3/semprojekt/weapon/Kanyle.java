@@ -6,7 +6,7 @@
 package dk.sdu.group3.semprojekt.weapon;
 
 import dk.sdu.group3.semprojekt.common.data.Bullet;
-import dk.sdu.group3.semprojekt.common.data.ShapeEnum;
+import dk.sdu.group3.semprojekt.common.data.Rectangle;
 
 /**
  *
@@ -22,9 +22,8 @@ public class Kanyle extends Bullet{
         b.setPosition(100, 100);
         b.setVelocity(0, 0);
         b.setSprite(url);
-        b.setShape(ShapeEnum.SQUARE);
+        b.setShape(new Rectangle(20, 5));
         b.setAngle(0);
-        b.setRadius(10);
         
         //Bullet
         b.setDamage(1);

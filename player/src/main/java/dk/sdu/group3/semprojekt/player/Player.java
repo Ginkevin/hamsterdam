@@ -6,10 +6,10 @@
 package dk.sdu.group3.semprojekt.player;
 
 import dk.sdu.group3.semprojekt.common.data.Character;
-import dk.sdu.group3.semprojekt.common.data.CharacterEnum;
+import dk.sdu.group3.semprojekt.common.data.Circle;
+import dk.sdu.group3.semprojekt.common.enums.CharacterEnum;
 import dk.sdu.group3.semprojekt.common.data.Event;
-import static dk.sdu.group3.semprojekt.common.data.EventEnum.SHOOT;
-import dk.sdu.group3.semprojekt.common.data.ShapeEnum;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SHOOT;
 import dk.sdu.group3.semprojekt.common.data.Weapon;
 
 /**
@@ -24,9 +24,8 @@ public class Player extends Character{
         setPosition(340, 50);
         setVelocity(0, 0);
         setSprite(url);
-        setShape(ShapeEnum.CIRCLE);
+        setShape(new Circle(40));
         setAngle(0);
-        setRadius(50);
         
         //Character
         setHP(1);

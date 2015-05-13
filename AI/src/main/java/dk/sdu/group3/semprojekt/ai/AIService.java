@@ -1,5 +1,7 @@
 package dk.sdu.group3.semprojekt.ai;
 
+import dk.sdu.group3.semprojekt.common.enums.EventEnum;
+import dk.sdu.group3.semprojekt.common.enums.CharacterEnum;
 import dk.sdu.group3.semprojekt.common.data.*;
 import dk.sdu.group3.semprojekt.common.data.Character;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;

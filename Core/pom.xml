@@ -57,17 +57,6 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Common</artifactId>
-            <version>${project.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>dk.sdu.group3.semprojekt</groupId>
-                    <artifactId>PlayLibrary</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>PlayLibrary</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -119,6 +108,11 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>Input</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Common</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

@@ -5,7 +5,8 @@
  */
 package dk.sdu.group3.semprojekt.playerweapon;
 
-import dk.sdu.group3.semprojekt.common.data.CharacterEnum;
+import dk.sdu.group3.semprojekt.common.enums.CharacterEnum;
+import dk.sdu.group3.semprojekt.common.data.Weapon;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;

@@ -5,6 +5,7 @@
  */
 package dk.sdu.group3.semprojekt.common.data;
 
+import dk.sdu.group3.semprojekt.common.enums.EventEnum;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 
 /**

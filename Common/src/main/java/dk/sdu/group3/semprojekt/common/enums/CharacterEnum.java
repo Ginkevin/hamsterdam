@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.group3.semprojekt.common.data;
+package dk.sdu.group3.semprojekt.common.enums;
 
 /**
  *
  * @author mads_000
  */
-public enum EventEnum {
-    A, S, D, SPACE, CTRL, SHOOT,
-    HIT,
-    LEFT,RIGHT,JUMP,CROUCH;
+public enum CharacterEnum {
+    PLAYER, ENEMY;
 }

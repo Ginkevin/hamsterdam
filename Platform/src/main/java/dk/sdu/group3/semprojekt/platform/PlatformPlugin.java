@@ -19,25 +19,18 @@ import java.util.List;
 
 @ServiceProvider (service = IGamePlugin.class)
 public class PlatformPlugin implements IGamePlugin{
-    
-    List<Platform> listOfPlatforms;
-    private final String url = this.getClass().getClassLoader().getResource("images/platform.png").toExternalForm();
+    private List<Platform> platforms = new ArrayList();
     
     @Override
     public void start(World world) {
-        listOfPlatforms = new ArrayList();
-        for (int i = 0; i < 5; i++) {
-            listOfPlatforms.add(new Platform());
-            listOfPlatforms.get(i).setSprite(url);
-        }
+        platforms.add(new EarthPlatform(35f, 480f));
+        platforms.add(new EarthPlatform(104f, 250f));
+        platforms.add(new EarthPlatform(391f, 325f));
+        platforms.add(new EarthPlatform(650f, 475f));
+        platforms.add(new EarthPlatform(581f, 325f));
+        platforms.add(new EarthPlatform(581f, 176f));
         
-        listOfPlatforms.get(0).setPosition(200, 300);
-        listOfPlatforms.get(1).setPosition(250, 350);
-        listOfPlatforms.get(2).setPosition(300, 400);
-        listOfPlatforms.get(3).setPosition(350, 450);
-        listOfPlatforms.get(4).setPosition(400, 500);
-        
-        listOfPlatforms.stream().forEach((p) -> {
+        platforms.stream().forEach((p) -> {
             world.addEntity(p);
         });
         
@@ -45,7 +38,7 @@ public class PlatformPlugin implements IGamePlugin{
 
     @Override
     public void stop(World world) {
-        listOfPlatforms.stream().forEach((p) -> {
+        platforms.stream().forEach((p) -> {
             world.getEntities().remove(p);
         });
     }
