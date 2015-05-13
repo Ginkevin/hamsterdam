@@ -39,10 +39,10 @@ public class PlayerService implements IGameProcess{
                         //DUCK
                     }
                     if(e.getEvent() == D){
-                        entity.setVelocity(entity.getVelocity().getX()+1, entity.getVelocity().getY());
+                        entity.setVelocity(1, entity.getVelocity().getY());
                     }
                     if(e.getEvent() == A){
-                        entity.setVelocity(entity.getVelocity().getX()-1, entity.getVelocity().getY());
+                        entity.setVelocity(-1, entity.getVelocity().getY());
                     }                     
                     if(e.getEvent() == SPACE){
                         Event event = new Event(JUMP);
