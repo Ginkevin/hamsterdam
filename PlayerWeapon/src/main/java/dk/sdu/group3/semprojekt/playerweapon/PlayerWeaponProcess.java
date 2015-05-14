@@ -13,6 +13,11 @@ import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
 import org.openide.util.lookup.ServiceProvider;
+import playn.core.Image;
+import playn.core.ImageLayer;
+import static playn.core.PlayN.assets;
+import static playn.core.PlayN.graphics;
+import playn.core.util.Callback;
 
 /**
  *
@@ -36,11 +41,10 @@ public class PlayerWeaponProcess implements IGameProcess {
 //								Joint j = new Joint();
 //								j.setPosition(e.getPosition().getX() + 10, e.getPosition().getY());
 //								j.setAngle(e.getAngle());
-//								j.setVelocity(10, 10);
+//								j.setVelocity(2, 0);
 //								world.addEntity(j);
 								w.shoot();
 							}
-
 							e.removeEvent(ev);
 						}
 					}
@@ -48,4 +52,23 @@ public class PlayerWeaponProcess implements IGameProcess {
 			}
 		}
 	}
+
+	private void createView(IEntity entity) {
+		Image image = assets().getRemoteImage(entity.getSprite());
+		final ImageLayer viewLayer = graphics().createImageLayer(image);
+
+		image.addCallback(new Callback<Image>() {
+			@Override
+			public void onSuccess(Image t) {
+				viewLayer.setOrigin(t.width() / 2f, t.height() / 2f);
+			}
+
+			@Override
+			public void onFailure(Throwable thrwbl) {
+				thrwbl.printStackTrace();
+			}
+		});
+		entity.setView(viewLayer);
+	}
+
 }

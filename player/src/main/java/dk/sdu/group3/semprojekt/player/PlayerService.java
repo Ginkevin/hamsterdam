@@ -21,6 +21,7 @@ import dk.sdu.group3.semprojekt.common.data.World;
 import static dk.sdu.group3.semprojekt.common.enums.CharacterEnum.ENEMY;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.DESTROY;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.HIT;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.W;
 import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
@@ -32,9 +33,16 @@ import org.openide.util.lookup.ServiceProvider;
  */
 @ServiceProvider(service = IGameProcess.class)
 public class PlayerService implements IGameProcess {
+	int jumpCooldown = 1600, currentJumpCooldown = 1600;
+	boolean jump = true;
 
     @Override
     public void process(int delta, World world) {
+	  currentJumpCooldown-=delta;
+	  if (currentJumpCooldown <= 0){
+		  jump = true;
+		  currentJumpCooldown = jumpCooldown;
+	  }
         for (IEntity entity : world.getEntities()) {
             if (entity instanceof Player) {
                 Boolean hitByPlatform = false;
@@ -76,6 +84,12 @@ public class PlayerService implements IGameProcess {
                     entity.addEvent(event);
                 }
                 for (Event e : world.getMoveEvents()) {
+			if (e.getEvent() == W){
+				if (jump){
+				 	entity.setVelocity(entity.getVelocity().getX(), -15);
+					jump = false;
+				}
+			}
                     if (e.getEvent() == S) {
                         //DUCK
                     }
@@ -96,5 +110,9 @@ public class PlayerService implements IGameProcess {
                 }
             }
         }
+    }
+
+    private void jump(int i){
+	    
     }
 }

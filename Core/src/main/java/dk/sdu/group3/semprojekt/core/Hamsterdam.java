@@ -2,7 +2,9 @@ package dk.sdu.group3.semprojekt.core;
 
 import dk.sdu.group3.semprojekt.common.data.Entity;
 import dk.sdu.group3.semprojekt.common.data.Event;
+import dk.sdu.group3.semprojekt.common.data.Joint;
 import dk.sdu.group3.semprojekt.common.data.Level;
+import dk.sdu.group3.semprojekt.common.data.Vector;
 import dk.sdu.group3.semprojekt.common.data.World;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.DESTROY;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
@@ -57,6 +59,7 @@ public class Hamsterdam extends Game.Default {
         }
         
         setBackground(world.getLevel());
+
     }
 
     @Override
@@ -117,6 +120,7 @@ public class Hamsterdam extends Game.Default {
     }
 
     private void createView(IEntity entity) {
+	    System.out.println("Creating sprite from path:"+entity.getSprite()+"for entity:"+entity.toString());
         Image image = assets().getRemoteImage(entity.getSprite());
         final ImageLayer viewLayer = graphics().createImageLayer(image);
 
@@ -124,6 +128,7 @@ public class Hamsterdam extends Game.Default {
             @Override
             public void onSuccess(Image t) {
                 viewLayer.setOrigin(t.width() / 2f, t.height() / 2f);
+		rootLayer.add(viewLayer);
             }
 
             @Override
@@ -133,7 +138,6 @@ public class Hamsterdam extends Game.Default {
         });
         
         entity.setView(viewLayer);
-        rootLayer.add(entity.getView());
     }
     
     private Collection<? extends IGameProcess> getEntityProcessingServices() {
