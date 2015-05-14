@@ -32,6 +32,7 @@ public class Hamsterdam extends Game.Default {
     private World world;
     private List<IGamePlugin> plugins;
     private GroupLayer rootLayer;
+    private ImageLayer bgLayer;
 
     public Hamsterdam() {
         super(33);
@@ -42,19 +43,18 @@ public class Hamsterdam extends Game.Default {
         world = new World();
 
         rootLayer = graphics().rootLayer();
-
+        
         Lookup.Result<IGamePlugin> result = lookup.lookupResult(IGamePlugin.class);
         result.addLookupListener(lookupListener);
         plugins = new ArrayList(result.allInstances());
         result.allItems();
-        
-	for (IGamePlugin pl : plugins){
-            System.out.println(pl.getClass());
-	}
 
         for (IGamePlugin p : plugins) {
             p.start(world);
+            System.out.println(p.getClass());
         }
+        
+        setBackground(world.getLevel());
     }
 
     @Override
@@ -66,36 +66,23 @@ public class Hamsterdam extends Game.Default {
         }
     }
 
-    private ImageLayer bgLayer;
     @Override
     public void paint(float alpha) {
         clock.paint(alpha);
-        
-        if (bgLayer==null) {
-            createBackground(world.getLevel());
-        }
-
-        rootLayer.add(bgLayer);
 
         for (IEntity e : world.getEntities()) {
-            if (e.getView() == null) e.setView(createView(e));
-
+            if (e.getView() == null) 
+                createView(e);
+            
             ImageLayer spriteLayer = e.getView();
 
-            Vector p = e.getPosition();
-            float r = e.getAngle();
-            float s = e.getScale();
-
-
-            spriteLayer.setTranslation(p.getX(), p.getY());
-            spriteLayer.setRotation(r);
-            spriteLayer.setScale(s);
-
-            rootLayer.add(spriteLayer);
+            spriteLayer.setTranslation(e.getPosition().getX(), e.getPosition().getY());
+            spriteLayer.setRotation(e.getAngle());
+            spriteLayer.setScale(e.getScale());
         }
     }
     
-    private ImageLayer createBackground(Level l){
+    private void setBackground(Level l){
         Level level = world.getLevel();
         Image image = assets().getRemoteImage(level.getBackground());
         final ImageLayer viewLayer = graphics().createImageLayer(image);
@@ -111,11 +98,12 @@ public class Hamsterdam extends Game.Default {
                 thrwbl.printStackTrace();
             }
         });
-            
-        return bgLayer = viewLayer;
+        
+        bgLayer = viewLayer;
+        rootLayer.add(bgLayer);
     }
 
-    private ImageLayer createView(IEntity entity) {
+    private void createView(IEntity entity) {
         Image image = assets().getRemoteImage(entity.getSprite());
         final ImageLayer viewLayer = graphics().createImageLayer(image);
 
@@ -130,8 +118,9 @@ public class Hamsterdam extends Game.Default {
                 thrwbl.printStackTrace();
             }
         });
-
-        return viewLayer;
+        
+        entity.setView(viewLayer);
+        rootLayer.add(viewLayer);
     }
     
     private Collection<? extends IGameProcess> getEntityProcessingServices() {
