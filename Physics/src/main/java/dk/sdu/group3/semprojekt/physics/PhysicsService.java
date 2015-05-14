@@ -20,7 +20,6 @@ public class PhysicsService implements IGameProcess {
             ICharacter c = (ICharacter) entity;
             if (c.getFalling() == false) {
                 entity.setVelocity(entity.getVelocity().getX(), 0);
-
             } else if (c.getFalling() == true) {
                 Vector gravity = new Vector(0, 1);
                 entity.setVelocity(entity.getVelocity().plus(gravity));

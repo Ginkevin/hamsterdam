@@ -61,4 +61,9 @@ public class World {
     public Level getLevel(){
         return level;
     }
+    
+    public void removeEntity(IEntity e)
+    {
+        entities.remove(e);
+    }
 }

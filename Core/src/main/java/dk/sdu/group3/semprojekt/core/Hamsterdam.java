@@ -138,4 +138,10 @@ public class Hamsterdam extends Game.Default {
             }
         }
     };
+    
+    public void RemoveLayer(IEntity e)
+    {
+        ImageLayer entityLayer = e.getView();
+        rootLayer.remove(entityLayer);
+    }
 }
