@@ -24,7 +24,7 @@ public class Player extends Character{
         setPosition(340, 50);
         setVelocity(0, 0);
         setSprite(url);
-        setShape(new Circle(40));
+        setShape(new Circle(45));
         setAngle(0);
         
         //Character
