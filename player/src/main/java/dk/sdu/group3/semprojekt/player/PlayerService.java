@@ -19,10 +19,15 @@ import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SHOOT;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SPACE;
 import dk.sdu.group3.semprojekt.common.data.World;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.HIT;
+import static dk.sdu.group3.semprojekt.common.enums.FaceDirection.LEFT;
+import static dk.sdu.group3.semprojekt.common.enums.FaceDirection.RIGHT;
 import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
+import java.util.List;
+import org.openide.util.Exceptions;
 import org.openide.util.lookup.ServiceProvider;
+import playn.core.ImageLayer;
 
 /**
  *
@@ -30,6 +35,7 @@ import org.openide.util.lookup.ServiceProvider;
  */
 @ServiceProvider(service = IGameProcess.class)
 public class PlayerService implements IGameProcess {
+    
 
     @Override
     public void process(int delta, World world) {
@@ -37,6 +43,9 @@ public class PlayerService implements IGameProcess {
             if (entity instanceof Player) {
                 Boolean hitByPlatform = false;
                 ICharacter c = (ICharacter) entity;
+                c.setFaceDirection(RIGHT);
+                List<ImageLayer> imagesFW = c.getViewsFW();
+                List<ImageLayer> imagesBW = c.getViewsBW();
                 if (world.getMoveEvents().isEmpty()) {
                     entity.setVelocity(0, entity.getVelocity().getY());
                 }
@@ -77,9 +86,24 @@ public class PlayerService implements IGameProcess {
                     }
                     if (e.getEvent() == D) {
                         entity.setVelocity(1, entity.getVelocity().getY());
+                        for (int i = 0; i < imagesFW.size(); i++) {
+//                            Thread thread = new Thread(){
+//                                public void run(){
+//                                    world.getRootLayer().remove(entity.getView());
+//                                    entity.setView(imagesFW.get(i));
+//                                    world.getRootLayer().add(entity.getView());
+//                                }
+//                            };
+//                            thread.start();
+                        }
+                        c.setFaceDirection(RIGHT);
                     }
                     if (e.getEvent() == A) {
                         entity.setVelocity(-1, entity.getVelocity().getY());
+                        world.getRootLayer().remove(entity.getView());
+                        entity.setView(imagesBW.get(0));
+                        world.getRootLayer().add(entity.getView());
+                        c.setFaceDirection(LEFT);
                     }
                     if (e.getEvent() == SPACE) {
                         Event event = new Event(SHOOT);

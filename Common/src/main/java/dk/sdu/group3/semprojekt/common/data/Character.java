@@ -6,8 +6,10 @@
 package dk.sdu.group3.semprojekt.common.data;
 
 import dk.sdu.group3.semprojekt.common.enums.CharacterEnum;
+import dk.sdu.group3.semprojekt.common.enums.FaceDirection;
 import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
 import java.util.List;
+import playn.core.ImageLayer;
 
 /**
  *
@@ -18,15 +20,60 @@ public class Character extends Entity implements ICharacter{
     private Weapon weapon;
     private CharacterEnum type;
     private Boolean falling;
-    private List<String> paths;
+    private List<String> pathsFW;
+    private List<ImageLayer> viewsFW;
+    private List<String> pathsBW;
+    private List<ImageLayer> viewsBW;
+    private FaceDirection faceDirection;
     
     @Override
-    public List<String> getPaths(){
-        return paths;
+    public List<String> getPathsFW(){
+        return pathsFW;
     }
     
-    public void setPaths(List<String> paths){
-        this.paths = paths;
+    @Override
+    public void setPathsFW(List<String> paths){
+        this.pathsFW = paths;
+    }
+    
+    @Override
+    public List<ImageLayer> getViewsFW(){
+        return viewsFW;
+    }
+    
+    @Override
+    public void setViewsFW(List<ImageLayer> views){
+        this.viewsFW = views;
+    }
+    
+    @Override
+    public List<String> getPathsBW() {
+        return pathsBW;
+    }
+
+    @Override
+    public void setPathsBW(List<String> paths) {
+        this.pathsBW = paths;
+    }
+
+    @Override
+    public List<ImageLayer> getViewsBW() {
+        return viewsBW;
+    }
+
+    @Override
+    public void setViewsBW(List<ImageLayer> views) {
+        this.viewsBW = views;
+    }
+    
+    @Override
+    public FaceDirection getFaceDirection(){
+        return faceDirection;
+    }
+    
+    @Override
+    public void setFaceDirection(FaceDirection fc){
+        this.faceDirection = fc;
     }
     
     @Override

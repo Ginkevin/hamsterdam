@@ -1,7 +1,9 @@
 package dk.sdu.group3.semprojekt.core;
 
+import dk.sdu.group3.semprojekt.common.data.Entity;
 import dk.sdu.group3.semprojekt.common.data.Level;
 import dk.sdu.group3.semprojekt.common.data.World;
+import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
@@ -54,6 +56,7 @@ public class Hamsterdam extends Game.Default {
         }
         
         setBackground(world.getLevel());
+        world.setRootLayer(rootLayer);
     }
 
     @Override
@@ -72,6 +75,13 @@ public class Hamsterdam extends Game.Default {
         for (IEntity e : world.getEntities()) {
             if (e.getView() == null) 
                 createView(e);
+            
+            if(e instanceof ICharacter){
+                ICharacter c = (ICharacter) e;
+                if(c.getViewsFW() == null && c.getViewsBW() == null)
+                    loadImagesFW(c);
+                    loadImagesBW(c);
+            }
             
             ImageLayer spriteLayer = e.getView();
 
@@ -120,6 +130,49 @@ public class Hamsterdam extends Game.Default {
         
         entity.setView(viewLayer);
         rootLayer.add(viewLayer);
+        
+    }
+    
+    public void loadImagesFW(ICharacter character){
+        List<ImageLayer> listOfImagesFW = new ArrayList();
+        for(String s : character.getPathsFW()){
+            Image image = assets().getRemoteImage(s);
+            final ImageLayer viewLayer = graphics().createImageLayer(image);
+            listOfImagesFW.add(viewLayer);
+            image.addCallback(new Callback<Image>() {
+            @Override
+            public void onSuccess(Image t) {
+                viewLayer.setOrigin(t.width() / 2f, t.height() / 2f);
+            }
+
+            @Override
+            public void onFailure(Throwable thrwbl) {
+                thrwbl.printStackTrace();
+            }
+        });
+        }
+        character.setViewsFW(listOfImagesFW); 
+    }
+    
+    public void loadImagesBW(ICharacter character){
+        List<ImageLayer> listOfImagesBW = new ArrayList();
+        for(String s : character.getPathsBW()){
+            Image image = assets().getRemoteImage(s);
+            final ImageLayer viewLayer = graphics().createImageLayer(image);
+            listOfImagesBW.add(viewLayer);
+            image.addCallback(new Callback<Image>() {
+            @Override
+            public void onSuccess(Image t) {
+                viewLayer.setOrigin(t.width() / 2f, t.height() / 2f);
+            }
+
+            @Override
+            public void onFailure(Throwable thrwbl) {
+                thrwbl.printStackTrace();
+            }
+        });
+        }
+        character.setViewsBW(listOfImagesBW); 
     }
     
     private Collection<? extends IGameProcess> getEntityProcessingServices() {

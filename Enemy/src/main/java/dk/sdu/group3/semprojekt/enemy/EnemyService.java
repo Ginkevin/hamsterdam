@@ -8,12 +8,15 @@ import dk.sdu.group3.semprojekt.common.data.Platform;
 import dk.sdu.group3.semprojekt.common.data.Rectangle;
 import dk.sdu.group3.semprojekt.common.data.World;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.HIT;
+import static dk.sdu.group3.semprojekt.common.enums.FaceDirection.LEFT;
+import static dk.sdu.group3.semprojekt.common.enums.FaceDirection.RIGHT;
 import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
 import org.openide.util.lookup.ServiceProvider;
 
 import java.util.List;
+import playn.core.ImageLayer;
 
 @ServiceProvider(service = IGameProcess.class)
 public class EnemyService implements IGameProcess {
@@ -27,6 +30,9 @@ public class EnemyService implements IGameProcess {
         entities.stream().filter(entity -> entity instanceof Enemy).forEach(entity -> {
             ICharacter c = (ICharacter) entity;
             Boolean hitByPlatform = false;
+            c.setFaceDirection(RIGHT);
+            List<ImageLayer> imagesFW = c.getViewsFW();
+            List<ImageLayer> imagesBW = c.getViewsBW();
             for (Event k : entity.getEvents()) {
                 if (k.getEvent() == HIT) {
                     HitEvent hit = (HitEvent) k;
@@ -62,9 +68,17 @@ public class EnemyService implements IGameProcess {
                 switch (e.getEvent()) {
                     case LEFT:
                         moveLeft(entity, world, e);
+                        world.getRootLayer().remove(entity.getView());
+                        entity.setView(imagesBW.get(0));
+                        world.getRootLayer().add(entity.getView());
+                        c.setFaceDirection(RIGHT);
                         break;
                     case RIGHT:
                         moveRight(entity, world, e);
+                        world.getRootLayer().remove(entity.getView());
+                        entity.setView(imagesFW.get(0));
+                        world.getRootLayer().add(entity.getView());
+                        c.setFaceDirection(LEFT);
                         break;
                     case JUMP:
                         jump(entity, world, e);

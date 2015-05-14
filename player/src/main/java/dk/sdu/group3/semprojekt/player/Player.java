@@ -17,9 +17,16 @@ import java.util.ArrayList;
  */
 public class Player extends Character{
     public Player(){
-        ArrayList<String> paths = new ArrayList();
-        paths.add(this.getClass().getClassLoader().getResource("images/player_fw.png").toExternalForm());
-        paths.add(this.getClass().getClassLoader().getResource("images/player_bw.png").toExternalForm());
+        ArrayList<String> pathsFW = new ArrayList();
+        pathsFW.add(this.getClass().getClassLoader().getResource("images/player_fw_0.png").toExternalForm());
+        pathsFW.add(this.getClass().getClassLoader().getResource("images/player_fw_1.png").toExternalForm());
+        pathsFW.add(this.getClass().getClassLoader().getResource("images/player_fw_2.png").toExternalForm());
+        pathsFW.add(this.getClass().getClassLoader().getResource("images/player_fw_3.png").toExternalForm());
+        pathsFW.add(this.getClass().getClassLoader().getResource("images/player_fw_4.png").toExternalForm());
+        pathsFW.add(this.getClass().getClassLoader().getResource("images/player_fw_5.png").toExternalForm());
+        
+        ArrayList<String> pathsBW = new ArrayList();
+        pathsBW.add(this.getClass().getClassLoader().getResource("images/player_bw.png").toExternalForm());
         
         //Entity
         setPosition(340, 50);
@@ -33,6 +40,7 @@ public class Player extends Character{
         setWeapon(new Weapon());
         setCharacterEnum(CharacterEnum.PLAYER);  
         setFalling(true);
-        setPaths(paths);
+        setPathsFW(pathsFW);
+        setPathsBW(pathsBW);
     }
 }
