@@ -66,16 +66,6 @@ public class Hamsterdam extends Game.Default {
         for (IGameProcess p : getEntityProcessingServices()) {
             p.process(delta, world);
         }
-        for (IEntity entity : world.getEntities())
-        {
-            for (Event event : entity.getEvents())
-            {
-                if(event.getEvent() == DESTROY)
-                {
-                    DestroyEntity(entity);
-                }
-            }
-        }
         
     }
 
@@ -93,6 +83,16 @@ public class Hamsterdam extends Game.Default {
             spriteLayer.setRotation(e.getAngle());
             spriteLayer.setScale(e.getScale());
         }
+//        for (IEntity entity : world.getEntities())
+//        {
+//            for (Event event : entity.getEvents())
+//            {
+//                if(event.getEvent() == DESTROY)
+//                {
+//                    DestroyEntity(entity);
+//                }
+//            }
+//        }
     }
     
     private void setBackground(Level l){
@@ -133,7 +133,7 @@ public class Hamsterdam extends Game.Default {
         });
         
         entity.setView(viewLayer);
-        rootLayer.add(viewLayer);
+        rootLayer.add(entity.getView());
     }
     
     private Collection<? extends IGameProcess> getEntityProcessingServices() {
@@ -155,8 +155,11 @@ public class Hamsterdam extends Game.Default {
     
     private void DestroyEntity(IEntity e)
     {
-        ImageLayer entityLayer = e.getView();
-        rootLayer.remove(entityLayer);
-        world.getEntities().remove(e);
+        System.out.println("Removing view layer");
+        rootLayer.remove(e.getView());
+        System.out.println("view layer removed");
+        System.out.println("removing entity");
+        world.removeEntity(e);
+        System.out.println("entity removed");
     }
 }
