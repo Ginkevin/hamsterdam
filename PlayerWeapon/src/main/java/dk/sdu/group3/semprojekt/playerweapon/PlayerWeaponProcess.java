@@ -7,7 +7,6 @@ package dk.sdu.group3.semprojekt.playerweapon;
 
 import dk.sdu.group3.semprojekt.common.data.Event;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SHOOT;
-import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SPACE;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
@@ -20,32 +19,25 @@ import org.openide.util.lookup.ServiceProvider;
  */
 @ServiceProvider(service = IGameProcess.class)
 public class PlayerWeaponProcess implements IGameProcess {
+    @Override
+    public void process(int delta, World world) {
+        for (IEntity e : world.getEntities()) {
+            if (e instanceof ICharacter) {
+                if (((ICharacter) e).getWeapon() instanceof PlayerWeapon) {
+                    PlayerWeapon w = (PlayerWeapon) ((ICharacter) e).getWeapon();
+                    w.reduceCoolDown(delta);
+                    for (Event ev : e.getEvents()) {
+                        if (ev.getEvent() == SHOOT) {
+                            if (w.canShoot()) {
+                                world.addEntity(new Joint(e.getPosition().getX()+ 60, e.getPosition().getY()));
+                                w.shoot();
+                            }
 
-	@Override
-	public void process(int delta, World world) {
-
-		for (IEntity e : world.getEntities()) {
-			if (e instanceof ICharacter) {
-				if (((ICharacter) e).getWeapon() instanceof PlayerWeapon) {
-					PlayerWeapon w = (PlayerWeapon) ((ICharacter) e).getWeapon();
-					w.reduceCoolDown(delta);
-					for (Event ev : e.getEvents()) {
-						if (ev.getEvent() == SHOOT) {
-							if (w.canShoot()) {
-								System.out.println("SKYD");
-//								Joint j = new Joint();
-//								j.setPosition(e.getPosition().getX() + 10, e.getPosition().getY());
-//								j.setAngle(e.getAngle());
-//								j.setVelocity(10, 10);
-//								world.addEntity(j);
-								w.shoot();
-							}
-
-							e.removeEvent(ev);
-						}
-					}
-				}
-			}
-		}
-	}
+                            e.removeEvent(ev);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
