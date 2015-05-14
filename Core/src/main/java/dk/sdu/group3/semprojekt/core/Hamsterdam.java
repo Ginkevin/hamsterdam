@@ -1,7 +1,6 @@
 package dk.sdu.group3.semprojekt.core;
 
 import dk.sdu.group3.semprojekt.common.data.Level;
-import dk.sdu.group3.semprojekt.common.data.Vector;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
