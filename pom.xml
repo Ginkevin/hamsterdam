@@ -83,6 +83,7 @@
         <module>Platform</module>
         <module>KanyleGun</module>
         <module>PlayerWeapon</module>
+        <module>SilentUpdate</module>
     </modules>
 
     <properties>

@@ -35,8 +35,6 @@ public class PlayerService implements IGameProcess{
     public void process(int delta, World world) {
         for(IEntity entity : world.getEntities()){
             if(entity instanceof Player){
-                
-                System.out.println(entity.getEvents().size());
                 if(world.getMoveEvents().isEmpty()){
                     entity.setVelocity(0, entity.getVelocity().getY());
                 }
