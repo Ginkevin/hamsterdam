@@ -17,13 +17,11 @@ import dk.sdu.group3.semprojekt.common.data.Weapon;
  * @author mads_000
  */
 public class Player extends Character{
-    private String url = this.getClass().getClassLoader().getResource("images/player_fw.png").toExternalForm();
-    
     public Player(){
         //Entity
         setPosition(340, 50);
         setVelocity(0, 0);
-        setSprite(url);
+        setSprite(this.getClass().getClassLoader().getResource("images/player_fw.png").toExternalForm());
         setShape(new Circle(45));
         setAngle(0);
         

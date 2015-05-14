@@ -29,6 +29,7 @@ public class PlatformPlugin implements IGamePlugin{
         platforms.add(new EarthPlatform(650f, 475f));
         platforms.add(new EarthPlatform(581f, 325f));
         platforms.add(new EarthPlatform(581f, 176f));
+        platforms.add(new Street());
         
         platforms.stream().forEach((p) -> {
             world.addEntity(p);

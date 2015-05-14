@@ -17,28 +17,22 @@ import org.openide.util.lookup.ServiceProvider;
  */
 
 @ServiceProvider (service = IGamePlugin.class)
-public class LevelPlugin implements IGamePlugin{
-
-    Level l;
-    private final String url = this.getClass().getClassLoader().getResource("images/background.png").toExternalForm();
-    
+public class LevelPlugin implements IGamePlugin{    
     @Override
     public void start(World world) {
-        l = new Level();
+        Level l = new Level();
         
-        l.setBackground(url);
+        l.setBackground(this.getClass().getClassLoader().getResource("images/background.png").toExternalForm());
         
         world.getEntities().stream().filter((e) -> (e instanceof Platform)).forEach((e) -> {
             l.addPlatform((Platform) e);
         });
         
-        world.setLevel(l);
-        
+        world.setLevel(l);        
     }
 
     @Override
     public void stop(World world) {
         world.setLevel(null);
-    }
-    
+    }    
 }
