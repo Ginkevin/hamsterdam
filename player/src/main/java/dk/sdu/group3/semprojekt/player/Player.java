@@ -8,9 +8,8 @@ package dk.sdu.group3.semprojekt.player;
 import dk.sdu.group3.semprojekt.common.data.Character;
 import dk.sdu.group3.semprojekt.common.data.Circle;
 import dk.sdu.group3.semprojekt.common.enums.CharacterEnum;
-import dk.sdu.group3.semprojekt.common.data.Event;
-import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SHOOT;
 import dk.sdu.group3.semprojekt.common.data.Weapon;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,6 +17,10 @@ import dk.sdu.group3.semprojekt.common.data.Weapon;
  */
 public class Player extends Character{
     public Player(){
+        ArrayList<String> paths = new ArrayList();
+        paths.add(this.getClass().getClassLoader().getResource("images/player_fw.png").toExternalForm());
+        paths.add(this.getClass().getClassLoader().getResource("images/player_bw.png").toExternalForm());
+        
         //Entity
         setPosition(340, 50);
         setVelocity(0, 0);
@@ -30,5 +33,6 @@ public class Player extends Character{
         setWeapon(new Weapon());
         setCharacterEnum(CharacterEnum.PLAYER);  
         setFalling(true);
+        setPaths(paths);
     }
 }

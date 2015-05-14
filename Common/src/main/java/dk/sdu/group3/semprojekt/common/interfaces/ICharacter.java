@@ -7,6 +7,7 @@ package dk.sdu.group3.semprojekt.common.interfaces;
 
 import dk.sdu.group3.semprojekt.common.enums.CharacterEnum;
 import dk.sdu.group3.semprojekt.common.data.Weapon;
+import java.util.List;
 
 /**
  *
@@ -21,4 +22,6 @@ public interface ICharacter {
     void setCharacterEnum(CharacterEnum type);
     Boolean getFalling();
     void setFalling(Boolean b);
+    List<String> getPaths();
+    void setPaths(List<String> paths);
 }
