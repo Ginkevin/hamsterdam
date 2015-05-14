@@ -98,6 +98,10 @@ public class Hamsterdam extends Game.Default {
             spriteLayer.setTranslation(e.getPosition().getX(), e.getPosition().getY());
             spriteLayer.setRotation(e.getAngle());
             spriteLayer.setScale(e.getScale());
+            if(e.getIsDestroyed() == true)
+            {
+                DestroyEntity(e);
+            }
         }
     }
     

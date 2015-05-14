@@ -72,9 +72,8 @@ public class PlayerService implements IGameProcess {
 				}
 				for (Event h : entity.getEvents()) {
 					if (h.getEvent() == HIT) {
-						HitEvent hit = (HitEvent) h;
-						ICharacter character = (ICharacter) hit.getSource();
-						if (character.getCharacterEnum() == ENEMY) {
+                                            HitEvent source = (HitEvent) h;
+						if (source.getSource() instanceof Bullet) {
 							c.setHP(0);
 						}
 					}
