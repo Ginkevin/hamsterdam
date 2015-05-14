@@ -35,4 +35,6 @@ public interface IEntity {
     public void setView(ImageLayer view);
     public float getScale();
     public void setScale(float scale);
+    public void setIsDestroyed(boolean d);
+    public boolean getIsDestroyed();
 }

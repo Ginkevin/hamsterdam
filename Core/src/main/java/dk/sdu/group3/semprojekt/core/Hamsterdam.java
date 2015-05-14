@@ -99,16 +99,6 @@ public class Hamsterdam extends Game.Default {
             spriteLayer.setRotation(e.getAngle());
             spriteLayer.setScale(e.getScale());
         }
-//        for (IEntity entity : world.getEntities())
-//        {
-//            for (Event event : entity.getEvents())
-//            {
-//                if(event.getEvent() == DESTROY)
-//                {
-//                    DestroyEntity(entity);
-//                }
-//            }
-//        }
     }
     
     private void setBackground(Level l){

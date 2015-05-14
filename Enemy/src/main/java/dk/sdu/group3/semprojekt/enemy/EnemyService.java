@@ -50,14 +50,12 @@ public class EnemyService implements IGameProcess {
             for (Event h : entity.getEvents()) {
                 if (h.getEvent() == HIT) {
                     HitEvent hit = (HitEvent) h;
-                    if (hit.getSource() instanceof Bullet) {
-                        c.setHP(0);
+                    if (c.getHP() <= 0) {
+                        entity.setIsDestroyed(true);
                     }
                 }
             }
-            if (c.getHP() == 0) {
-                world.removeEntity(entity);
-            }
+
             for (Event e : entity.getEvents()) {
                 switch (e.getEvent()) {
                     case LEFT:

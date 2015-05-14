@@ -79,8 +79,8 @@ public class PlayerService implements IGameProcess {
                         }
                     }
                 }
-                if (c.getHP() == 0) {
-
+                if (c.getHP() <= 0) {
+                    entity.setIsDestroyed(true);
                 }
                 for (Event e : world.getMoveEvents()) {
 			if (e.getEvent() == W){
@@ -103,8 +103,6 @@ public class PlayerService implements IGameProcess {
                         entity.addEvent(event);
                     }
                     if (e.getEvent() == CONTROL) {
-                        Event event = new Event(SHOOT);
-                        world.addEvent(event);
                     }
                 }
             }
