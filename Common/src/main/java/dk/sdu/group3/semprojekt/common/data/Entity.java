@@ -15,7 +15,18 @@ public abstract class Entity implements IEntity {
     private CopyOnWriteArrayList<Event> events = new CopyOnWriteArrayList<>();
     private ImageLayer view;
     private float scale = 1.0f;
+    private boolean isDestroyed;
 
+    @Override
+    public void setIsDestroyed(boolean b){
+        isDestroyed = b;
+    }
+    
+    @Override
+    public boolean getIsDestroyed(){
+        return isDestroyed;
+    }
+    
     @Override
     public void setPosition(float x, float y) {
             position.setVector(x, y);
