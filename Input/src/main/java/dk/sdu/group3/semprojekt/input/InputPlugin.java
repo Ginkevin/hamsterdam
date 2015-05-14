@@ -14,6 +14,7 @@ import static dk.sdu.group3.semprojekt.common.enums.EventEnum.S;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SPACE;
 import dk.sdu.group3.semprojekt.common.data.World;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.W;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.E;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +67,10 @@ public class InputPlugin implements IGamePlugin{
                 case CONTROL:
                     world.addMoveEvent(new Event(CONTROL));
                     break;
+                    
+                case E:
+                    world.addMoveEvent(new Event(E));
+                    break;                    
 
                 default:
                     break;
@@ -99,6 +104,7 @@ public class InputPlugin implements IGamePlugin{
                             world.removeEvent(e);
                     }  
                     break;
+                    
                 case D:
                     for(Event e : world.getMoveEvents()){
                         if(e.getEvent() == D)
@@ -119,6 +125,13 @@ public class InputPlugin implements IGamePlugin{
                             world.removeEvent(e);
                     }
                     break;
+                
+                case E:
+                    for(Event e : world.getMoveEvents()){
+                        if(e.getEvent() == E)
+                            world.removeEvent(e);
+                    }
+                    break;                    
 
                 default:
                     break;

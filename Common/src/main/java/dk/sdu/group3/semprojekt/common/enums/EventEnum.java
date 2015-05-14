@@ -10,5 +10,5 @@ package dk.sdu.group3.semprojekt.common.enums;
  * @author mads_000
  */
 public enum EventEnum {
-    W, A, S, D, SPACE, CONTROL, SHOOT, HIT, LEFT, RIGHT, JUMP, CROUCH, DESTROY;
+    W, E, A, S, D, SPACE, CONTROL, SHOOT, HIT, LEFT, RIGHT, JUMP, CROUCH, DESTROY;
 }
