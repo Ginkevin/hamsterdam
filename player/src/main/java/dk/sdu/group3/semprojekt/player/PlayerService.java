@@ -18,6 +18,7 @@ import static dk.sdu.group3.semprojekt.common.enums.EventEnum.S;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SHOOT;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SPACE;
 import dk.sdu.group3.semprojekt.common.data.World;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.DESTROY;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.HIT;
 import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
@@ -69,7 +70,8 @@ public class PlayerService implements IGameProcess {
                     }
                 }
                 if (c.getHP() == 0) {
-                    world.removeEntity(entity);
+                    Event event = new Event(DESTROY);
+                    entity.addEvent(event);
                 }
                 for (Event e : world.getMoveEvents()) {
                     if (e.getEvent() == S) {

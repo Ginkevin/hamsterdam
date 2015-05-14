@@ -1,7 +1,10 @@
 package dk.sdu.group3.semprojekt.core;
 
+import dk.sdu.group3.semprojekt.common.data.Entity;
+import dk.sdu.group3.semprojekt.common.data.Event;
 import dk.sdu.group3.semprojekt.common.data.Level;
 import dk.sdu.group3.semprojekt.common.data.World;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.DESTROY;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
@@ -63,6 +66,17 @@ public class Hamsterdam extends Game.Default {
         for (IGameProcess p : getEntityProcessingServices()) {
             p.process(delta, world);
         }
+        for (IEntity entity : world.getEntities())
+        {
+            for (Event event : entity.getEvents())
+            {
+                if(event.getEvent() == DESTROY)
+                {
+                    DestroyEntity(entity);
+                }
+            }
+        }
+        
     }
 
     @Override
@@ -139,9 +153,10 @@ public class Hamsterdam extends Game.Default {
         }
     };
     
-    public void RemoveLayer(IEntity e)
+    private void DestroyEntity(IEntity e)
     {
         ImageLayer entityLayer = e.getView();
         rootLayer.remove(entityLayer);
+        world.getEntities().remove(e);
     }
 }
