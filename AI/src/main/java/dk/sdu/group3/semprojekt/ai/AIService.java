@@ -28,7 +28,7 @@ public class AIService implements IGameProcess {
                 default:
                     break;
             }
-            if(Math.random() < 0.1f)
+            if(Math.random() < 0.01f)
                 enemy.addEvent(new Event(SHOOT));
         });
     }

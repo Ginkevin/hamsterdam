@@ -72,8 +72,7 @@ public class PlayerService implements IGameProcess {
                     }
                 }
                 if (c.getHP() == 0) {
-                    Event event = new Event(DESTROY);
-                    entity.addEvent(event);
+
                 }
                 for (Event e : world.getMoveEvents()) {
                     if (e.getEvent() == S) {
