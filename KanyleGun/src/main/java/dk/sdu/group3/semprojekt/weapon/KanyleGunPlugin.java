@@ -18,9 +18,10 @@ public class KanyleGunPlugin implements IGamePlugin {
             if (e instanceof ICharacter){
                 ICharacter c = (ICharacter) e;
                 if (c.getCharacterEnum() == CharacterEnum.ENEMY){
-                    c.setWeapon(new KanyleGun());
+                    if(!(c.getWeapon() instanceof KanyleGun))
+                        c.setWeapon(new KanyleGun());
                 }
-            }
+            }	
         });
     }
 

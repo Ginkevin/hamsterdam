@@ -18,22 +18,21 @@ import org.openide.util.lookup.ServiceProvider;
  */
 @ServiceProvider(service = IGamePlugin.class)
 public class PlayerWeaponPlugin implements IGamePlugin{
-	ICharacter c;	
-
 	@Override
 	public void start(World world) {
-		world.getEntities().stream().forEach((e)->{
-			if (e instanceof ICharacter){
-				c = (ICharacter) e;
-				if (c.getCharacterEnum() == CharacterEnum.PLAYER){
-					c.setWeapon(new PlayerWeapon());
-				}
-			}	
-		});
+            world.getEntities().stream().forEach((e)->{
+                if (e instanceof ICharacter){
+                    ICharacter c = (ICharacter) e;
+                    if (c.getCharacterEnum() == CharacterEnum.PLAYER){
+                        if(!(c.getWeapon() instanceof PlayerWeapon))
+                            c.setWeapon(new PlayerWeapon());
+                    }
+                }	
+            });
 	}
 
 	@Override
 	public void stop(World world) {
-		c.setWeapon(null);
+		
 	}
 }

@@ -18,7 +18,7 @@ public class Joint extends Bullet {
     public Joint(float x, float y) {
         //Entity
         setPosition(x, y);
-        setVelocity(1.5f, 0);
+        setVelocity(-1.5f, 0);
         setSprite(url);
         setShape(new Rectangle(20, 5));
 

@@ -12,9 +12,9 @@ import dk.sdu.group3.semprojekt.common.data.Weapon;
  * @author E
  */
 public class PlayerWeapon extends Weapon {
-	public PlayerWeapon(){
-		setAmmo(100);
-		setCooldown(1000);
-		setRange(10);
-	}
+    public PlayerWeapon(){
+        setAmmo(100);
+        setCooldown(3000);
+        setRange(10);
+    }
 }

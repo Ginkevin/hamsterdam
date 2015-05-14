@@ -13,8 +13,8 @@ import dk.sdu.group3.semprojekt.common.data.Weapon;
  */
 public class KanyleGun extends Weapon{
     public KanyleGun(){
-        setCooldown(10);
-        setRange(100);
-        setAmmo(12);
+        setAmmo(100);
+        setCooldown(5000);
+        setRange(10);
     }
 }
