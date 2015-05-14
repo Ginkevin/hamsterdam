@@ -6,13 +6,11 @@ import dk.sdu.group3.semprojekt.common.enums.CharacterEnum;
 import dk.sdu.group3.semprojekt.common.data.Weapon;
 
 public class Enemy extends Character{
-    private String url = this.getClass().getClassLoader().getResource("images/enemy_fw.png").toExternalForm();
-    
     public Enemy(){
         //Entity
         setPosition(100,50);
         setVelocity(0,0);
-        setSprite(url);
+        setSprite(this.getClass().getClassLoader().getResource("images/enemy_fw.png").toExternalForm());
         setShape(new Circle(45));
         setAngle(0);
         

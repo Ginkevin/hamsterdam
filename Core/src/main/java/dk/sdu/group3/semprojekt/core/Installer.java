@@ -21,7 +21,7 @@ public class Installer extends ModuleInstall {
         config.appName = "Hamsterdam";
         config.height = 600;
         config.width = 800;
-            JavaPlatform.register(config);
+        JavaPlatform.register(config);
             
         e.schedule(()->{
             PlayN.run(new Hamsterdam());
