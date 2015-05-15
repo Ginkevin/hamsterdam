@@ -36,7 +36,7 @@ public class Player extends Character{
         //Entity
         setPosition(340, 50);
         setVelocity(0, 0);
-        setSprite(this.getClass().getClassLoader().getResource("images/player_fw.png").toExternalForm());
+        setSprite(this.getClass().getClassLoader().getResource("images/player_fw_0.png").toExternalForm());
         setShape(new Circle(45));
         setAngle(0);
         
