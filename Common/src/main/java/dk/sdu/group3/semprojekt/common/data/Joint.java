@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.group3.semprojekt.playerweapon;
+package dk.sdu.group3.semprojekt.common.data;
 
 import dk.sdu.group3.semprojekt.common.data.Bullet;
 import dk.sdu.group3.semprojekt.common.data.Rectangle;
+import dk.sdu.group3.semprojekt.common.enums.ShapeEnum;
 
 /**
  *
@@ -15,12 +16,13 @@ import dk.sdu.group3.semprojekt.common.data.Rectangle;
 public class Joint extends Bullet {
     private String url = this.getClass().getClassLoader().getResource("images/joint.png").toExternalForm();
 
-    public Joint(float x, float y) {
+    public Joint() {
         //Entity
-        setPosition(x, y);
-        setVelocity(-1.5f, 0);
+        setPosition(100, 100);
+        setVelocity(0, 0);
         setSprite(url);
         setShape(new Rectangle(20, 5));
+        setAngle(0);
 
         //Bullet
         setDamage(1);

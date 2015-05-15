@@ -26,7 +26,12 @@ public class Player extends Character{
         pathsFW.add(this.getClass().getClassLoader().getResource("images/player_fw_5.png").toExternalForm());
         
         ArrayList<String> pathsBW = new ArrayList();
-        pathsBW.add(this.getClass().getClassLoader().getResource("images/player_bw.png").toExternalForm());
+        pathsBW.add(this.getClass().getClassLoader().getResource("images/player_bw_0.png").toExternalForm());
+        pathsBW.add(this.getClass().getClassLoader().getResource("images/player_bw_1.png").toExternalForm());
+        pathsBW.add(this.getClass().getClassLoader().getResource("images/player_bw_2.png").toExternalForm());
+        pathsBW.add(this.getClass().getClassLoader().getResource("images/player_bw_3.png").toExternalForm());
+        pathsBW.add(this.getClass().getClassLoader().getResource("images/player_bw_4.png").toExternalForm());
+        pathsBW.add(this.getClass().getClassLoader().getResource("images/player_bw_5.png").toExternalForm());
         
         //Entity
         setPosition(340, 50);

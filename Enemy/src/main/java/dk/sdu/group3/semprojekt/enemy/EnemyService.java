@@ -55,15 +55,16 @@ public class EnemyService implements IGameProcess {
             }
             for (Event h : entity.getEvents()) {
                 if (h.getEvent() == HIT) {
-                    HitEvent hit = (HitEvent) h;
-                    if (hit.getSource() instanceof Bullet) {
+                    HitEvent source = (HitEvent) h;
+                    if (source.getSource() instanceof Bullet) {
                         c.setHP(0);
                     }
                 }
             }
-            if (c.getHP() == 0) {
-                world.removeEntity(entity);
+            if (c.getHP() <= 0) {
+                entity.setIsDestroyed(true);
             }
+
             for (Event e : entity.getEvents()) {
                 switch (e.getEvent()) {
                     case LEFT:

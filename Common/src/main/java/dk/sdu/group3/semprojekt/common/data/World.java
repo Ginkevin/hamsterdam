@@ -1,7 +1,6 @@
 package dk.sdu.group3.semprojekt.common.data;
 
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import playn.core.GroupLayer;
@@ -10,14 +9,16 @@ import playn.core.GroupLayer;
  * @author emilfrisk
  */
 public class World {
-    private List<IEntity> entities;
-    private CopyOnWriteArrayList<Event> moveEvents = new CopyOnWriteArrayList();
-    private List<Event> events = new ArrayList();
+    private CopyOnWriteArrayList<IEntity> entities;
+    private CopyOnWriteArrayList<Event> moveEvents;
+    private CopyOnWriteArrayList<Event> events;
     private Level level;
     private GroupLayer rootLayer;
 	
     public World(){
-        entities = new ArrayList<IEntity>();
+        entities = new CopyOnWriteArrayList();
+        events = new CopyOnWriteArrayList();
+        moveEvents = new CopyOnWriteArrayList();
     }
     
     public List<Event> getMoveEvents() {

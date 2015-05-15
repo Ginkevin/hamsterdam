@@ -4,6 +4,7 @@ import dk.sdu.group3.semprojekt.common.enums.EventEnum;
 import dk.sdu.group3.semprojekt.common.enums.CharacterEnum;
 import dk.sdu.group3.semprojekt.common.data.*;
 import dk.sdu.group3.semprojekt.common.data.Character;
+import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SHOOT;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
 import org.openide.util.lookup.ServiceProvider;
@@ -19,22 +20,16 @@ public class AIService implements IGameProcess {
             int dir = (int)Math.signum(enemy.getPosition().getX()-player.getPosition().getX());
             switch (dir){
                 case(1):
-                    turnLeft(enemy);
-                    break;
-                case(0):
+                    enemy.addEvent(new Event(EventEnum.LEFT));
                     break;
                 case(-1):
-                    turnRight(enemy);
+                    enemy.addEvent(new Event(EventEnum.RIGHT));
+                    break;
+                default:
+                    break;
             }
+            if(Math.random() < 0.01f)
+                enemy.addEvent(new Event(SHOOT));
         });
     }
-
-    private void turnLeft(IEntity enemy) {
-        enemy.addEvent(new Event(EventEnum.LEFT));
-    }
-
-    private void turnRight(IEntity enemy) {
-        enemy.addEvent(new Event(EventEnum.RIGHT));
-    }
-
 }
