@@ -82,7 +82,7 @@ public class PlayerService implements IGameProcess {
 					if (h.getEvent() == HIT) {
                                             HitEvent source = (HitEvent) h;
 						if (source.getSource() instanceof Bullet) {
-							c.setHP(0);
+							c.setHP(c.getHP()-1);
 						}
 					}
 				}
@@ -92,7 +92,7 @@ public class PlayerService implements IGameProcess {
 				for (Event e : world.getMoveEvents()) {
 					if (e.getEvent() == W) {
 						if (jump) {
-							entity.setVelocity(entity.getVelocity().getX(), -15);
+							entity.setVelocity(entity.getVelocity().getX(), -25);
 							jump = false;
 							currentJumpCooldown = jumpCooldown;
 						}

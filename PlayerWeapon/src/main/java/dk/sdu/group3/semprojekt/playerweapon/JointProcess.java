@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.group3.semprojekt.weapon;
+package dk.sdu.group3.semprojekt.playerweapon;
 
 import dk.sdu.group3.semprojekt.common.data.Bullet;
 import dk.sdu.group3.semprojekt.common.data.Event;
@@ -21,11 +21,11 @@ import org.openide.util.lookup.ServiceProvider;
  */
 
 @ServiceProvider(service = IGameProcess.class)
-public class KanyleProcess implements IGameProcess{
+public class JointProcess implements IGameProcess{
     @Override
     public void process(int delta, World world) {
         for(IEntity e : world.getEntities()){
-            if(e instanceof Kanyle){    
+            if(e instanceof Joint){    
                 for (Event h : e.getEvents()) {
                     if (h.getEvent() == HIT) {
                         HitEvent source = (HitEvent) h;

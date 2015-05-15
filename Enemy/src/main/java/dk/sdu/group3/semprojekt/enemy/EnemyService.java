@@ -57,7 +57,7 @@ public class EnemyService implements IGameProcess {
                 if (h.getEvent() == HIT) {
                     HitEvent source = (HitEvent) h;
                     if (source.getSource() instanceof Bullet) {
-                        c.setHP(0);
+                        c.setHP(c.getHP()-1);
                     }
                 }
             }
