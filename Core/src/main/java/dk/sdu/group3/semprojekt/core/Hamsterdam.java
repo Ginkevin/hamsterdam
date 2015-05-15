@@ -96,9 +96,11 @@ public class Hamsterdam extends Game.Default {
             
             if(e instanceof ICharacter){
                 ICharacter c = (ICharacter) e;
-                if(c.getViewsFW() == null && c.getViewsBW() == null)
+                if(c.getViewsFW() == null && c.getViewsBW() == null){
                     loadImagesFW(c);
                     loadImagesBW(c);
+                }
+            }
             if(e.getIsDestroyed() == true)
             {
                 e.setPosition(e.getPosition().getX(), 700);
