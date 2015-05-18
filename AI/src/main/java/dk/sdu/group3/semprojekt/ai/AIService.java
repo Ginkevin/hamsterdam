@@ -15,21 +15,23 @@ public class AIService implements IGameProcess {
 
     @Override
     public void process(int delta, World world) {
-        IEntity player = world.getEntities().stream().filter(entity -> entity instanceof Character).filter(c -> ((Character) c).getCharacterEnum()==CharacterEnum.PLAYER).findFirst().get();
-        world.getEntities().stream().filter(entity -> entity instanceof Character).filter(c -> ((Character) c).getCharacterEnum()==CharacterEnum.ENEMY).forEach(enemy -> {
-            int dir = (int)Math.signum(enemy.getPosition().getX()-player.getPosition().getX());
-            switch (dir){
-                case(1):
-                    enemy.addEvent(new Event(EventEnum.LEFT));
-                    break;
-                case(-1):
-                    enemy.addEvent(new Event(EventEnum.RIGHT));
-                    break;
-                default:
-                    break;
-            }
-            if(Math.random() < 0.01f)
-                enemy.addEvent(new Event(SHOOT));
+        world.getEntities().stream().filter(entity -> entity instanceof Character).filter(c -> ((Character) c).getCharacterEnum() == CharacterEnum.PLAYER).forEach(player -> {
+            world.getEntities().stream().filter(entity -> entity instanceof Character).filter(c -> ((Character) c).getCharacterEnum() == CharacterEnum.ENEMY).forEach(enemy -> {
+                int dir = (int) Math.signum(enemy.getPosition().getX() - player.getPosition().getX());
+                switch (dir) {
+                    case (1):
+                        enemy.addEvent(new Event(EventEnum.LEFT));
+                        break;
+                    case (-1):
+                        enemy.addEvent(new Event(EventEnum.RIGHT));
+                        break;
+                    default:
+                        break;
+                }
+                if (Math.random() < 0.01f) {
+                    enemy.addEvent(new Event(SHOOT));
+                }
+            });
         });
     }
 }

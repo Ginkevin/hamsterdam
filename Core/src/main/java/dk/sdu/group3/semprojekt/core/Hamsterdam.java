@@ -103,7 +103,7 @@ public class Hamsterdam extends Game.Default {
             }
             if(e.getIsDestroyed() == true)
             {
-                e.setPosition(e.getPosition().getX(), 700);
+                DestroyEntity(e);
             }
             
             ImageLayer spriteLayer = e.getView();
@@ -215,6 +215,12 @@ public class Hamsterdam extends Game.Default {
             }
         }
     };
+    
+    private void DestroyEntity(IEntity e)
+    {
+        rootLayer.remove(e.getView());
+        world.removeEntity(e);
+    }
     
     public void doDisable (String codeNames) { // codeName contains code name of modules for disable
         System.out.println("Trying to unload " + codeNames);
