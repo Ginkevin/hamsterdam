@@ -14,6 +14,5 @@ import java.util.List;
  * @author henrikfrank
  */
 public interface IGameProcess {
-    void process(int delta, World world);
-    
+    public void process(int delta, World world);
 }
