@@ -3,7 +3,7 @@ package dk.sdu.group3.semprojekt.common.data;
 public class Weapon extends Entity {
     private int ammo;
     private int range;
-    private int cooldown, current;
+    private int cooldown, currentCooldown;
     private boolean canShoot;
 
     public int getAmmo() {
@@ -31,11 +31,11 @@ public class Weapon extends Entity {
     }
 
     public void reduceCoolDown(int i){
-        current -= i;
+        currentCooldown -= i;
         
         if(current < 0){
             canShoot = true;
-            current = cooldown;
+            currentCooldown = cooldown;
         }  
     }
 
