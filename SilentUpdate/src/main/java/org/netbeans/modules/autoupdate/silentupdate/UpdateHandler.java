@@ -1,5 +1,8 @@
 package org.netbeans.modules.autoupdate.silentupdate;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
@@ -11,20 +14,58 @@ import org.netbeans.api.autoupdate.InstallSupport.Validator;
 import org.netbeans.api.autoupdate.OperationContainer;
 import org.netbeans.api.autoupdate.OperationContainer.OperationInfo;
 import org.netbeans.api.autoupdate.OperationException;
+import org.netbeans.api.autoupdate.OperationSupport;
 import org.netbeans.api.autoupdate.OperationSupport.Restarter;
 import org.netbeans.api.autoupdate.UpdateElement;
 import org.netbeans.api.autoupdate.UpdateManager;
 import org.netbeans.api.autoupdate.UpdateUnit;
 import org.netbeans.api.autoupdate.UpdateUnitProvider;
 import org.netbeans.api.autoupdate.UpdateUnitProviderFactory;
+import org.openide.util.Exceptions;
 import org.openide.util.NbBundle;
 
 /**
  *
  */
 public final class UpdateHandler {
-
+    private static HashSet<String> modulesToLoad = new HashSet();
+    private static HashSet<String> modulesToUnload = new HashSet();
     public static final String SILENT_UC_CODE_NAME = "org_netbeans_modules_autoupdate_silentupdate_update_center"; // NOI18N
+    private static String pathToLoad = "..\\..\\..\\SilentUpdate\\src\\main\\resources\\modulesToLoad.txt";
+    private static String pathToUnload = "..\\..\\..\\SilentUpdate\\src\\main\\resources\\modulesToUnload.txt";
+
+    
+    public static void checkFile(){
+        try {
+            modulesToLoad.clear();
+            modulesToUnload.clear();
+            
+            BufferedReader loadIn = new BufferedReader(new FileReader(pathToLoad));
+            BufferedReader unloadIn = new BufferedReader(new FileReader(pathToUnload));
+            
+            String line = "";
+            
+            while((line = loadIn.readLine()) != null) {
+                modulesToLoad.add(line.trim());
+            }
+            
+            while((line = unloadIn.readLine()) != null) {
+                modulesToUnload.add(line.trim());
+            }
+            
+            for(String s : modulesToUnload){
+                doDisable(s);
+            }
+            
+            loadIn.close();
+            unloadIn.close();            
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println("Unable to open file");                
+        } catch (IOException ex) {
+            Exceptions.printStackTrace(ex);
+        }
+    }
 
     public static boolean timeToCheck() {
         // every startup
@@ -158,7 +199,12 @@ public final class UpdateHandler {
         for (UpdateUnit unit : updateUnits) {
             if (unit.getInstalled() == null) { // means the plugin is not installed yet
                 if (!unit.getAvailableUpdates().isEmpty()) { // is available
-                    elements4install.add(unit.getAvailableUpdates().get(0)); // add plugin with highest version
+                    if(modulesToLoad.contains(unit.getCodeName()))
+                        elements4install.add(unit.getAvailableUpdates().get(0)); // add plugin with highest version
+                    else{
+                        System.out.println(unit.getCodeName());
+                        System.out.println("Found: " + unit.getCodeName() +" but it is not in modules.txt");
+                    }
                 }
             }
         }
@@ -260,5 +306,33 @@ public final class UpdateHandler {
     private static boolean installNewModules() {
         String s = NbBundle.getBundle("org.netbeans.modules.autoupdate.silentupdate.resources.Bundle").getString("UpdateHandler.NewModules");
         return Boolean.parseBoolean(s);
+    }
+    
+    private static void doDisable (String codeNames) { // codeName contains code name of modules for disable
+        OperationContainer<OperationSupport> oc = OperationContainer.createForDirectDisable();
+
+        for(UpdateUnit unit : UpdateManager.getDefault().getUpdateUnits(UpdateManager.TYPE.MODULE)) {
+            if (unit.getInstalled() != null) { // filter all installed modules
+                UpdateElement el = unit.getInstalled();
+                if (el.isEnabled()) { // filter all enabled modules
+                    if (codeNames.equals(el.getCodeName())) { // filter given module in the parameter
+                        if(oc.canBeAdded (unit, el)){ // check if module can be disabled
+                            OperationInfo operationInfo = oc.add(el);
+                            if(operationInfo != null){ // check that it's not already planned to be disabled
+                                oc.add(operationInfo.getRequiredElements()); // add all of them between modules for disable
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if(!oc.listAll().isEmpty()){ // check the container doesn't contain any invalid element
+            try {
+            Restarter restarter = oc.getSupport().doOperation(null); // get operation support for complete the disable operation
+            } catch (OperationException ex) {
+                Exceptions.printStackTrace (ex);
+            }
+        }
     }
 }

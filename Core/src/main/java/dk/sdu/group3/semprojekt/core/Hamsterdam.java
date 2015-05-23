@@ -1,10 +1,8 @@
 package dk.sdu.group3.semprojekt.core;
 
 import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
-import dk.sdu.group3.semprojekt.common.data.Event;
 import dk.sdu.group3.semprojekt.common.data.Level;
 import dk.sdu.group3.semprojekt.common.data.World;
-import static dk.sdu.group3.semprojekt.common.enums.EventEnum.E;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
@@ -13,16 +11,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.netbeans.api.autoupdate.OperationContainer;
-import org.netbeans.api.autoupdate.OperationContainer.OperationInfo;
-import org.netbeans.api.autoupdate.OperationException;
-import org.netbeans.api.autoupdate.OperationSupport;
-import org.netbeans.api.autoupdate.OperationSupport.Restarter;
-import org.netbeans.api.autoupdate.UpdateElement;
-import org.netbeans.api.autoupdate.UpdateManager;
-import org.netbeans.api.autoupdate.UpdateUnit;
-
-import org.openide.util.Exceptions;
 import org.openide.util.Lookup;
 import org.openide.util.LookupEvent;
 import org.openide.util.LookupListener;
@@ -77,13 +65,7 @@ public class Hamsterdam extends Game.Default {
 
         for (IGameProcess p : getEntityProcessingServices()) {
             p.process(delta, world);
-        }
-        
-        for(Event e : world.getMoveEvents()){
-            if(e.getEvent().equals(E))
-                doDisable("dk.sdu.group3.semprojekt.Enemy");
-        }
-        
+        }      
     }
 
     @Override
@@ -110,8 +92,7 @@ public class Hamsterdam extends Game.Default {
 
             spriteLayer.setTranslation(e.getPosition().getX(), e.getPosition().getY());
             spriteLayer.setRotation(e.getAngle());
-            spriteLayer.setScale(e.getScale());
-            
+            spriteLayer.setScale(e.getScale());          
         }
     }
     
@@ -220,35 +201,5 @@ public class Hamsterdam extends Game.Default {
     {
         rootLayer.remove(e.getView());
         world.removeEntity(e);
-    }
-    
-    public void doDisable (String codeNames) { // codeName contains code name of modules for disable
-        System.out.println("Trying to unload " + codeNames);
-        OperationContainer<OperationSupport> oc = OperationContainer.createForDirectDisable();
-
-        for(UpdateUnit unit : UpdateManager.getDefault().getUpdateUnits(UpdateManager.TYPE.MODULE)) {
-            if (unit.getInstalled() != null) { // filter all installed modules
-                UpdateElement el = unit.getInstalled();
-                if (el.isEnabled()) { // filter all enabled modules
-                    if (codeNames.equals(el.getCodeName())) { // filter given module in the parameter
-                        System.out.println("found one with the same codename: " + unit.getCodeName());
-                        if(oc.canBeAdded (unit, el)){ // check if module can be disabled
-                            OperationInfo operationInfo = oc.add(el);
-                            if(operationInfo != null){ // check that it's not already planned to be disabled
-                                oc.add(operationInfo.getRequiredElements()); // add all of them between modules for disable
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        if(!oc.listAll().isEmpty()){ // check the container doesn't contain any invalid element
-            try {
-            Restarter restarter = oc.getSupport().doOperation(null); // get operation support for complete the disable operation
-            } catch (OperationException ex) {
-                Exceptions.printStackTrace (ex);
-            }
-        }
     }
 }

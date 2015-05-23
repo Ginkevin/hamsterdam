@@ -25,10 +25,9 @@ public class Activator extends ModuleInstall {
         @Override
         public void run() {
             if (UpdateHandler.timeToCheck()) {
+                UpdateHandler.checkFile();
                 UpdateHandler.checkAndHandleUpdates();
             }
         }
-
     };
-
 }

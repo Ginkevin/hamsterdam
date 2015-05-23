@@ -19,7 +19,7 @@ public class Kanyle extends Bullet{
         setVelocity(1.5f, 0);
         setSprite(this.getClass().getClassLoader().getResource("images/Syringe.png").toExternalForm());
         setShape(new Rectangle(20, 5));
-
+        
         //Bullet
         setDamage(1);
     }
