@@ -44,6 +44,7 @@ public class Hamsterdam extends Game.Default {
 
         rootLayer = graphics().rootLayer();
         
+        
         Lookup.Result<IGamePlugin> result = lookup.lookupResult(IGamePlugin.class);
         result.addLookupListener(lookupListener);
         plugins = new ArrayList(result.allInstances());
@@ -62,7 +63,11 @@ public class Hamsterdam extends Game.Default {
     @Override
     public void update(int delta) {
         clock.update(delta);
-
+        plugins.clear();
+        Lookup.Result<IGamePlugin> result = lookup.lookupResult(IGamePlugin.class);
+        result.addLookupListener(lookupListener);
+        plugins = new ArrayList(result.allInstances());
+        result.allItems();
         for (IGameProcess p : getEntityProcessingServices()) {
             p.process(delta, world);
         }      

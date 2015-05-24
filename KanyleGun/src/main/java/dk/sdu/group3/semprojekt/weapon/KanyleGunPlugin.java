@@ -29,4 +29,9 @@ public class KanyleGunPlugin implements IGamePlugin {
     public void stop(World world) {
         //ToDo
     }
+
+    @Override
+    public void uninstalled(World world) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

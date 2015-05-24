@@ -3,6 +3,7 @@ package dk.sdu.group3.semprojekt.enemy;
 
 import dk.sdu.group3.semprojekt.common.data.Entity;
 import dk.sdu.group3.semprojekt.common.data.World;
+import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,4 +26,16 @@ public class EnemyPlugin implements IGamePlugin{
             e.setIsDestroyed(true);
         }
     }    
+
+
+    @Override
+    public void uninstalled(World world) {
+        for(IEntity entity: world.getEntities())
+        {
+            if(entity instanceof Enemy)
+            {
+                entity.setIsDestroyed(true);
+            }
+        }
+    }
 }

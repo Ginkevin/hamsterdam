@@ -13,5 +13,6 @@ import dk.sdu.group3.semprojekt.common.data.World;
  */
 public interface IGamePlugin {    
     public void start(World world);
-    public void stop(World world);    
+    public void stop(World world);
+    public void uninstalled(World world);
 }

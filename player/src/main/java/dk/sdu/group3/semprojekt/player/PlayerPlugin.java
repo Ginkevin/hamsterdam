@@ -6,6 +6,7 @@
 package dk.sdu.group3.semprojekt.player;
 
 import dk.sdu.group3.semprojekt.common.data.World;
+import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import org.openide.util.lookup.ServiceProvider;
 
@@ -25,5 +26,17 @@ public class PlayerPlugin implements IGamePlugin{
     @Override
     public void stop(World world) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }    
+    }
+    
+
+    @Override
+    public void uninstalled(World world) {
+        for(IEntity entity: world.getEntities())
+        {
+            if(entity instanceof Player)
+            {
+                entity.setIsDestroyed(true);
+            }
+        }
+    }
 }
