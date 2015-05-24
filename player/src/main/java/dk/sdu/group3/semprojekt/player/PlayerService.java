@@ -22,6 +22,7 @@ import static dk.sdu.group3.semprojekt.common.enums.CharacterEnum.ENEMY;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.DESTROY;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.HIT;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.W;
+import dk.sdu.group3.semprojekt.common.enums.FaceDirection;
 import static dk.sdu.group3.semprojekt.common.enums.FaceDirection.LEFT;
 import static dk.sdu.group3.semprojekt.common.enums.FaceDirection.RIGHT;
 import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
@@ -41,6 +42,7 @@ public class PlayerService implements IGameProcess {
     
 	int jumpCooldown = 1600, currentJumpCooldown = 0;
 	boolean jump = true;
+        private FaceDirection facedirection = RIGHT;
 
 	@Override
 	public void process(int delta, World world) {
@@ -52,7 +54,7 @@ public class PlayerService implements IGameProcess {
 			if (entity instanceof Player) {
 				Boolean hitByPlatform = false;
 				ICharacter c = (ICharacter) entity;
-                                c.setFaceDirection(RIGHT);
+                                c.setFaceDirection(facedirection);
                                 List<ImageLayer> imagesFW = c.getViewsFW();
                                 List<ImageLayer> imagesBW = c.getViewsBW();
 				if (world.getMoveEvents().isEmpty()) {
@@ -101,18 +103,18 @@ public class PlayerService implements IGameProcess {
 						//DUCK
 					}
                                         if (e.getEvent() == D) {
-                                            entity.setVelocity(1, entity.getVelocity().getY());
+                                            entity.setVelocity(3, entity.getVelocity().getY());
                                             world.getRootLayer().remove(entity.getView());
                                             entity.setView(imagesFW.get(0));
                                             world.getRootLayer().add(entity.getView());
-                                            c.setFaceDirection(RIGHT);
+                                            facedirection = RIGHT;
                                         }
                                         if (e.getEvent() == A) {
-                                            entity.setVelocity(-1, entity.getVelocity().getY());
+                                            entity.setVelocity(-3, entity.getVelocity().getY());
                                             world.getRootLayer().remove(entity.getView());
                                             entity.setView(imagesBW.get(0));
                                             world.getRootLayer().add(entity.getView());
-                                            c.setFaceDirection(LEFT);
+                                            facedirection = LEFT;
                                         }
 					if (e.getEvent() == SPACE) {
 						Event event = new Event(SHOOT);
