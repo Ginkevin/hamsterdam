@@ -138,4 +138,9 @@ public class InputPlugin implements IGamePlugin{
             }                
         }
     };
+    
+    @Override
+    public void uninstalled(World world) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

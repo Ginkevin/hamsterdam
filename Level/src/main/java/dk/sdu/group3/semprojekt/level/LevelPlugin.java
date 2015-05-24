@@ -35,4 +35,9 @@ public class LevelPlugin implements IGamePlugin{
     public void stop(World world) {
         world.setLevel(null);
     }    
+
+    @Override
+    public void uninstalled(World world) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
