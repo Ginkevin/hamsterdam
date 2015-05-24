@@ -309,7 +309,7 @@ public final class UpdateHandler {
     }
     
     private static void doDisable (String codeNames) { // codeName contains code name of modules for disable
-        OperationContainer<OperationSupport> oc = OperationContainer.createForDirectDisable();
+        OperationContainer<OperationSupport> oc = OperationContainer.createForDirectUninstall();
 
         for(UpdateUnit unit : UpdateManager.getDefault().getUpdateUnits(UpdateManager.TYPE.MODULE)) {
             if (unit.getInstalled() != null) { // filter all installed modules
