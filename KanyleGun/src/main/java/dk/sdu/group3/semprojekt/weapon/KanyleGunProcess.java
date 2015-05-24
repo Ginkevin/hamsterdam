@@ -34,7 +34,7 @@ public class KanyleGunProcess implements IGameProcess{
                     for(Event ev : e.getEvents()) {
                         if(ev.getEvent().equals(SHOOT)){
                             if(w.canShoot()) {
-                                world.addEntity(new Kanyle(e.getPosition().getX()+60, e.getPosition().getY())); 
+                                world.addEntity(new Kanyle(e.getPosition().getX()+60, e.getPosition().getY(), ((ICharacter) e).getFaceDirection())); 
                                 w.shoot();
                             }
                             e.removeEvent(ev);

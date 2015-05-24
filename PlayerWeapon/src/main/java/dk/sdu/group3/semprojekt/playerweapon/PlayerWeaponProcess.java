@@ -32,7 +32,7 @@ public class PlayerWeaponProcess implements IGameProcess {
                     for(Event ev : e.getEvents()) {
                         if(ev.getEvent() == SHOOT) {
                             if (w.canShoot()) {
-                                world.addEntity(new Joint(e.getPosition().getX() - 60, e.getPosition().getY()));
+                                world.addEntity(new Joint(e.getPosition().getX() - 60, e.getPosition().getY(), ((ICharacter) e).getFaceDirection()));
                                 w.shoot();
                             }
                             e.removeEvent(ev);

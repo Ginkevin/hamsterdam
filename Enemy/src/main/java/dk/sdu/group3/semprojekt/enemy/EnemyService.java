@@ -8,6 +8,7 @@ import dk.sdu.group3.semprojekt.common.data.Platform;
 import dk.sdu.group3.semprojekt.common.data.Rectangle;
 import dk.sdu.group3.semprojekt.common.data.World;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.HIT;
+import dk.sdu.group3.semprojekt.common.enums.FaceDirection;
 import static dk.sdu.group3.semprojekt.common.enums.FaceDirection.LEFT;
 import static dk.sdu.group3.semprojekt.common.enums.FaceDirection.RIGHT;
 import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
@@ -22,6 +23,7 @@ import playn.core.ImageLayer;
 public class EnemyService implements IGameProcess {
 
     private final float thrust = 0.1f;
+    private FaceDirection facedirection = RIGHT;
 
     @Override
     public void process(int delta, World world) {
@@ -30,7 +32,7 @@ public class EnemyService implements IGameProcess {
         entities.stream().filter(entity -> entity instanceof Enemy).forEach(entity -> {
             ICharacter c = (ICharacter) entity;
             Boolean hitByPlatform = false;
-            c.setFaceDirection(RIGHT);
+            c.setFaceDirection(facedirection);
             List<ImageLayer> imagesFW = c.getViewsFW();
             List<ImageLayer> imagesBW = c.getViewsBW();
             for (Event k : entity.getEvents()) {
@@ -72,14 +74,14 @@ public class EnemyService implements IGameProcess {
                         world.getRootLayer().remove(entity.getView());
                         entity.setView(imagesBW.get(0));
                         world.getRootLayer().add(entity.getView());
-                        c.setFaceDirection(RIGHT);
+                        facedirection = LEFT;
                         break;
                     case RIGHT:
                         moveRight(entity, world, e);
                         world.getRootLayer().remove(entity.getView());
                         entity.setView(imagesFW.get(0));
                         world.getRootLayer().add(entity.getView());
-                        c.setFaceDirection(LEFT);
+                        facedirection = RIGHT;
                         break;
                     case JUMP:
                         jump(entity, world, e);
