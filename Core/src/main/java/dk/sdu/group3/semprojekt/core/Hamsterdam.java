@@ -42,8 +42,7 @@ public class Hamsterdam extends Game.Default {
     public void init() {
         world = new World();
 
-        rootLayer = graphics().rootLayer();
-        
+        rootLayer = graphics().rootLayer();        
         
         Lookup.Result<IGamePlugin> result = lookup.lookupResult(IGamePlugin.class);
         result.addLookupListener(lookupListener);
@@ -57,17 +56,20 @@ public class Hamsterdam extends Game.Default {
         
         setBackground(world.getLevel());
         world.setRootLayer(rootLayer);
-        setBackground(world.getLevel());         
+        setBackground(world.getLevel());
     }
 
     @Override
     public void update(int delta) {
         clock.update(delta);
+        
         plugins.clear();
+       
         Lookup.Result<IGamePlugin> result = lookup.lookupResult(IGamePlugin.class);
         result.addLookupListener(lookupListener);
         plugins = new ArrayList(result.allInstances());
         result.allItems();
+        
         for (IGameProcess p : getEntityProcessingServices()) {
             p.process(delta, world);
         }      
@@ -76,6 +78,8 @@ public class Hamsterdam extends Game.Default {
     @Override
     public void paint(float alpha) {
         clock.paint(alpha);
+        rootLayer.removeAll();
+        rootLayer.add(bgLayer);
 
         for (IEntity e : world.getEntities()) {
             if (e.getView() == null) 
@@ -88,6 +92,7 @@ public class Hamsterdam extends Game.Default {
                     loadImagesBW(c);
                 }
             }
+            
             if(e.getIsDestroyed() == true)
             {
                 DestroyEntity(e);
@@ -97,7 +102,8 @@ public class Hamsterdam extends Game.Default {
 
             spriteLayer.setTranslation(e.getPosition().getX(), e.getPosition().getY());
             spriteLayer.setRotation(e.getAngle());
-            spriteLayer.setScale(e.getScale());          
+            spriteLayer.setScale(e.getScale());   
+            rootLayer.add(spriteLayer);
         }
     }
     
@@ -139,8 +145,7 @@ public class Hamsterdam extends Game.Default {
         });
         
         entity.setView(viewLayer);
-        rootLayer.add(viewLayer);
-        
+        rootLayer.add(viewLayer);   
     }
     
     public void loadImagesFW(ICharacter character){
@@ -204,7 +209,6 @@ public class Hamsterdam extends Game.Default {
     
     private void DestroyEntity(IEntity e)
     {
-        rootLayer.remove(e.getView());
         world.removeEntity(e);
     }
 }

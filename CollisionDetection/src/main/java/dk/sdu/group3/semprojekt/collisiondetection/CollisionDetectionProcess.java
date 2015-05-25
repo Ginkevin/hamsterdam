@@ -54,21 +54,21 @@ public class CollisionDetectionProcess implements IGameProcess{
         Rectangle rectangle1 = (Rectangle) current.getShape();
         Rectangle rectangle2 = (Rectangle) current.getShape();
         
-        //rect1 top > rect2 bottom.
-        boolean rect1TopRect2Bot = (current.getPosition().getY()+rectangle1.getHeight()/2) > (source.getPosition().getY()-rectangle2.getHeight()/2);
-        //rect1 bottom < rect2 top.
-        boolean rect1BotRect2Top = (current.getPosition().getY()-rectangle1.getHeight()/2) < (source.getPosition().getY()+rectangle2.getHeight()/2);
-        //rect1 left < rect2 right
-        boolean rect1LeftRect2Right = (current.getPosition().getX()-rectangle1.getWidth()/2) < (source.getPosition().getX()+rectangle2.getWidth()/2);
-        //rect1 left > rect2 right
-        boolean rect1RightRect2Left = (current.getPosition().getX()+rectangle1.getWidth()/2) > (source.getPosition().getX()-rectangle2.getWidth()/2);
-
+        float top1 = current.getPosition().getY()+rectangle1.getHeight()/2;
+        float bot1 = current.getPosition().getY()-rectangle1.getHeight()/2;
+        float left1 = current.getPosition().getX()-rectangle1.getWidth()/2;
+        float right1 = current.getPosition().getX()+rectangle1.getWidth()/2;
         
-        if(rect1TopRect2Bot && rect1LeftRect2Right && rect1RightRect2Left && rect1BotRect2Top){
-            return true;
-        }
-
-        return false;
+        float top2 = source.getPosition().getY()+rectangle2.getHeight()/2;
+        float bot2 = source.getPosition().getY()-rectangle2.getHeight()/2;
+        float left2 = source.getPosition().getX()-rectangle2.getWidth()/2;
+        float right2 = source.getPosition().getX()+rectangle2.getWidth()/2;
+        
+        if((bot1 < top2) || (top1 > bot2) || (left1 > right2) || (right1 < left2)){
+            return false;
+        }       
+        System.out.println("hit");
+        return true;
     }
     
     private boolean testCircleCircle(IEntity current, IEntity source) {

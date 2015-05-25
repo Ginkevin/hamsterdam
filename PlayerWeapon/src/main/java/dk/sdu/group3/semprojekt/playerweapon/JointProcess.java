@@ -5,9 +5,9 @@
  */
 package dk.sdu.group3.semprojekt.playerweapon;
 
-import dk.sdu.group3.semprojekt.common.data.Bullet;
 import dk.sdu.group3.semprojekt.common.data.Event;
 import dk.sdu.group3.semprojekt.common.data.HitEvent;
+import dk.sdu.group3.semprojekt.common.data.Platform;
 import dk.sdu.group3.semprojekt.common.data.World;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.HIT;
 import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
@@ -30,6 +30,9 @@ public class JointProcess implements IGameProcess{
                     if (h.getEvent() == HIT) {
                         HitEvent source = (HitEvent) h;
                             if (source.getSource() instanceof ICharacter) {
+                                    e.setIsDestroyed(true);
+                            }
+                            if (source.getSource() instanceof Platform) {
                                     e.setIsDestroyed(true);
                             }
                     }
