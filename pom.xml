@@ -84,6 +84,11 @@
         <module>KanyleGun</module>
         <module>PlayerWeapon</module>
         <module>SilentUpdate</module>
+        <module>SmallDumpsterPlatform</module>
+        <module>BigDumpsterPlatform</module>
+        <module>NuclearPlatform</module>
+        <module>TrafficLightPlatform</module>
+        <module>SignPlatform</module>
     </modules>
 
     <properties>

@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.group3.semprojekt.platform;
+package dk.sdu.group3.semprojekt.smalldumpsterplatform;
 
-import org.openide.util.lookup.ServiceProvider;
-import dk.sdu.group3.semprojekt.common.data.Platform;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import java.util.ArrayList;
@@ -14,26 +12,23 @@ import java.util.List;
 
 /**
  *
- * @author henrikfrank
+ * @author Henrik
  */
+public class SmallDumpsterPlatformPlugin implements IGamePlugin{
+    List<SmallDumpsterPlatform> listOfPlatforms = new ArrayList();
 
-@ServiceProvider (service = IGamePlugin.class)
-public class PlatformPlugin implements IGamePlugin{
-    private List<Platform> platforms = new ArrayList();
-    
     @Override
     public void start(World world) {
-        platforms.add(new Street());
+        listOfPlatforms.add(new SmallDumpsterPlatform(500, 500));
         
-        platforms.stream().forEach((p) -> {
+        listOfPlatforms.stream().forEach((p) -> {
             world.addEntity(p);
         });
-        
     }
 
     @Override
     public void stop(World world) {
-        platforms.stream().forEach((p) -> {
+        listOfPlatforms.stream().forEach((p) -> {
             world.getEntities().remove(p);
         });
     }
@@ -42,6 +37,5 @@ public class PlatformPlugin implements IGamePlugin{
     public void uninstalled(World world) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
     
 }
