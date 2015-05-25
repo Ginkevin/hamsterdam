@@ -18,6 +18,12 @@ public class AIService implements IGameProcess {
         world.getEntities().stream().filter(entity -> entity instanceof Character).filter(c -> ((Character) c).getCharacterEnum() == CharacterEnum.PLAYER).forEach(player -> {
             world.getEntities().stream().filter(entity -> entity instanceof Character).filter(c -> ((Character) c).getCharacterEnum() == CharacterEnum.ENEMY).forEach(enemy -> {
                 int dir = (int) Math.signum(enemy.getPosition().getX() - player.getPosition().getX());
+                boolean inRange;
+                if(enemy.getPosition().getY() >= player.getPosition().getY()-45 && enemy.getPosition().getY() <= player.getPosition().getY()+45)
+                    inRange = true;
+                else
+                    inRange = false;
+                
                 switch (dir) {
                     case (1):
                         enemy.addEvent(new Event(EventEnum.LEFT));
@@ -28,7 +34,7 @@ public class AIService implements IGameProcess {
                     default:
                         break;
                 }
-                if (Math.random() < 0.01f) {
+                if (inRange) {
                     enemy.addEvent(new Event(SHOOT));
                 }
             });
