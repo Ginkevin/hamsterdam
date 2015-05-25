@@ -52,7 +52,7 @@ public class CollisionDetectionProcess implements IGameProcess{
     
     private boolean testRectangleRectangle(IEntity current, IEntity source){
         Rectangle rectangle1 = (Rectangle) current.getShape();
-        Rectangle rectangle2 = (Rectangle) current.getShape();
+        Rectangle rectangle2 = (Rectangle) source.getShape();
         
         float top1 = current.getPosition().getY()+rectangle1.getHeight()/2;
         float bot1 = current.getPosition().getY()-rectangle1.getHeight()/2;
@@ -64,10 +64,10 @@ public class CollisionDetectionProcess implements IGameProcess{
         float left2 = source.getPosition().getX()-rectangle2.getWidth()/2;
         float right2 = source.getPosition().getX()+rectangle2.getWidth()/2;
         
-        if((bot1 < top2) || (top1 > bot2) || (left1 > right2) || (right1 < left2)){
+        if((bot1 > top2) || (top1 < bot2) || (left1 > right2) || (right1 < left2)){
             return false;
         }       
-        System.out.println("hit");
+
         return true;
     }
     
