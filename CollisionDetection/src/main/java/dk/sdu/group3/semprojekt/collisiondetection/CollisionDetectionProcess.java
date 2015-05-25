@@ -64,11 +64,11 @@ public class CollisionDetectionProcess implements IGameProcess{
         float left2 = source.getPosition().getX()-rectangle2.getWidth()/2;
         float right2 = source.getPosition().getX()+rectangle2.getWidth()/2;
         
-        if((bot1 > top2) || (top1 < bot2) || (left1 > right2) || (right1 < left2)){
-            return false;
+        if((bot1 < top2) && (top1 > bot2) && (left1 < right2) && (right1 > left2)){
+            return true;
         }       
 
-        return true;
+        return false;
     }
     
     private boolean testCircleCircle(IEntity current, IEntity source) {
