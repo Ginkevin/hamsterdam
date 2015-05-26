@@ -78,8 +78,6 @@ public class Hamsterdam extends Game.Default {
     @Override
     public void paint(float alpha) {
         clock.paint(alpha);
-        rootLayer.removeAll();
-        rootLayer.add(bgLayer);
 
         for (IEntity e : world.getEntities()) {
             if (e.getView() == null) 
@@ -103,7 +101,6 @@ public class Hamsterdam extends Game.Default {
             spriteLayer.setTranslation(e.getPosition().getX(), e.getPosition().getY());
             spriteLayer.setRotation(e.getAngle());
             spriteLayer.setScale(e.getScale());   
-            rootLayer.add(spriteLayer);
         }
     }
     
