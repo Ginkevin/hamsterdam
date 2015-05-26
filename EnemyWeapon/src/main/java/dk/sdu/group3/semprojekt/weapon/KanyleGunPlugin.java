@@ -32,6 +32,11 @@ public class KanyleGunPlugin implements IGamePlugin {
     }
 
     public static void stop() {
+        for(IGamePlugin p : world.getPlugins()){
+            if(p instanceof KanyleGunPlugin){
+                world.removePlugin(p);
+            }
+        }
         for(IEntity e : world.getEntities()){
             if(e instanceof ICharacter){
                 ICharacter c = (ICharacter) e;

@@ -36,6 +36,11 @@ public class LevelPlugin implements IGamePlugin{
     }
 
     public static void stop() {
+        for(IGamePlugin p : world.getPlugins()){
+            if(p instanceof LevelPlugin){
+                world.removePlugin(p);
+            }
+        }
         world.setLevel(null);
     }    
 }

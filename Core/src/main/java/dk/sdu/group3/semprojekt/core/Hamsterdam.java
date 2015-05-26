@@ -10,6 +10,7 @@ import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.openide.util.Lookup;
 import org.openide.util.LookupEvent;
@@ -30,7 +31,6 @@ public class Hamsterdam extends Game.Default {
     private final Clock.Source clock = new Clock.Source(33);
     private final Lookup lookup = Lookup.getDefault();
     private static World world;
-    private List<IGamePlugin> plugins;
     private GroupLayer rootLayer;
     private ImageLayer bgLayer;
 
@@ -43,7 +43,7 @@ public class Hamsterdam extends Game.Default {
             world = new World();
         return world;
     }
-
+    
     @Override
     public void init() {
         getWorld();
@@ -52,12 +52,12 @@ public class Hamsterdam extends Game.Default {
         
         Lookup.Result<IGamePlugin> result = lookup.lookupResult(IGamePlugin.class);
         result.addLookupListener(lookupListener);
-        plugins = new ArrayList(result.allInstances());
+        world.setPlugins(new CopyOnWriteArrayList(result.allInstances()));
         result.allItems();
 
-        for (IGamePlugin p : plugins) {
+        for (IGamePlugin p : world.getPlugins()) {
+            world.addPlugin(p);
             p.start(world);
-            System.out.println(p.getClass());
         }
         
         setBackground(world.getLevel());
@@ -68,14 +68,7 @@ public class Hamsterdam extends Game.Default {
     @Override
     public void update(int delta) {
         clock.update(delta);
-        
-        plugins.clear();
-       
-        Lookup.Result<IGamePlugin> result = lookup.lookupResult(IGamePlugin.class);
-        result.addLookupListener(lookupListener);
-        plugins = new ArrayList(result.allInstances());
-        result.allItems();
-        
+
         for (IGameProcess p : getEntityProcessingServices()) {
             p.process(delta, world);
         }      
@@ -201,10 +194,9 @@ public class Hamsterdam extends Game.Default {
         @Override
         public void resultChanged(LookupEvent le) {
             for (IGamePlugin updatedGamePlugin : lookup.lookupAll(IGamePlugin.class)) {
-                if (!plugins.contains(updatedGamePlugin)) {
+                if (!world.getPlugins().contains(updatedGamePlugin)) {
                     updatedGamePlugin.start(world);
-                    plugins.add(updatedGamePlugin);
-                    System.out.println(updatedGamePlugin.getClass());
+                    world.addPlugin(updatedGamePlugin);
                }
             }
         }

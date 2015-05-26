@@ -11,6 +11,7 @@ import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.enums.CharacterEnum;
 import dk.sdu.group3.semprojekt.common.interfaces.ICharacter;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
+import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import dk.sdu.group3.semprojekt.common.spi.IGameProcess;
 import org.openide.util.lookup.ServiceProvider;
 
@@ -44,6 +45,11 @@ public class PlayerWeaponProcess implements IGameProcess {
     }
     
     private void checkForNewPlayer(World world){
+        for(IGamePlugin p : world.getPlugins()){
+            if(p instanceof PlayerWeaponPlugin){
+                world.removePlugin(p);
+            }
+        }
         world.getEntities().stream().forEach((e)->{
             if (e instanceof ICharacter){
                 ICharacter c = (ICharacter) e;

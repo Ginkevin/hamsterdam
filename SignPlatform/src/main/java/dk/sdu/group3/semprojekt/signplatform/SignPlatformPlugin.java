@@ -26,6 +26,11 @@ public class SignPlatformPlugin implements IGamePlugin{
     }
 
     public static void stop() {
+        for(IGamePlugin p : world.getPlugins()){
+            if(p instanceof SignPlatformPlugin){
+                world.removePlugin(p);
+            }
+        }
         for(IEntity e : world.getEntities()){
             if(e instanceof SignPlatform){
                 e.setIsDestroyed(true);

@@ -8,8 +8,6 @@ package dk.sdu.group3.semprojekt.balconyplatform;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
-import java.util.ArrayList;
-import java.util.List;
 import org.openide.util.lookup.ServiceProvider;
 
 /**
@@ -29,6 +27,12 @@ public class BalconyPlatformPlugin implements IGamePlugin{
     }
 
     public static void stop() {
+        for(IGamePlugin p : world.getPlugins()){
+            if(p instanceof BalconyPlatformPlugin){
+                world.removePlugin(p);
+            }
+        }
+        
         for(IEntity e : world.getEntities()){
             if(e instanceof BalconyPlatform){
                 e.setIsDestroyed(true); 

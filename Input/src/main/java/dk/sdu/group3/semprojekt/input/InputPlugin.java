@@ -15,7 +15,6 @@ import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SPACE;
 import dk.sdu.group3.semprojekt.common.data.World;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.W;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.E;
-import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import playn.core.Keyboard;
 import playn.core.PlayN;
@@ -37,6 +36,11 @@ public class InputPlugin implements IGamePlugin{
     }
     
     public static void stop() {
+        for(IGamePlugin p : world.getPlugins()){
+            if(p instanceof InputPlugin){
+                world.removePlugin(p);
+            }
+        }
         PlayN.keyboard().setListener(null);
     }
     

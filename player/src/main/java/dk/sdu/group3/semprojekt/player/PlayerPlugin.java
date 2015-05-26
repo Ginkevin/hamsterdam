@@ -28,6 +28,11 @@ public class PlayerPlugin implements IGamePlugin{
     }
 
     public static void stop() {
+        for(IGamePlugin p : world.getPlugins()){
+            if(p instanceof PlayerPlugin){
+                world.removePlugin(p);
+            }
+        }
         for(IEntity e : world.getEntities()){
             if(e instanceof Player){
                 e.setIsDestroyed(true);

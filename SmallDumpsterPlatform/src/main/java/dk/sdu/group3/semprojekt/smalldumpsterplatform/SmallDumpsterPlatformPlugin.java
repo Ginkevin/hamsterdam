@@ -27,6 +27,11 @@ public class SmallDumpsterPlatformPlugin implements IGamePlugin{
     }
 
     public static void stop() {
+        for(IGamePlugin p : world.getPlugins()){
+            if(p instanceof SmallDumpsterPlatformPlugin){
+                world.removePlugin(p);
+            }
+        }
         for(IEntity e : world.getEntities()){
             if(e instanceof SmallDumpsterPlatform){
                 e.setIsDestroyed(true);

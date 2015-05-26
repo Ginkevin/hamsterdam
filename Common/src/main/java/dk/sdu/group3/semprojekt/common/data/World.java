@@ -1,6 +1,7 @@
 package dk.sdu.group3.semprojekt.common.data;
 
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
+import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import playn.core.GroupLayer;
@@ -12,6 +13,7 @@ public class World {
     private CopyOnWriteArrayList<IEntity> entities;
     private CopyOnWriteArrayList<Event> moveEvents;
     private CopyOnWriteArrayList<Event> events;
+    private CopyOnWriteArrayList<IGamePlugin> plugins;
     private Level level;
     private GroupLayer rootLayer;
 	
@@ -19,6 +21,22 @@ public class World {
         entities = new CopyOnWriteArrayList();
         events = new CopyOnWriteArrayList();
         moveEvents = new CopyOnWriteArrayList();
+    }
+    
+    public void addPlugin(IGamePlugin ip){
+        plugins.add(ip);
+    }
+    
+    public void removePlugin(IGamePlugin ip){
+        plugins.remove(ip);
+    }
+    
+    public void setPlugins(CopyOnWriteArrayList<IGamePlugin> ip){
+        plugins = ip;
+    }
+    
+    public List<IGamePlugin> getPlugins(){
+        return plugins;
     }
     
     public List<Event> getMoveEvents() {

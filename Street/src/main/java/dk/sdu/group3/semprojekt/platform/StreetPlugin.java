@@ -6,7 +6,6 @@
 package dk.sdu.group3.semprojekt.platform;
 
 import org.openide.util.lookup.ServiceProvider;
-import dk.sdu.group3.semprojekt.common.data.Platform;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
@@ -28,6 +27,11 @@ public class StreetPlugin implements IGamePlugin{
     }
 
     public static void stop() {
+        for(IGamePlugin p : world.getPlugins()){
+            if(p instanceof StreetPlugin){
+                world.removePlugin(p);
+            }
+        }
         for(IEntity e : world.getEntities()){
             if(e instanceof Street){
                 e.setIsDestroyed(true);

@@ -34,12 +34,12 @@ public final class UpdateHandler {
     
     public static void LoadUnload(String s){
         modulesToLoad.clear();
-        
+
         String[] command = s.split(" ");
-        
+
         if(command.length == 2){
             String module = "dk.sdu.group3.semprojekt." +command[1].trim();
-        
+
             if(command[0].toLowerCase().equals("load")){
                 modulesToLoad.add(module);
             }
@@ -53,7 +53,6 @@ public final class UpdateHandler {
         else{
             System.out.println("Unknow command");
         }
-
     }
 
     public static boolean timeToCheck() {

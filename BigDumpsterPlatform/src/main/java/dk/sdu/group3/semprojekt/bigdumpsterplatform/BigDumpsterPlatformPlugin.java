@@ -27,6 +27,11 @@ public class BigDumpsterPlatformPlugin implements IGamePlugin{
     }
 
     public static void stop() {
+        for(IGamePlugin p : world.getPlugins()){
+            if(p instanceof BigDumpsterPlatformPlugin){
+                world.removePlugin(p);
+            }
+        }
         for(IEntity e : world.getEntities()){
             if(e instanceof BigDumpsterPlatform){
                 e.setIsDestroyed(true); 
