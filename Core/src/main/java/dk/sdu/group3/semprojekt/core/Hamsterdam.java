@@ -150,6 +150,7 @@ public class Hamsterdam extends Game.Default {
             Image image = assets().getRemoteImage(s);
             final ImageLayer viewLayer = graphics().createImageLayer(image);
             listOfImagesFW.add(viewLayer);
+            
             image.addCallback(new Callback<Image>() {
             @Override
             public void onSuccess(Image t) {
@@ -160,7 +161,7 @@ public class Hamsterdam extends Game.Default {
             public void onFailure(Throwable thrwbl) {
                 thrwbl.printStackTrace();
             }
-        });
+            });
         }
         character.setViewsFW(listOfImagesFW); 
     }
