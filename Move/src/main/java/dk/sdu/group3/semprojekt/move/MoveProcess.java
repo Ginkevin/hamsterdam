@@ -5,6 +5,7 @@
  */
 package dk.sdu.group3.semprojekt.move;
 
+import dk.sdu.group3.semprojekt.common.data.Entity;
 import dk.sdu.group3.semprojekt.common.data.Vector;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
@@ -24,14 +25,19 @@ public class MoveProcess implements IGameProcess{
     public void process(int delta, World world) {
         List<IEntity> entities = world.getEntities();
         entities.stream().forEach(entity -> {
-            Vector x0 = entity.getPosition();
-            Vector v = entity.getVelocity();
-            float t = (float)(delta)/100;
-            // x(t) =  x0 + v*delta
-            Vector xt = x0.plus(v.times(t));
-//            Vector xt = x0.plus(new Vector(0.1,0.1));
-            entity.setPosition(xt);
-//            System.out.println(xt);
+            move(entity,delta);
         });
-    }    
+    }  
+    
+    public void move(IEntity entity, int delta)
+    {
+        Vector x0 = entity.getPosition();
+        Vector v = entity.getVelocity();
+        float t = (float)(delta)/100;
+            // x(t) =  x0 + v*delta
+        Vector xt = x0.plus(v.times(t));
+//            Vector xt = x0.plus(new Vector(0.1,0.1));
+        entity.setPosition(xt);
+//            System.out.println(xt);
+    }
 }
