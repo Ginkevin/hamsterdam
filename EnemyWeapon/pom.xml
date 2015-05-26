@@ -6,7 +6,7 @@
         <artifactId>hamsterdam-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>KanyleGun</artifactId>
+    <artifactId>EnemyWeapon</artifactId>
     <packaging>nbm</packaging>
     <build>
         <plugins>
@@ -45,5 +45,5 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <name>KanyleGun</name>
+    <name>EnemyWeapon</name>
 </project>

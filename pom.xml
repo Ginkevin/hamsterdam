@@ -80,8 +80,6 @@
         <module>CollisionDetection</module>
         <module>Move</module>
         <module>Level</module>
-        <module>Platform</module>
-        <module>KanyleGun</module>
         <module>PlayerWeapon</module>
         <module>SilentUpdate</module>
         <module>SmallDumpsterPlatform</module>
@@ -89,6 +87,8 @@
         <module>NuclearPlatform</module>
         <module>TrafficLightPlatform</module>
         <module>SignPlatform</module>
+        <module>Street</module>
+        <module>EnemyWeapon</module>
     </modules>
 
     <properties>

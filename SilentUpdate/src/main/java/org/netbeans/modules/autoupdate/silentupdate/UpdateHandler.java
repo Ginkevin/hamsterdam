@@ -29,41 +29,23 @@ import org.openide.util.NbBundle;
  */
 public final class UpdateHandler {
     private static HashSet<String> modulesToLoad = new HashSet();
-    private static HashSet<String> modulesToUnload = new HashSet();
     public static final String SILENT_UC_CODE_NAME = "org_netbeans_modules_autoupdate_silentupdate_update_center"; // NOI18N
-    private static String pathToLoad = "..\\..\\..\\SilentUpdate\\src\\main\\resources\\modulesToLoad.txt";
-    private static String pathToUnload = "..\\..\\..\\SilentUpdate\\src\\main\\resources\\modulesToUnload.txt";
 
     
-    public static void checkFile(){
-        try {
-            modulesToLoad.clear();
-            modulesToUnload.clear();
-            
-            BufferedReader loadIn = new BufferedReader(new FileReader(pathToLoad));
-            BufferedReader unloadIn = new BufferedReader(new FileReader(pathToUnload));
-            
-            String line = "";
-            
-            while((line = loadIn.readLine()) != null) {
-                modulesToLoad.add(line.trim());
-            }
-            
-            while((line = unloadIn.readLine()) != null) {
-                modulesToUnload.add(line.trim());
-            }
-            
-            for(String s : modulesToUnload){
-                doDisable(s);
-            }
-            
-            loadIn.close();
-            unloadIn.close();            
+    public static void LoadUnload(String s){
+        modulesToLoad.clear();
+        
+        String[] command = s.split(" ");
+        String module = "dk.sdu.group3.semprojekt." +command[1].trim();
+        
+        if(command[0].toLowerCase().equals("load")){
+            modulesToLoad.add(module);
         }
-        catch(FileNotFoundException ex) {
-            System.out.println("Unable to open file");                
-        } catch (IOException ex) {
-            Exceptions.printStackTrace(ex);
+        else if(command[0].toLowerCase().equals("unload")){            
+            doDisable(module);
+        }
+        else{
+            System.out.println("Unknow command");
         }
     }
 

@@ -9,11 +9,14 @@ import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import java.util.ArrayList;
 import java.util.List;
+import org.openide.util.lookup.ServiceProvider;
 
 /**
  *
  * @author Henrik
  */
+
+@ServiceProvider(service = IGamePlugin.class)
 public class NuclearPlatformPlugin implements IGamePlugin{
     List<NuclearPlatform> listOfPlatforms = new ArrayList();
 
