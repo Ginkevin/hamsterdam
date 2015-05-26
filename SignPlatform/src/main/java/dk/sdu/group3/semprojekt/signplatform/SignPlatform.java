@@ -19,7 +19,7 @@ public class SignPlatform extends Platform{
         //Entity
         setVelocity(0,0);
         setSprite(url);
-        setShape(new Rectangle(116, 185));
+        setShape(new Rectangle(116, 285));
         setAngle(0);
         setPosition(x ,y);
     }   

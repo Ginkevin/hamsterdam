@@ -94,7 +94,7 @@ public class PlayerService implements IGameProcess {
 				for (Event e : world.getMoveEvents()) {
 					if (e.getEvent() == W) {
 						if (jump) {
-							entity.setVelocity(entity.getVelocity().getX(), -25);
+							entity.setVelocity(entity.getVelocity().getX(), -28);
 							jump = false;
 							currentJumpCooldown = jumpCooldown;
 						}
@@ -103,14 +103,14 @@ public class PlayerService implements IGameProcess {
 						//DUCK
 					}
                                         if (e.getEvent() == D) {
-                                            entity.setVelocity(3, entity.getVelocity().getY());
+                                            entity.setVelocity(5, entity.getVelocity().getY());
                                             world.getRootLayer().remove(entity.getView());
                                             entity.setView(imagesFW.get(0));
                                             world.getRootLayer().add(entity.getView());
                                             facedirection = RIGHT;
                                         }
                                         if (e.getEvent() == A) {
-                                            entity.setVelocity(-3, entity.getVelocity().getY());
+                                            entity.setVelocity(-5, entity.getVelocity().getY());
                                             world.getRootLayer().remove(entity.getView());
                                             entity.setView(imagesBW.get(0));
                                             world.getRootLayer().add(entity.getView());

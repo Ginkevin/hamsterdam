@@ -22,7 +22,7 @@ public class NuclearPlatformPlugin implements IGamePlugin{
 
     @Override
     public void start(World world) {
-        listOfPlatforms.add(new NuclearPlatform(500, 500));
+        listOfPlatforms.add(new NuclearPlatform(480, 482));
         
         listOfPlatforms.stream().forEach((p) -> {
             world.addEntity(p);

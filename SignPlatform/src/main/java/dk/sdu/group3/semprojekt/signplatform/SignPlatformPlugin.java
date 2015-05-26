@@ -9,17 +9,19 @@ import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import java.util.ArrayList;
 import java.util.List;
+import org.openide.util.lookup.ServiceProvider;
 
 /**
  *
  * @author Henrik
  */
+@ServiceProvider(service = IGamePlugin.class)
 public class SignPlatformPlugin implements IGamePlugin{
     List<SignPlatform> listOfPlatforms = new ArrayList();
 
     @Override
     public void start(World world) {
-        listOfPlatforms.add(new SignPlatform(500, 500));
+        listOfPlatforms.add(new SignPlatform(650, 431));
         
         listOfPlatforms.stream().forEach((p) -> {
             world.addEntity(p);

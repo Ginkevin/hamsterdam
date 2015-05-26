@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.group3.semprojekt.nuclearplatform;
+package dk.sdu.group3.semprojekt.balconyplatform;
 
 import dk.sdu.group3.semprojekt.common.data.Platform;
 import dk.sdu.group3.semprojekt.common.data.Rectangle;
@@ -12,15 +12,16 @@ import dk.sdu.group3.semprojekt.common.data.Rectangle;
  *
  * @author Henrik
  */
-public class NuclearPlatform extends Platform{
-    private final String url = this.getClass().getClassLoader().getResource("images/nuclearplatform.png").toExternalForm();
+public class BalconyPlatform extends Platform{
+    private final String url = this.getClass().getClassLoader().getResource("images/balconyplatform.png").toExternalForm();
     
-    public NuclearPlatform(float x, float y){
+    public BalconyPlatform(float x, float y){
         //Entity
         setVelocity(0,0);
         setSprite(url);
-        setShape(new Rectangle(116, 184));
+        setShape(new Rectangle(202, 19));
         setAngle(0);
         setPosition(x ,y);
     }
+    
 }

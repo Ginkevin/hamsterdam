@@ -89,6 +89,7 @@
         <module>SignPlatform</module>
         <module>Street</module>
         <module>EnemyWeapon</module>
+        <module>BalconyPlatform</module>
     </modules>
 
     <properties>

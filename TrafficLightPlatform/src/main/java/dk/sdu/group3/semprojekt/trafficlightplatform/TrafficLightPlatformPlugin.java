@@ -22,7 +22,7 @@ public class TrafficLightPlatformPlugin implements IGamePlugin{
 
     @Override
     public void start(World world) {
-        listOfPlatforms.add(new TrafficLightPlatform(500, 500));
+        listOfPlatforms.add(new TrafficLightPlatform(205, 168));
         
         listOfPlatforms.stream().forEach((p) -> {
             world.addEntity(p);

@@ -6,7 +6,7 @@
         <artifactId>hamsterdam-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>SignPlatform</artifactId>
+    <artifactId>BalconyPlatform</artifactId>
     <packaging>nbm</packaging>
     <build>
         <plugins>

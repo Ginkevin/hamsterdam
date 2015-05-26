@@ -22,7 +22,7 @@ public class BigDumpsterPlatformPlugin implements IGamePlugin{
 
     @Override
     public void start(World world) {
-        listOfPlatforms.add(new BigDumpsterPlatform(500, 500));
+        listOfPlatforms.add(new BigDumpsterPlatform(300, 507));
         
         listOfPlatforms.stream().forEach((p) -> {
             world.addEntity(p);

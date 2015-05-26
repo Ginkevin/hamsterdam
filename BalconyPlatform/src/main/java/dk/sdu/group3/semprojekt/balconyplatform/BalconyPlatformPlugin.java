@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.group3.semprojekt.smalldumpsterplatform;
+package dk.sdu.group3.semprojekt.balconyplatform;
 
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
@@ -17,12 +17,12 @@ import org.openide.util.lookup.ServiceProvider;
  */
 
 @ServiceProvider(service = IGamePlugin.class)
-public class SmallDumpsterPlatformPlugin implements IGamePlugin{
-    List<SmallDumpsterPlatform> listOfPlatforms = new ArrayList();
+public class BalconyPlatformPlugin implements IGamePlugin{
+    List<BalconyPlatform> listOfPlatforms = new ArrayList();
 
     @Override
     public void start(World world) {
-        listOfPlatforms.add(new SmallDumpsterPlatform(150, 532));
+        listOfPlatforms.add(new BalconyPlatform(445, 155));
         
         listOfPlatforms.stream().forEach((p) -> {
             world.addEntity(p);
