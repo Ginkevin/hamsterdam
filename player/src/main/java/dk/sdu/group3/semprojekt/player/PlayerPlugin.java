@@ -18,24 +18,19 @@ import org.openide.util.lookup.ServiceProvider;
 
 @ServiceProvider (service = IGamePlugin.class)
 public class PlayerPlugin implements IGamePlugin{
+    private static World world;
+    
     @Override
     public void start(World world) {
+        this.world = world;
+        
         world.addEntity(new Player());
     }
 
-    @Override
-    public void stop(World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-
-    @Override
-    public void uninstalled(World world) {
-        for(IEntity entity: world.getEntities())
-        {
-            if(entity instanceof Player)
-            {
-                entity.setIsDestroyed(true);
+    public static void stop() {
+        for(IEntity e : world.getEntities()){
+            if(e instanceof Player){
+                e.setIsDestroyed(true);
             }
         }
     }

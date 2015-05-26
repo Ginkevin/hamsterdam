@@ -3,33 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.group3.semprojekt.bigdumpsterplatform;
+package dk.sdu.group3.semprojekt.platform;
 
+import org.openide.util.lookup.ServiceProvider;
+import dk.sdu.group3.semprojekt.common.data.Platform;
 import dk.sdu.group3.semprojekt.common.data.World;
 import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
-import org.openide.util.lookup.ServiceProvider;
 
 /**
  *
- * @author Henrik
+ * @author henrikfrank
  */
 
-@ServiceProvider(service = IGamePlugin.class)
-public class BigDumpsterPlatformPlugin implements IGamePlugin{
+@ServiceProvider (service = IGamePlugin.class)
+public class StreetPlugin implements IGamePlugin{
     private static World world;
-
+    
     @Override
     public void start(World world) {
         this.world = world;
         
-        world.addEntity(new BigDumpsterPlatform(300, 507));
+        world.addEntity(new Street());
     }
 
     public static void stop() {
         for(IEntity e : world.getEntities()){
-            if(e instanceof BigDumpsterPlatform){
-                e.setIsDestroyed(true); 
+            if(e instanceof Street){
+                e.setIsDestroyed(true);
             }
         }
     }

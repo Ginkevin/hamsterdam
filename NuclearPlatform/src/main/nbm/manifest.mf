@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
+OpenIDE-Module-Install: dk/sdu/group3/semprojekt/nuclearplatform/Installer.class
 OpenIDE-Module-Localizing-Bundle: dk/sdu/group3/semprojekt/nuclearplatform/Bundle.properties
 

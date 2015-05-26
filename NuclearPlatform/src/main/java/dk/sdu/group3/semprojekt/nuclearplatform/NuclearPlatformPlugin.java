@@ -6,9 +6,8 @@
 package dk.sdu.group3.semprojekt.nuclearplatform;
 
 import dk.sdu.group3.semprojekt.common.data.World;
+import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
-import java.util.ArrayList;
-import java.util.List;
 import org.openide.util.lookup.ServiceProvider;
 
 /**
@@ -18,27 +17,18 @@ import org.openide.util.lookup.ServiceProvider;
 
 @ServiceProvider(service = IGamePlugin.class)
 public class NuclearPlatformPlugin implements IGamePlugin{
-    List<NuclearPlatform> listOfPlatforms = new ArrayList();
+    private static World world;
 
     @Override
     public void start(World world) {
-        listOfPlatforms.add(new NuclearPlatform(480, 482));
-        
-        listOfPlatforms.stream().forEach((p) -> {
-            world.addEntity(p);
-        });
+        world.addEntity(new NuclearPlatform(480, 482));
     }
 
-    @Override
-    public void stop(World world) {
-        listOfPlatforms.stream().forEach((p) -> {
-            world.getEntities().remove(p);
-        });
+    public static void stop() {
+        for(IEntity e : world.getEntities()){
+            if(e instanceof NuclearPlatform){
+                e.setIsDestroyed(true);
+            }
+        }
     }
-
-    @Override
-    public void uninstalled(World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

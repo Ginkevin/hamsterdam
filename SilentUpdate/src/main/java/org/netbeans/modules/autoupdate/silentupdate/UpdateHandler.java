@@ -36,17 +36,24 @@ public final class UpdateHandler {
         modulesToLoad.clear();
         
         String[] command = s.split(" ");
-        String module = "dk.sdu.group3.semprojekt." +command[1].trim();
         
-        if(command[0].toLowerCase().equals("load")){
-            modulesToLoad.add(module);
-        }
-        else if(command[0].toLowerCase().equals("unload")){            
-            doDisable(module);
+        if(command.length == 2){
+            String module = "dk.sdu.group3.semprojekt." +command[1].trim();
+        
+            if(command[0].toLowerCase().equals("load")){
+                modulesToLoad.add(module);
+            }
+            else if(command[0].toLowerCase().equals("unload")){            
+                doDisable(module);
+            }
+            else{
+                System.out.println("Unknow command");
+            }
         }
         else{
             System.out.println("Unknow command");
         }
+
     }
 
     public static boolean timeToCheck() {
@@ -183,10 +190,6 @@ public final class UpdateHandler {
                 if (!unit.getAvailableUpdates().isEmpty()) { // is available
                     if(modulesToLoad.contains(unit.getCodeName()))
                         elements4install.add(unit.getAvailableUpdates().get(0)); // add plugin with highest version
-                    else{
-                        System.out.println(unit.getCodeName());
-                        System.out.println("Found: " + unit.getCodeName() +" but it is not in modules.txt");
-                    }
                 }
             }
         }

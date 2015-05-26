@@ -15,9 +15,8 @@ import static dk.sdu.group3.semprojekt.common.enums.EventEnum.SPACE;
 import dk.sdu.group3.semprojekt.common.data.World;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.W;
 import static dk.sdu.group3.semprojekt.common.enums.EventEnum.E;
+import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
-import java.util.ArrayList;
-import java.util.List;
 import playn.core.Keyboard;
 import playn.core.PlayN;
 
@@ -28,7 +27,7 @@ import playn.core.PlayN;
 
 @ServiceProvider (service = IGamePlugin.class)
 public class InputPlugin implements IGamePlugin{
-    private World world;
+    private static World world;
     
     @Override
     public void start(World world) {
@@ -37,8 +36,8 @@ public class InputPlugin implements IGamePlugin{
         PlayN.keyboard().setListener(keyboardListener);
     }
     
-    @Override
-    public void stop(World world) {
+    public static void stop() {
+        PlayN.keyboard().setListener(null);
     }
     
     private final Keyboard.Listener keyboardListener = new Keyboard.Listener() {        
@@ -138,9 +137,4 @@ public class InputPlugin implements IGamePlugin{
             }                
         }
     };
-    
-    @Override
-    public void uninstalled(World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

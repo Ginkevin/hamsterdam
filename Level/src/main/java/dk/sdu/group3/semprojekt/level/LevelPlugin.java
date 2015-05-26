@@ -17,9 +17,13 @@ import org.openide.util.lookup.ServiceProvider;
  */
 
 @ServiceProvider (service = IGamePlugin.class)
-public class LevelPlugin implements IGamePlugin{    
+public class LevelPlugin implements IGamePlugin{ 
+    private static World world;
+    
     @Override
     public void start(World world) {
+        this.world = world;
+        
         Level l = new Level();
         
         l.setBackground(this.getClass().getClassLoader().getResource("images/background.png").toExternalForm());
@@ -31,13 +35,7 @@ public class LevelPlugin implements IGamePlugin{
         world.setLevel(l);        
     }
 
-    @Override
-    public void stop(World world) {
+    public static void stop() {
         world.setLevel(null);
     }    
-
-    @Override
-    public void uninstalled(World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

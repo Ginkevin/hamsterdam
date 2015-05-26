@@ -18,7 +18,7 @@ public class Activator extends ModuleInstall {
 
     @Override
     public void restored() {
-        exector.scheduleAtFixedRate(doCheck, 10000, 10000, TimeUnit.MILLISECONDS);
+        exector.scheduleAtFixedRate(doCheck, 5, 3, TimeUnit.SECONDS);
         input.init();
     }
 

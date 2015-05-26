@@ -94,7 +94,7 @@ public class PlayerService implements IGameProcess {
 				for (Event e : world.getMoveEvents()) {
 					if (e.getEvent() == W) {
 						if (jump) {
-							entity.setVelocity(entity.getVelocity().getX(), -28);
+							entity.setVelocity(entity.getVelocity().getX(), -25);
 							jump = false;
 							currentJumpCooldown = jumpCooldown;
 						}

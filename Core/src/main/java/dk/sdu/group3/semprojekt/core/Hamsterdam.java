@@ -29,7 +29,7 @@ import playn.core.util.Clock;
 public class Hamsterdam extends Game.Default {
     private final Clock.Source clock = new Clock.Source(33);
     private final Lookup lookup = Lookup.getDefault();
-    private World world;
+    private static World world;
     private List<IGamePlugin> plugins;
     private GroupLayer rootLayer;
     private ImageLayer bgLayer;
@@ -37,11 +37,17 @@ public class Hamsterdam extends Game.Default {
     public Hamsterdam() {
         super(33);
     }
+    
+    public static World getWorld(){
+        if(world == null)
+            world = new World();
+        return world;
+    }
 
     @Override
     public void init() {
-        world = new World();
-
+        getWorld();
+        
         rootLayer = graphics().rootLayer();        
         
         Lookup.Result<IGamePlugin> result = lookup.lookupResult(IGamePlugin.class);
@@ -206,6 +212,9 @@ public class Hamsterdam extends Game.Default {
     
     private void DestroyEntity(IEntity e)
     {
+        if(e.getView() != null)
+            rootLayer.remove(e.getView());
+        
         world.removeEntity(e);
     }
 }

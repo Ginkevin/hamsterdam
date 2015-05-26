@@ -6,7 +6,6 @@
 package dk.sdu.group3.semprojekt.common.interfaces;
 
 import dk.sdu.group3.semprojekt.common.data.Event;
-import dk.sdu.group3.semprojekt.common.enums.ShapeEnum;
 import dk.sdu.group3.semprojekt.common.data.Vector;
 import java.util.List;
 import playn.core.ImageLayer;

@@ -6,6 +6,7 @@
 package dk.sdu.group3.semprojekt.balconyplatform;
 
 import dk.sdu.group3.semprojekt.common.data.World;
+import dk.sdu.group3.semprojekt.common.interfaces.IEntity;
 import dk.sdu.group3.semprojekt.common.spi.IGamePlugin;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,27 +19,20 @@ import org.openide.util.lookup.ServiceProvider;
 
 @ServiceProvider(service = IGamePlugin.class)
 public class BalconyPlatformPlugin implements IGamePlugin{
-    List<BalconyPlatform> listOfPlatforms = new ArrayList();
+    private static World world;
 
     @Override
     public void start(World world) {
-        listOfPlatforms.add(new BalconyPlatform(445, 155));
+        this.world = world;
         
-        listOfPlatforms.stream().forEach((p) -> {
-            world.addEntity(p);
-        });
+        world.addEntity(new BalconyPlatform(445, 155));
     }
 
-    @Override
-    public void stop(World world) {
-        listOfPlatforms.stream().forEach((p) -> {
-            world.getEntities().remove(p);
-        });
+    public static void stop() {
+        for(IEntity e : world.getEntities()){
+            if(e instanceof BalconyPlatform){
+                e.setIsDestroyed(true); 
+            }
+        }
     }
-
-    @Override
-    public void uninstalled(World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }
