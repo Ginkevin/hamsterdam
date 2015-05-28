@@ -71,13 +71,7 @@ public class Hamsterdam extends Game.Default {
 
         for (IGameProcess p : getEntityProcessingServices()) {
             p.process(delta, world);
-        }      
-    }
-
-    @Override
-    public void paint(float alpha) {
-        clock.paint(alpha);
-
+        }   
         for (IEntity e : world.getEntities()) {
             if (e.getView() == null) 
                 createView(e);
@@ -94,6 +88,14 @@ public class Hamsterdam extends Game.Default {
             {
                 DestroyEntity(e);
             }
+        }
+    }
+
+    @Override
+    public void paint(float alpha) {
+        clock.paint(alpha);
+
+        for (IEntity e : world.getEntities()) {
             
             ImageLayer spriteLayer = e.getView();
 
