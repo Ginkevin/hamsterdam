@@ -43,7 +43,7 @@ public class MoveProcessTest {
 
     /**
      * Test of move method, of class MoveProcess.
-     */
+         */
     @Test
     public void testMove() {
         System.out.println("Testing move 1");

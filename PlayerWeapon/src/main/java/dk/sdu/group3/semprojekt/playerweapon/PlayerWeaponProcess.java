@@ -45,11 +45,6 @@ public class PlayerWeaponProcess implements IGameProcess {
     }
     
     private void checkForNewPlayer(World world){
-        for(IGamePlugin p : world.getPlugins()){
-            if(p instanceof PlayerWeaponPlugin){
-                world.removePlugin(p);
-            }
-        }
         world.getEntities().stream().forEach((e)->{
             if (e instanceof ICharacter){
                 ICharacter c = (ICharacter) e;

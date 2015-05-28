@@ -48,9 +48,9 @@ public class InputPlugin implements IGamePlugin{
         @Override
         public void onKeyDown(Keyboard.Event event) {            
             switch (event.key()) {
-		    case W:
-			    world.addMoveEvent(new Event(W));
-			    break;
+                case W:
+                    world.addMoveEvent(new Event(W));
+                    break;
                 case S:
                     world.addMoveEvent(new Event(S));
                     break;
